@@ -23,14 +23,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 504)];
-    imageView.userInteractionEnabled = YES;
-    [self.view addSubview:imageView];
+   
 }
 
 - (void) viewWillAppear:(BOOL)paramAnimated{
     [super viewWillAppear:paramAnimated];
-    imageView.image = _image;
+
 }
 
+- (IBAction)FontButtonPreesed:(id)sender {
+    self.mFontSetView.hidden = NO;
+}
+- (IBAction)ConfirmButtonPressed:(id)sender {
+    self.mFontSetView.hidden = YES;
+}
 @end

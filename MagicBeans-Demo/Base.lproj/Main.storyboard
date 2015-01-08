@@ -325,10 +325,10 @@
                                 <exclude reference="Ohn-rL-nVT"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="9ad-14-yzg"/>
                                 <exclude reference="B7C-Y0-EPy"/>
                                 <exclude reference="MF7-4j-aAa"/>
                                 <exclude reference="RNe-fG-06x"/>
-                                <exclude reference="9ad-14-yzg"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -336,10 +336,10 @@
                                 <include reference="Ohn-rL-nVT"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="9ad-14-yzg"/>
                                 <include reference="B7C-Y0-EPy"/>
                                 <include reference="MF7-4j-aAa"/>
                                 <include reference="RNe-fG-06x"/>
-                                <include reference="9ad-14-yzg"/>
                             </mask>
                         </variation>
                     </view>
@@ -354,7 +354,7 @@
         <!--内江预防职务犯罪手机报-->
         <scene sceneID="9v4-tl-bTO">
             <objects>
-                <viewController id="VRp-GH-btS" customClass="ItemsViewController" sceneMemberID="viewController">
+                <viewController id="VRp-GH-btS" customClass="PageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vC9-Lt-uOw"/>
                         <viewControllerLayoutGuide type="bottom" id="974-Xj-A97"/>
@@ -878,7 +878,7 @@
         <!--详情-->
         <scene sceneID="PDM-Pl-e2P">
             <objects>
-                <viewController id="o4V-Og-Fwg" customClass="PageViewController" sceneMemberID="viewController">
+                <viewController id="o4V-Og-Fwg" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ojv-yI-Udz"/>
                         <viewControllerLayoutGuide type="bottom" id="bfL-7z-VOD"/>
@@ -890,6 +890,61 @@
                             <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Detail_Toolbar" translatesAutoresizingMaskIntoConstraints="NO" id="GMY-0A-63W">
                                 <rect key="frame" x="0.0" y="-49" width="320" height="49"/>
                             </imageView>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygc-lp-exa">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="687"/>
+                                </variation>
+                            </webView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZJ-pg-0g0">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设置字体" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2O-Oq-vhq">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="62" y="49" width="77" height="21"/>
+                                        </variation>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Afc-rH-R8P">
+                                        <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="-60" y="64" width="320" height="216"/>
+                                        </variation>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bab-Di-nua">
+                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                        <state key="normal" title="确定">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="77" y="283" width="46" height="30"/>
+                                        </variation>
+                                        <connections>
+                                            <action selector="ConfirmButtonPressed:" destination="o4V-Og-Fwg" eventType="touchUpInside" id="wUr-wd-kze"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="N2O-Oq-vhq"/>
+                                        <exclude reference="Afc-rH-R8P"/>
+                                        <exclude reference="bab-Di-nua"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="100" y="148" width="200" height="368"/>
+                                    <mask key="subviews">
+                                        <include reference="N2O-Oq-vhq"/>
+                                        <include reference="Afc-rH-R8P"/>
+                                        <include reference="bab-Di-nua"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -901,6 +956,8 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="GMY-0A-63W"/>
+                                <exclude reference="ygc-lp-exa"/>
+                                <exclude reference="KZJ-pg-0g0"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="IJU-J1-wHQ"/>
@@ -918,15 +975,28 @@
                                 <include reference="Q8m-gj-pSb"/>
                             </mask>
                         </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="ygc-lp-exa"/>
+                                <include reference="KZJ-pg-0g0"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="CzP-9T-qq8" appends="YES" id="hDb-77-aPk"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="详情" id="0fX-Zb-xGc">
                         <barButtonItem key="backBarButtonItem" title=" " id="DZR-Fu-daY"/>
-                        <barButtonItem key="rightBarButtonItem" image="Detail_font" id="XD9-Fn-Y3R"/>
+                        <barButtonItem key="rightBarButtonItem" image="Detail_font" id="XD9-Fn-Y3R">
+                            <connections>
+                                <action selector="FontButtonPreesed:" destination="o4V-Og-Fwg" id="s04-R7-Fiu"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="mFontButton" destination="XD9-Fn-Y3R" id="dYI-fr-gDl"/>
+                        <outlet property="mFontSetView" destination="KZJ-pg-0g0" id="HSI-eE-5Ez"/>
+                        <outlet property="mWebView" destination="ygc-lp-exa" id="5Me-lb-sP1"/>
                         <outlet property="toolBar" destination="GMY-0A-63W" id="4U7-ik-h9I"/>
                     </connections>
                 </viewController>
@@ -937,7 +1007,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2704.5" y="366"/>
+            <point key="canvasLocation" x="2661" y="366"/>
         </scene>
     </scenes>
     <resources>
