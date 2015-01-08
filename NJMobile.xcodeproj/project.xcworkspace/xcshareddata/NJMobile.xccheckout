@@ -10,31 +10,31 @@
 	<string>NJMobile</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>05E87CAFCB5042C4B995C3CE3D961C7F485501A5</key>
-		<string>182.92.183.22:/home/git/NJMobile.git</string>
+		<key>E10A53DCBCD0856F3FCD3C4199CF9C0880784929</key>
+		<string>182.92.183.22:/home/git/NJMobile/ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>IOS/NJMobile.xcodeproj</string>
+	<string>NJMobile.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>05E87CAFCB5042C4B995C3CE3D961C7F485501A5</key>
-		<string>../../..</string>
+		<key>E10A53DCBCD0856F3FCD3C4199CF9C0880784929</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>182.92.183.22:/home/git/NJMobile.git</string>
+	<string>182.92.183.22:/home/git/NJMobile/ios.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>05E87CAFCB5042C4B995C3CE3D961C7F485501A5</string>
+	<string>E10A53DCBCD0856F3FCD3C4199CF9C0880784929</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>05E87CAFCB5042C4B995C3CE3D961C7F485501A5</string>
+			<string>E10A53DCBCD0856F3FCD3C4199CF9C0880784929</string>
 			<key>IDESourceControlWCCName</key>
-			<string>NJMobile</string>
+			<string>ios</string>
 		</dict>
 	</array>
 </dict>
