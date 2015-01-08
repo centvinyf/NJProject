@@ -265,6 +265,9 @@
                                                     <variation key="widthClass=compact" fixedFrame="YES">
                                                         <rect key="frame" x="10" y="30" width="90" height="115"/>
                                                     </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="115" y="0.0" width="90" height="115"/>
+                                                    </variation>
                                                     <connections>
                                                         <action selector="showItemsViewController:" destination="cHh-Wm-osu" eventType="touchUpInside" id="vzn-Lk-onb"/>
                                                     </connections>
@@ -276,6 +279,9 @@
                                                     </state>
                                                     <variation key="widthClass=compact" fixedFrame="YES">
                                                         <rect key="frame" x="10" y="30" width="90" height="115"/>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="222" y="0.0" width="90" height="115"/>
                                                     </variation>
                                                     <connections>
                                                         <action selector="showItemsViewController:" destination="cHh-Wm-osu" eventType="touchUpInside" id="tdA-0B-f2x"/>
@@ -1021,7 +1027,6 @@
                         <outlet property="mFontButton" destination="XD9-Fn-Y3R" id="dYI-fr-gDl"/>
                         <outlet property="mFontSetView" destination="KZJ-pg-0g0" id="HSI-eE-5Ez"/>
                         <outlet property="mWebView" destination="ygc-lp-exa" id="5Me-lb-sP1"/>
-                        <outlet property="toolBar" destination="GMY-0A-63W" id="4U7-ik-h9I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hRX-Eq-R90" userLabel="First Responder" sceneMemberID="firstResponder"/>
