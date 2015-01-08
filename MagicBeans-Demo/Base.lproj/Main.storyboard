@@ -227,7 +227,7 @@
         <!--内江预防职务犯罪手机报-->
         <scene sceneID="H1R-VH-8yR">
             <objects>
-                <viewController id="cHh-Wm-osu" customClass="ItemsViewController" sceneMemberID="viewController">
+                <viewController id="cHh-Wm-osu" customClass="PeriodicalsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bLz-1h-qaH"/>
                         <viewControllerLayoutGuide type="bottom" id="WWV-EL-5Pl"/>
@@ -236,7 +236,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="115" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ohn-rL-nVT">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="115" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Ohn-rL-nVT">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -253,11 +253,8 @@
                                                     <variation key="widthClass=compact" fixedFrame="YES">
                                                         <rect key="frame" x="10" y="30" width="90" height="115"/>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="8" y="0.0" width="90" height="115"/>
-                                                    </variation>
                                                     <connections>
-                                                        <segue destination="VRp-GH-btS" kind="push" id="B77-2N-R6S"/>
+                                                        <action selector="showItemsViewController:" destination="cHh-Wm-osu" eventType="touchUpInside" id="cao-6f-1V4"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ger-uB-YfU">
@@ -268,9 +265,9 @@
                                                     <variation key="widthClass=compact" fixedFrame="YES">
                                                         <rect key="frame" x="10" y="30" width="90" height="115"/>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="155" y="0.0" width="90" height="115"/>
-                                                    </variation>
+                                                    <connections>
+                                                        <action selector="showItemsViewController:" destination="cHh-Wm-osu" eventType="touchUpInside" id="vzn-Lk-onb"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HkE-bw-GLj">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -280,16 +277,32 @@
                                                     <variation key="widthClass=compact" fixedFrame="YES">
                                                         <rect key="frame" x="10" y="30" width="90" height="115"/>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="302" y="0.0" width="90" height="115"/>
-                                                    </variation>
+                                                    <connections>
+                                                        <action selector="showItemsViewController:" destination="cHh-Wm-osu" eventType="touchUpInside" id="tdA-0B-f2x"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="HkE-bw-GLj" secondAttribute="trailing" constant="8" id="1Dx-l4-NG8"/>
+                                                <constraint firstAttribute="centerY" secondItem="ger-uB-YfU" secondAttribute="centerY" id="IYd-7o-0oM"/>
+                                                <constraint firstItem="ger-uB-YfU" firstAttribute="centerY" secondItem="HkE-bw-GLj" secondAttribute="centerY" id="Mei-nP-G7x"/>
+                                                <constraint firstItem="QLb-qa-VbB" firstAttribute="leading" secondItem="dca-N1-1Gg" secondAttribute="leading" constant="8" id="WAr-we-xx7"/>
+                                                <constraint firstItem="ger-uB-YfU" firstAttribute="centerY" secondItem="QLb-qa-VbB" secondAttribute="centerY" id="aZW-5x-nQW"/>
+                                                <constraint firstAttribute="centerX" secondItem="ger-uB-YfU" secondAttribute="centerX" id="r2H-hR-BQg"/>
+                                            </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="QLb-qa-VbB"/>
                                                     <exclude reference="ger-uB-YfU"/>
                                                     <exclude reference="HkE-bw-GLj"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="WAr-we-xx7"/>
+                                                    <exclude reference="IYd-7o-0oM"/>
+                                                    <exclude reference="Mei-nP-G7x"/>
+                                                    <exclude reference="aZW-5x-nQW"/>
+                                                    <exclude reference="r2H-hR-BQg"/>
+                                                    <exclude reference="1Dx-l4-NG8"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -297,6 +310,14 @@
                                                     <include reference="QLb-qa-VbB"/>
                                                     <include reference="ger-uB-YfU"/>
                                                     <include reference="HkE-bw-GLj"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="WAr-we-xx7"/>
+                                                    <include reference="IYd-7o-0oM"/>
+                                                    <include reference="Mei-nP-G7x"/>
+                                                    <include reference="aZW-5x-nQW"/>
+                                                    <include reference="r2H-hR-BQg"/>
+                                                    <include reference="1Dx-l4-NG8"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -346,6 +367,9 @@
                     <navigationItem key="navigationItem" title="内江预防职务犯罪手机报" id="PFr-Ez-QTf">
                         <barButtonItem key="backBarButtonItem" title=" " id="Nsd-xr-Y6G"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="VRp-GH-btS" kind="push" identifier="ItemsViewController" id="vb7-Zh-CEm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VLU-Je-9qq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
