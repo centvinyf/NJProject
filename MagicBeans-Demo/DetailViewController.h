@@ -12,7 +12,7 @@
 {
     UIImageView *imageView;
 }
-
+@property (weak, nonatomic) UIImage *image;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *mFontButton;
 @property (weak, nonatomic) IBOutlet UIWebView *mWebView;
 @property (weak, nonatomic) IBOutlet UIView *mFontSetView;

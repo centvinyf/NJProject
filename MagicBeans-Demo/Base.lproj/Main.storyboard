@@ -297,12 +297,12 @@
                                                     <exclude reference="HkE-bw-GLj"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <exclude reference="1Dx-l4-NG8"/>
                                                     <exclude reference="WAr-we-xx7"/>
                                                     <exclude reference="IYd-7o-0oM"/>
                                                     <exclude reference="Mei-nP-G7x"/>
                                                     <exclude reference="aZW-5x-nQW"/>
                                                     <exclude reference="r2H-hR-BQg"/>
-                                                    <exclude reference="1Dx-l4-NG8"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -312,12 +312,12 @@
                                                     <include reference="HkE-bw-GLj"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <include reference="1Dx-l4-NG8"/>
                                                     <include reference="WAr-we-xx7"/>
                                                     <include reference="IYd-7o-0oM"/>
                                                     <include reference="Mei-nP-G7x"/>
                                                     <include reference="aZW-5x-nQW"/>
                                                     <include reference="r2H-hR-BQg"/>
-                                                    <include reference="1Dx-l4-NG8"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
