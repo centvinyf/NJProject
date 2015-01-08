@@ -7,7 +7,6 @@
 //
 
 #import "ItemsViewController.h"
-#import "ItemsViewControllerCell.h"
 
 @interface ItemsViewController ()
 
@@ -33,20 +32,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma UITableView Data Source
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *identifiller = @"ItemsViewControllerCell";
-    ItemsViewControllerCell *cell = [tableView dequeueReusableCellWithIdentifier:identifiller];
-    
-    return cell;
 }
 
 /*

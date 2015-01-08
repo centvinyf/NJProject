@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>6A08256E-FCA0-4B69-8889-E4F1A50834BE</string>
+	<string>FF8CF01A-24D6-4992-9564-EE4399992E68</string>
 	<key>IDESourceControlProjectName</key>
 	<string>NJMobile</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -14,11 +14,11 @@
 		<string>182.92.183.22:/home/git/NJMobile/ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>NJMobile.xcodeproj</string>
+	<string>NJMobile.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>E10A53DCBCD0856F3FCD3C4199CF9C0880784929</key>
-		<string>../..</string>
+		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>182.92.183.22:/home/git/NJMobile/ios.git</string>
