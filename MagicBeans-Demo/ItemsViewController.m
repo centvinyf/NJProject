@@ -7,6 +7,8 @@
 //
 
 #import "ItemsViewController.h"
+#import "ItemsViewControllerCell.h"
+#import "UIScrollView+RefreshControl.h"
 
 @interface ItemsViewController ()
 
@@ -16,17 +18,48 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self initViews];
 }
 
-- (void)initView
+- (void)initViews
 {
     
+    __weak typeof(self) weakSelf = self;
+    [self.mTableView addTopRefreshControlUsingBlock:^{
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            // request for datas
+            [weakSelf loadData];
+        });
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf.mTableView reloadData];
+            [weakSelf.mTableView topRefreshControlStopRefreshing];
+        });
+    } refreshControlPullType:RefreshControlPullTypeInsensitive refreshControlStatusType:RefreshControlStatusTypeArrow];
+    
+    [self.mTableView addBottomRefreshControlUsingBlock:^{
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            // request for datas
+            [weakSelf loadDataMore];
+        });
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf.mTableView reloadData];
+            [weakSelf.mTableView bottomRefreshControlStopRefreshing];
+        });
+    } refreshControlPullType:RefreshControlPullTypeInsensitive refreshControlStatusType:RefreshControlStatusTypeArrow];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.mTableView topRefreshControlStartInitializeRefreshing];
+    });
 }
 
-- (void)loadDataWithPageIndex:(NSInteger)index
+- (void)loadData
 {
-    
+    numberOfItems = 5;
+}
+
+- (void)loadDataMore
+{
+    numberOfItems += 5;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,6 +67,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Table view data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return numberOfItems;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *identifiller = @"ItemsViewControllerCell";
+    ItemsViewControllerCell *cell = [tableView dequeueReusableCellWithIdentifier:identifiller];
+    
+    return cell;
+}
 /*
 #pragma mark - Navigation
 

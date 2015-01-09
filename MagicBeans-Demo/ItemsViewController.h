@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ItemsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+{
+    NSInteger numberOfItems;
+}
 
+@property (weak, nonatomic) IBOutlet UITableView *mTableView;
 @end
