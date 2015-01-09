@@ -700,13 +700,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Detail_Toolbar" translatesAutoresizingMaskIntoConstraints="NO" id="GMY-0A-63W">
+                                <rect key="frame" x="0.0" y="-49" width="320" height="49"/>
+                            </imageView>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygc-lp-exa">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
-                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Detail_Toolbar" translatesAutoresizingMaskIntoConstraints="NO" id="GMY-0A-63W">
-                                <rect key="frame" x="0.0" y="-49" width="320" height="49"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNS-sU-P5x">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" image="字体选择按钮">
@@ -816,8 +816,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="ygc-lp-exa"/>
                                 <exclude reference="GMY-0A-63W"/>
+                                <exclude reference="ygc-lp-exa"/>
                                 <exclude reference="nNS-sU-P5x"/>
                                 <exclude reference="7oN-k1-RNt"/>
                             </mask>
