@@ -14,4 +14,6 @@
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
+@property (weak, nonatomic) IBOutlet UIView *mCategorysView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCategorysViewWidth;
 @end

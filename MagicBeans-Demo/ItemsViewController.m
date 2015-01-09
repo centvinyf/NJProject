@@ -55,6 +55,9 @@
 - (void)loadData
 {
     numberOfItems = 5;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self addCategory:@"我是测试按钮" CategoryID:1];
+    });
 }
 
 - (void)loadDataMore
@@ -95,10 +98,30 @@
         if ([view isMemberOfClass:[UIButton class]]) {
             if (view != sender) {
                 ((UIButton *)view).selected = NO;
+                ((UIButton *)view).titleLabel.font = [UIFont systemFontOfSize:13];
             }
         }
     }
     sender.selected = YES;
+    sender.titleLabel.font = [UIFont systemFontOfSize:15];
+}
+
+- (void)addCategory:(NSString *)name CategoryID:(NSInteger)categoryID
+{
+    UIButton *categoryBtn = [[UIButton alloc] init];
+    [categoryBtn setTitle:name forState:UIControlStateNormal];
+    [categoryBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    categoryBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    categoryBtn.tag =categoryID;
+    CGRect rect = categoryBtn.frame;
+    rect.origin.x = self.mCategorysViewWidth.constant;
+    rect.size = [name sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]}];
+    rect.size.height = self.mCategorysView.frame.size.height;
+    categoryBtn.frame = rect;
+    
+    self.mCategorysViewWidth.constant += categoryBtn.frame.size.width + 8;
+    
+    [self.mCategorysView addSubview:categoryBtn];
 }
 
 @end
