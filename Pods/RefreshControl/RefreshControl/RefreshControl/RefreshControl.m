@@ -336,12 +336,6 @@
     if (self.refreshControlType == RefreshControlTypeTop) {
         // Drop-down control, rolled over just can not see the parent view of the head position (reduction inset)
         NSTimeInterval animationDuration = 0.2f;
-        CGFloat contentHeightAdded = self.superScrollView.contentOffset.y + self.superScrollView.contentSize.height - self.scrollViewContentSizeRecord.height;
-        if (_scrollViewContentSizeRecord.height != self.superScrollView.contentSize.height) {
-            animationDuration = 0.0f;
-            self.superScrollView.contentOffset = CGPointMake(self.superScrollView.contentOffset.x, contentHeightAdded);
-        }
-        
         UIEdgeInsets inset = self.superScrollView.contentInset;
         inset.top = self.scrollViewInsetRecord.top;
         [UIView animateWithDuration:animationDuration animations:^{

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ItemsViewController : UIViewController
+@interface ItemsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @end
