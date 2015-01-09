@@ -7,7 +7,7 @@
 //
 
 #import "PeriodicalsViewController.h"
-#import "ItemsViewControllerCell.h"
+#import "PeriodicalsViewControllerCell.h"
 #import "UIScrollView+RefreshControl.h"
 
 @interface PeriodicalsViewController ()
@@ -52,7 +52,7 @@
         });
     } refreshControlPullType:RefreshControlPullTypeInsensitive refreshControlStatusType:RefreshControlStatusTypeArrow];
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.tableView topRefreshControlStartInitializeRefreshing];
     });
 }
@@ -76,10 +76,15 @@
     return numberOfItems;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"刊号10086";
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *identifiller = @"ItemsViewControllerCell";
-    ItemsViewControllerCell *cell = [tableView dequeueReusableCellWithIdentifier:identifiller];
+    static NSString *identifiller = @"PeriodicalsViewControllerCell";
+    PeriodicalsViewControllerCell *cell = [tableView dequeueReusableCellWithIdentifier:identifiller];
     
     return cell;
 }
