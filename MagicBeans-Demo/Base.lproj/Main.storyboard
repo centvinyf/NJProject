@@ -741,7 +741,7 @@
                                             <rect key="frame" x="62" y="49" width="77" height="21"/>
                                         </variation>
                                     </label>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Afc-rH-R8P">
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Afc-rH-R8P" userLabel="mPickerView">
                                         <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
                                         <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="-60" y="64" width="320" height="216"/>
@@ -828,6 +828,7 @@
                     <connections>
                         <outlet property="mFontButton" destination="XD9-Fn-Y3R" id="dYI-fr-gDl"/>
                         <outlet property="mFontSetView" destination="KZJ-pg-0g0" id="HSI-eE-5Ez"/>
+                        <outlet property="mPickerView" destination="Afc-rH-R8P" id="ecn-LH-uXh"/>
                         <outlet property="mWebView" destination="ygc-lp-exa" id="5Me-lb-sP1"/>
                     </connections>
                 </viewController>

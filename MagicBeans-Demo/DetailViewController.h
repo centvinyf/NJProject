@@ -16,5 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *mFontButton;
 @property (weak, nonatomic) IBOutlet UIWebView *mWebView;
 @property (weak, nonatomic) IBOutlet UIView *mFontSetView;
+@property (weak, nonatomic) IBOutlet UIPickerView *mPickerView;
+@property (strong, nonatomic) NSArray *textArray;  
 
 @end

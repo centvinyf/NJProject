@@ -23,8 +23,50 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
+    self.mPickerView.showsSelectionIndicator = YES;
+    self.mPickerView.delegate = self;
+    
+    self.textArray = [NSArray arrayWithObjects:@"大",
+                      @"中",
+                      @"小",
+                       nil];
+    
+    
+    
 }
+#pragma mark  - dataSource method
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView
+
+numberOfRowsInComponent:(NSInteger)component
+{
+    return 3;
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row
+
+            forComponent:(NSInteger)component
+{
+    return self.textArray[row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:
+
+(NSInteger)component
+{
+    
+}
+#pragma mark
+
+
+
+
+
 
 - (void) viewWillAppear:(BOOL)paramAnimated{
     [super viewWillAppear:paramAnimated];
