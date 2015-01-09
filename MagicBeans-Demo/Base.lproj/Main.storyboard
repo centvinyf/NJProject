@@ -722,57 +722,36 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="400" height="687"/>
+                                    <rect key="frame" x="0.0" y="-7" width="400" height="694"/>
                                 </variation>
                             </webView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZJ-pg-0g0">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设置字体" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2O-Oq-vhq">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="62" y="49" width="77" height="21"/>
-                                        </variation>
-                                    </label>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Afc-rH-R8P" userLabel="mPickerView">
-                                        <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
-                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="-60" y="64" width="320" height="216"/>
-                                        </variation>
-                                    </pickerView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bab-Di-nua">
-                                        <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                        <state key="normal" title="确定">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="77" y="283" width="46" height="30"/>
-                                        </variation>
-                                        <connections>
-                                            <action selector="ConfirmButtonPressed:" destination="o4V-Og-Fwg" eventType="touchUpInside" id="wUr-wd-kze"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="N2O-Oq-vhq"/>
-                                        <exclude reference="Afc-rH-R8P"/>
-                                        <exclude reference="bab-Di-nua"/>
-                                    </mask>
-                                </variation>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LmA-JY-2f2">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="Detail_font">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="100" y="148" width="200" height="368"/>
-                                    <mask key="subviews">
-                                        <include reference="N2O-Oq-vhq"/>
-                                        <include reference="Afc-rH-R8P"/>
-                                        <include reference="bab-Di-nua"/>
-                                    </mask>
+                                    <rect key="frame" x="327" y="0.0" width="73" height="22"/>
                                 </variation>
-                            </view>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYj-PV-5H3">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="Detail_font">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="246" y="0.0" width="73" height="22"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RU2-ts-aOo">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="Detail_font">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="165" y="0.0" width="73" height="22"/>
+                                </variation>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -785,7 +764,9 @@
                             <mask key="subviews">
                                 <exclude reference="GMY-0A-63W"/>
                                 <exclude reference="ygc-lp-exa"/>
-                                <exclude reference="KZJ-pg-0g0"/>
+                                <exclude reference="LmA-JY-2f2"/>
+                                <exclude reference="vYj-PV-5H3"/>
+                                <exclude reference="RU2-ts-aOo"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="IJU-J1-wHQ"/>
@@ -806,7 +787,9 @@
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="ygc-lp-exa"/>
-                                <include reference="KZJ-pg-0g0"/>
+                                <include reference="LmA-JY-2f2"/>
+                                <include reference="vYj-PV-5H3"/>
+                                <include reference="RU2-ts-aOo"/>
                             </mask>
                         </variation>
                         <connections>
@@ -815,16 +798,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="详情" id="0fX-Zb-xGc">
                         <barButtonItem key="backBarButtonItem" title=" " id="DZR-Fu-daY"/>
-                        <barButtonItem key="rightBarButtonItem" image="Detail_font" id="XD9-Fn-Y3R">
-                            <connections>
-                                <action selector="FontButtonPreesed:" destination="o4V-Og-Fwg" id="s04-R7-Fiu"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="评论" id="Ajz-T6-EyO"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="mFontButton" destination="XD9-Fn-Y3R" id="dYI-fr-gDl"/>
-                        <outlet property="mFontSetView" destination="KZJ-pg-0g0" id="HSI-eE-5Ez"/>
-                        <outlet property="mPickerView" destination="Afc-rH-R8P" id="ecn-LH-uXh"/>
                         <outlet property="mWebView" destination="ygc-lp-exa" id="5Me-lb-sP1"/>
                     </connections>
                 </viewController>

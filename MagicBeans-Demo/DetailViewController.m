@@ -23,48 +23,48 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.mPickerView.showsSelectionIndicator = YES;//窗口透明
-    self.mPickerView.delegate = self;
+//    self.mPickerView.showsSelectionIndicator = YES;//窗口透明
+//    self.mPickerView.delegate = self;
+//    
+//    self.textArray = [NSArray arrayWithObjects:@"大",
+//                      @"中",
+//                      @"小",
+//                       nil];
     
-    self.textArray = [NSArray arrayWithObjects:@"大",
-                      @"中",
-                      @"小",
-                       nil];
-    
     
     
 }
-#pragma mark  - dataSource method
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView
-
-numberOfRowsInComponent:(NSInteger)component
-{
-    return 3;
-}
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
-{
-    return 1;
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row
-
-            forComponent:(NSInteger)component
-{
-    return self.textArray[row];
-}
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:
-
-(NSInteger)component
-{
-    self.currenFont = self.textArray[row];
-}
-#pragma mark
-
-
-
+//#pragma mark  - dataSource method
+//
+//- (NSInteger)pickerView:(UIPickerView *)pickerView
+//
+//numberOfRowsInComponent:(NSInteger)component
+//{
+//    return 3;
+//}
+//
+//- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+//{
+//    return 1;
+//}
+//
+//- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row
+//
+//            forComponent:(NSInteger)component
+//{
+//    return self.textArray[row];
+//}
+//
+//- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:
+//
+//(NSInteger)component
+//{
+//    self.currenFont = self.textArray[row];
+//}
+//#pragma mark
+//
+//
+//
 
 
 
