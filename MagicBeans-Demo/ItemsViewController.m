@@ -94,7 +94,7 @@
 }
 */
 - (IBAction)selectedButton:(UIButton *)sender {
-    for (UIView *view in sender.subviews) {
+    for (UIView *view in sender.superview.subviews) {
         if ([view isMemberOfClass:[UIButton class]]) {
             if (view != sender) {
                 ((UIButton *)view).selected = NO;
@@ -103,7 +103,7 @@
         }
     }
     sender.selected = YES;
-    sender.titleLabel.font = [UIFont systemFontOfSize:15];
+    sender.titleLabel.font = [UIFont systemFontOfSize:13];
 }
 
 - (void)addCategory:(NSString *)name CategoryID:(NSInteger)categoryID
@@ -120,9 +120,17 @@
     rect.size.height = self.mCategorysView.frame.size.height;
     categoryBtn.frame = rect;
     [categoryBtn addTarget:self action:@selector(selectedButton:) forControlEvents:UIControlEventTouchUpInside];
-    self.mCategorysViewWidth.constant += categoryBtn.frame.size.width + 8;
     
+    self.mCategorysViewWidth.constant += categoryBtn.frame.size.width + 8;
     [self.mCategorysView addSubview:categoryBtn];
 }
 
+#pragma UIScrollView Delegate
+- (void) scrollViewDidScroll:(UIScrollView *)sender
+{
+    CGFloat scrollviewW =  sender.frame.size.width;
+    CGFloat x = sender.contentOffset.x;
+    int page = (x + scrollviewW / 2) /  scrollviewW;
+    self.mPageControl.currentPage = page;
+}
 @end

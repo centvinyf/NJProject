@@ -388,7 +388,7 @@
                                     </mask>
                                 </variation>
                             </scrollView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MRU-d5-FTx">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRU-d5-FTx">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner1" translatesAutoresizingMaskIntoConstraints="NO" id="vW6-T0-OLI">
@@ -450,6 +450,9 @@
                                         <include reference="vFb-k9-5Mo"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="VRp-GH-btS" id="KLS-28-mIG"/>
+                                </connections>
                             </scrollView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Items_bannerMask" translatesAutoresizingMaskIntoConstraints="NO" id="VLC-QB-cb3">
                                 <rect key="frame" x="0.0" y="-25" width="320" height="25"/>
@@ -682,6 +685,7 @@
                     <connections>
                         <outlet property="mCategorysView" destination="Trr-ez-Z8x" id="6bN-sz-PEb"/>
                         <outlet property="mCategorysViewWidth" destination="gVI-St-8rC" id="8sr-cm-UwW"/>
+                        <outlet property="mPageControl" destination="0OR-rJ-smK" id="sEg-9X-qLE"/>
                         <outlet property="mTableView" destination="aF6-ia-r6K" id="yLW-AJ-28h"/>
                     </connections>
                 </viewController>
