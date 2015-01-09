@@ -20,18 +20,15 @@
     return self;
 }
 
+
+
+
+#pragma
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    self.mPickerView.showsSelectionIndicator = YES;//窗口透明
-//    self.mPickerView.delegate = self;
-//    
-//    self.textArray = [NSArray arrayWithObjects:@"大",
-//                      @"中",
-//                      @"小",
-//                       nil];
-    
-    
     
 }
 //#pragma mark  - dataSource method
@@ -73,11 +70,4 @@
 
 }
 
-- (IBAction)FontButtonPreesed:(id)sender {
-    self.mFontSetView.hidden = NO;
-}
-- (IBAction)ConfirmButtonPressed:(id)sender {
-    NSLog(@"当前字体为：%@",self.currenFont);
-    self.mFontSetView.hidden = YES;
-}
 @end
