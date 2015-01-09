@@ -94,7 +94,7 @@
 }
 */
 - (IBAction)selectedButton:(UIButton *)sender {
-    for (UIView *view in sender.superview.subviews) {
+    for (UIView *view in sender.subviews) {
         if ([view isMemberOfClass:[UIButton class]]) {
             if (view != sender) {
                 ((UIButton *)view).selected = NO;
@@ -111,6 +111,7 @@
     UIButton *categoryBtn = [[UIButton alloc] init];
     [categoryBtn setTitle:name forState:UIControlStateNormal];
     [categoryBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [categoryBtn setTitleColor:[UIColor colorWithRed:13.0/255.0 green:0 blue:99/255.0 alpha:1] forState:UIControlStateSelected];
     categoryBtn.titleLabel.font = [UIFont systemFontOfSize:13];
     categoryBtn.tag =categoryID;
     CGRect rect = categoryBtn.frame;
@@ -118,7 +119,7 @@
     rect.size = [name sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]}];
     rect.size.height = self.mCategorysView.frame.size.height;
     categoryBtn.frame = rect;
-    
+    [categoryBtn addTarget:self action:@selector(selectedButton:) forControlEvents:UIControlEventTouchUpInside];
     self.mCategorysViewWidth.constant += categoryBtn.frame.size.width + 8;
     
     [self.mCategorysView addSubview:categoryBtn];
