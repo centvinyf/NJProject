@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIWebView *mWebView;
 @property (weak, nonatomic) IBOutlet UIView *mFontSetView;
 @property (weak, nonatomic) IBOutlet UIPickerView *mPickerView;
-@property (strong, nonatomic) NSArray *textArray;  
+@property (strong, nonatomic) NSArray *textArray;
+@property (retain, nonatomic) NSString * currenFont;
 
 @end

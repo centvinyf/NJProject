@@ -23,7 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.mPickerView.showsSelectionIndicator = YES;
+    self.mPickerView.showsSelectionIndicator = YES;//窗口透明
     self.mPickerView.delegate = self;
     
     self.textArray = [NSArray arrayWithObjects:@"大",
@@ -59,7 +59,7 @@ numberOfRowsInComponent:(NSInteger)component
 
 (NSInteger)component
 {
-    
+    self.currenFont = self.textArray[row];
 }
 #pragma mark
 
@@ -77,6 +77,7 @@ numberOfRowsInComponent:(NSInteger)component
     self.mFontSetView.hidden = NO;
 }
 - (IBAction)ConfirmButtonPressed:(id)sender {
+    NSLog(@"当前字体为：%@",self.currenFont);
     self.mFontSetView.hidden = YES;
 }
 @end
