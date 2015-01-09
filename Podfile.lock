@@ -20,11 +20,14 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - RefreshControl (1.5.6)
 
 DEPENDENCIES:
   - AFNetworking
+  - RefreshControl
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  RefreshControl: de3f365cf55dd3737585d852a28698903dc0fd19
 
 COCOAPODS: 0.35.0

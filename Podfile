@@ -3,6 +3,6 @@
 
 target 'NJMobile' do
 pod 'AFNetworking'
-
+pod 'RefreshControl'
 end
 

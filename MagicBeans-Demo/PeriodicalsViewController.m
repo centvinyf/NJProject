@@ -8,6 +8,7 @@
 
 #import "PeriodicalsViewController.h"
 #import "ItemsViewControllerCell.h"
+#import "UIScrollView+RefreshControl.h"
 
 @interface PeriodicalsViewController ()
 
@@ -17,12 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self initViews];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,11 +26,54 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)initViews
+{
+    
+    __weak typeof(self) weakSelf = self;
+    [self.tableView addTopRefreshControlUsingBlock:^{
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            // request for datas
+            [weakSelf loadData];
+        });
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf.tableView reloadData];
+            [weakSelf.tableView topRefreshControlStopRefreshing];
+        });
+    } refreshControlPullType:RefreshControlPullTypeInsensitive refreshControlStatusType:RefreshControlStatusTypeArrow];
+    
+    [self.tableView addBottomRefreshControlUsingBlock:^{
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // request for datas
+            [weakSelf loadDataMore];
+    });
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf.tableView reloadData];
+            [weakSelf.tableView bottomRefreshControlStopRefreshing];
+        });
+    } refreshControlPullType:RefreshControlPullTypeInsensitive refreshControlStatusType:RefreshControlStatusTypeArrow];
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView topRefreshControlStartInitializeRefreshing];
+    });
+}
+
+
+
+- (void)loadData
+{
+    numberOfItems = 5;
+}
+
+- (void)loadDataMore
+{
+    numberOfItems += 5;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return numberOfItems;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

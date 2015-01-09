@@ -48,3 +48,9 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 0
 
+// RefreshControl
+#define COCOAPODS_POD_AVAILABLE_RefreshControl
+#define COCOAPODS_VERSION_MAJOR_RefreshControl 1
+#define COCOAPODS_VERSION_MINOR_RefreshControl 5
+#define COCOAPODS_VERSION_PATCH_RefreshControl 6
+

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-NJMobile-RefreshControl.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-NJMobile.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>39F7334FB192F5AFBDB92F9B</key>
+		<key>6F296084086C751445B4AB19</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E7370528B66D0920101FD18C</key>
+		<key>9CB4158C30E911F1757BB42D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F439A89E5F26E69007DF2A16</key>
 		<dict>
 			<key>primary</key>
 			<true/>

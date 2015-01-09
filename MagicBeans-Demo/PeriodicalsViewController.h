@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PeriodicalsViewController : UIViewController
-
+@interface PeriodicalsViewController : UITableViewController
+{
+    NSInteger numberOfItems;
+}
 @end
