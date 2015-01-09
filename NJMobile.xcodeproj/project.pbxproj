@@ -15,11 +15,11 @@
 		7C53D1E91A3920A00084EBA1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C53D1E81A3920A00084EBA1 /* DetailViewController.m */; };
 		7C64981A1A382D0200B296B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6498191A382D0200B296B4 /* main.m */; };
 		7C64981D1A382D0200B296B4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C64981C1A382D0200B296B4 /* AppDelegate.m */; };
-		7C6498201A382D0200B296B4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C64981F1A382D0200B296B4 /* LoginViewController.m */; };
 		7C6498231A382D0200B296B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C6498211A382D0200B296B4 /* Main.storyboard */; };
 		7C6498251A382D0200B296B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6498241A382D0200B296B4 /* Images.xcassets */; };
 		7C6498281A382D0200B296B4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C6498261A382D0200B296B4 /* LaunchScreen.xib */; };
 		7CF05A6B1A5F9CA900864744 /* ItemsViewControllerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF05A6A1A5F9CA900864744 /* ItemsViewControllerCell.m */; };
+		7CF05A6E1A5FC50800864744 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF05A6D1A5FC50800864744 /* LoadingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,13 +40,13 @@
 		7C6498191A382D0200B296B4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7C64981B1A382D0200B296B4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7C64981C1A382D0200B296B4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7C64981E1A382D0200B296B4 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		7C64981F1A382D0200B296B4 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		7C6498221A382D0200B296B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7C6498241A382D0200B296B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7C6498271A382D0200B296B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7CF05A691A5F9CA900864744 /* ItemsViewControllerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsViewControllerCell.h; sourceTree = "<group>"; };
 		7CF05A6A1A5F9CA900864744 /* ItemsViewControllerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsViewControllerCell.m; sourceTree = "<group>"; };
+		7CF05A6C1A5FC50800864744 /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
+		7CF05A6D1A5FC50800864744 /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
 		E18D214729D4C2E76CC5F2BE /* Pods-NJMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJMobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-NJMobile/Pods-NJMobile.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,8 +85,8 @@
 			children = (
 				7C64981B1A382D0200B296B4 /* AppDelegate.h */,
 				7C64981C1A382D0200B296B4 /* AppDelegate.m */,
-				7C64981E1A382D0200B296B4 /* LoginViewController.h */,
-				7C64981F1A382D0200B296B4 /* LoginViewController.m */,
+				7CF05A6C1A5FC50800864744 /* LoadingViewController.h */,
+				7CF05A6D1A5FC50800864744 /* LoadingViewController.m */,
 				7C1AB9D61A5E6F8400907B2E /* PeriodicalsViewController.h */,
 				7C1AB9D71A5E6F8400907B2E /* PeriodicalsViewController.m */,
 				7C1AB9D31A5E676E00907B2E /* PeriodicalsViewControllerCell.h */,
@@ -241,12 +241,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CF05A6B1A5F9CA900864744 /* ItemsViewControllerCell.m in Sources */,
-				7C6498201A382D0200B296B4 /* LoginViewController.m in Sources */,
 				7C1AB9D51A5E676E00907B2E /* PeriodicalsViewControllerCell.m in Sources */,
 				7C53D1E91A3920A00084EBA1 /* DetailViewController.m in Sources */,
 				7C53D1E31A384D170084EBA1 /* ItemsViewController.m in Sources */,
 				7C1AB9D81A5E6F8400907B2E /* PeriodicalsViewController.m in Sources */,
 				7C64981D1A382D0200B296B4 /* AppDelegate.m in Sources */,
+				7CF05A6E1A5FC50800864744 /* LoadingViewController.m in Sources */,
 				7C53D1E61A391C910084EBA1 /* PageViewController.m in Sources */,
 				7C64981A1A382D0200B296B4 /* main.m in Sources */,
 			);
