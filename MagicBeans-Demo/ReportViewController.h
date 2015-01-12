@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ReportViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *mImageView;
+@property (weak, nonatomic) IBOutlet UIButton *mWangshangButton;
 
+@property (weak, nonatomic) IBOutlet UIButton *mQQButton;
 @end
