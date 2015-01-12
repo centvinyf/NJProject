@@ -36,6 +36,7 @@
                         <viewControllerLayoutGuide type="bottom" id="0Ya-hg-WLS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Xkd-YV-Ahj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="默认loading图" translatesAutoresizingMaskIntoConstraints="NO" id="aI1-Zj-5WS">
@@ -54,10 +55,10 @@
                                 <exclude reference="aI1-Zj-5WS"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="eiL-Uv-BaU"/>
                                 <exclude reference="2V0-jg-n8E"/>
                                 <exclude reference="CD0-7X-cER"/>
                                 <exclude reference="CLU-wf-LSt"/>
-                                <exclude reference="eiL-Uv-BaU"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -65,10 +66,10 @@
                                 <include reference="aI1-Zj-5WS"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="eiL-Uv-BaU"/>
                                 <include reference="2V0-jg-n8E"/>
                                 <include reference="CD0-7X-cER"/>
                                 <include reference="CLU-wf-LSt"/>
-                                <include reference="eiL-Uv-BaU"/>
                             </mask>
                         </variation>
                     </view>
@@ -221,21 +222,9 @@
                                             <exclude reference="GkJ-4h-ekd"/>
                                             <exclude reference="cX5-Di-r5o"/>
                                             <exclude reference="fTP-c6-e2n"/>
-                                            <exclude reference="1Xv-cp-a1o"/>
-                                            <exclude reference="Q5a-AW-1Qw"/>
-                                            <exclude reference="YII-8B-OuT"/>
-                                            <exclude reference="sou-bO-zJM"/>
-                                            <exclude reference="VlA-1J-wVD"/>
-                                            <exclude reference="YXq-nN-1Qg"/>
-                                            <exclude reference="x8R-cO-hyF"/>
                                             <exclude reference="0ge-rN-hQI"/>
                                             <exclude reference="HHX-97-g0T"/>
                                             <exclude reference="j5G-G9-fOs"/>
-                                            <exclude reference="4aB-jy-7i1"/>
-                                            <exclude reference="DhF-Ah-iOq"/>
-                                            <exclude reference="MYH-Vx-V0q"/>
-                                            <exclude reference="Z4N-ly-e7n"/>
-                                            <exclude reference="eDI-Ro-IvF"/>
                                             <exclude reference="gau-hO-K37"/>
                                             <exclude reference="mOi-KR-OQS"/>
                                             <exclude reference="yaw-Fj-Gi4"/>
@@ -246,6 +235,18 @@
                                             <exclude reference="lvI-vb-BCB"/>
                                             <exclude reference="ovd-Y6-Osc"/>
                                             <exclude reference="pSJ-Lr-QKs"/>
+                                            <exclude reference="1Xv-cp-a1o"/>
+                                            <exclude reference="Q5a-AW-1Qw"/>
+                                            <exclude reference="YII-8B-OuT"/>
+                                            <exclude reference="sou-bO-zJM"/>
+                                            <exclude reference="4aB-jy-7i1"/>
+                                            <exclude reference="DhF-Ah-iOq"/>
+                                            <exclude reference="MYH-Vx-V0q"/>
+                                            <exclude reference="Z4N-ly-e7n"/>
+                                            <exclude reference="eDI-Ro-IvF"/>
+                                            <exclude reference="VlA-1J-wVD"/>
+                                            <exclude reference="YXq-nN-1Qg"/>
+                                            <exclude reference="x8R-cO-hyF"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
@@ -265,21 +266,9 @@
                                             <include reference="GkJ-4h-ekd"/>
                                             <include reference="cX5-Di-r5o"/>
                                             <include reference="fTP-c6-e2n"/>
-                                            <include reference="1Xv-cp-a1o"/>
-                                            <include reference="Q5a-AW-1Qw"/>
-                                            <include reference="YII-8B-OuT"/>
-                                            <include reference="sou-bO-zJM"/>
-                                            <include reference="VlA-1J-wVD"/>
-                                            <include reference="YXq-nN-1Qg"/>
-                                            <include reference="x8R-cO-hyF"/>
                                             <include reference="0ge-rN-hQI"/>
                                             <include reference="HHX-97-g0T"/>
                                             <include reference="j5G-G9-fOs"/>
-                                            <exclude reference="4aB-jy-7i1"/>
-                                            <include reference="DhF-Ah-iOq"/>
-                                            <include reference="MYH-Vx-V0q"/>
-                                            <include reference="Z4N-ly-e7n"/>
-                                            <include reference="eDI-Ro-IvF"/>
                                             <include reference="gau-hO-K37"/>
                                             <include reference="mOi-KR-OQS"/>
                                             <include reference="yaw-Fj-Gi4"/>
@@ -290,6 +279,18 @@
                                             <include reference="lvI-vb-BCB"/>
                                             <include reference="ovd-Y6-Osc"/>
                                             <include reference="pSJ-Lr-QKs"/>
+                                            <include reference="1Xv-cp-a1o"/>
+                                            <include reference="Q5a-AW-1Qw"/>
+                                            <include reference="YII-8B-OuT"/>
+                                            <include reference="sou-bO-zJM"/>
+                                            <exclude reference="4aB-jy-7i1"/>
+                                            <include reference="DhF-Ah-iOq"/>
+                                            <include reference="MYH-Vx-V0q"/>
+                                            <include reference="Z4N-ly-e7n"/>
+                                            <include reference="eDI-Ro-IvF"/>
+                                            <include reference="VlA-1J-wVD"/>
+                                            <include reference="YXq-nN-1Qg"/>
+                                            <include reference="x8R-cO-hyF"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
@@ -687,6 +688,7 @@
                         <outlet property="mCategorysViewWidth" destination="gVI-St-8rC" id="8sr-cm-UwW"/>
                         <outlet property="mPageControl" destination="0OR-rJ-smK" id="sEg-9X-qLE"/>
                         <outlet property="mTableView" destination="aF6-ia-r6K" id="yLW-AJ-28h"/>
+                        <segue destination="CxV-09-KIh" kind="show" identifier="ReportViewController" id="Wfi-6N-kdZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1kH-yU-yTc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -696,7 +698,7 @@
         <!--举报-->
         <scene sceneID="K2R-1Z-ZbO">
             <objects>
-                <viewController title="举报" id="CxV-09-KIh" sceneMemberID="viewController">
+                <viewController title="举报" id="CxV-09-KIh" customClass="ReportViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="scv-mm-9z1"/>
                         <viewControllerLayoutGuide type="bottom" id="VAa-GJ-yj3"/>
