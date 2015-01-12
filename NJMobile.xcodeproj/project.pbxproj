@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C2CB35D1A636AC300A01662 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2CB35C1A636AC300A01662 /* CommentViewController.m */; };
+		2C2CB3601A636E4200A01662 /* CommentViewControllerCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2CB35F1A636E4200A01662 /* CommentViewControllerCellTableViewCell.m */; };
 		7AF2FB92DE90F1AE6768F2E6 /* libPods-NJMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A994FF2B71A7545D8A666F /* libPods-NJMobile.a */; };
 		7C1AB9D51A5E676E00907B2E /* PeriodicalsViewControllerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1AB9D41A5E676E00907B2E /* PeriodicalsViewControllerCell.m */; };
 		7C1AB9D81A5E6F8400907B2E /* PeriodicalsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1AB9D71A5E6F8400907B2E /* PeriodicalsViewController.m */; };
@@ -25,6 +27,10 @@
 
 /* Begin PBXFileReference section */
 		0F2BDEDA61B4028B8283C6DF /* Pods-NJMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NJMobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NJMobile/Pods-NJMobile.debug.xcconfig"; sourceTree = "<group>"; };
+		2C2CB35B1A636AC300A01662 /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
+		2C2CB35C1A636AC300A01662 /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
+		2C2CB35E1A636E4200A01662 /* CommentViewControllerCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewControllerCellTableViewCell.h; sourceTree = "<group>"; };
+		2C2CB35F1A636E4200A01662 /* CommentViewControllerCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewControllerCellTableViewCell.m; sourceTree = "<group>"; };
 		54A994FF2B71A7545D8A666F /* libPods-NJMobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NJMobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C1AB9D31A5E676E00907B2E /* PeriodicalsViewControllerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeriodicalsViewControllerCell.h; sourceTree = "<group>"; };
 		7C1AB9D41A5E676E00907B2E /* PeriodicalsViewControllerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeriodicalsViewControllerCell.m; sourceTree = "<group>"; };
@@ -105,6 +111,10 @@
 				7C53D1E71A3920A00084EBA1 /* DetailViewController.h */,
 				7C53D1E81A3920A00084EBA1 /* DetailViewController.m */,
 				7C6498211A382D0200B296B4 /* Main.storyboard */,
+				2C2CB35E1A636E4200A01662 /* CommentViewControllerCellTableViewCell.h */,
+				2C2CB35F1A636E4200A01662 /* CommentViewControllerCellTableViewCell.m */,
+				2C2CB35B1A636AC300A01662 /* CommentViewController.h */,
+				2C2CB35C1A636AC300A01662 /* CommentViewController.m */,
 				7C6498261A382D0200B296B4 /* LaunchScreen.xib */,
 				7C6498241A382D0200B296B4 /* Images.xcassets */,
 				7C6498171A382D0200B296B4 /* Supporting Files */,
@@ -245,6 +255,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C2CB3601A636E4200A01662 /* CommentViewControllerCellTableViewCell.m in Sources */,
+				2C2CB35D1A636AC300A01662 /* CommentViewController.m in Sources */,
 				7C9C3EB51A6352390089B6FE /* ReportViewController.m in Sources */,
 				7CF05A6B1A5F9CA900864744 /* ItemsViewControllerCell.m in Sources */,
 				7C1AB9D51A5E676E00907B2E /* PeriodicalsViewControllerCell.m in Sources */,
