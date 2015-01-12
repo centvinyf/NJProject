@@ -55,6 +55,9 @@
 - (void)loadData
 {
     numberOfItems = 5;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self addCategory:@"我是测试按钮" CategoryID:1];
+    });
 }
 
 - (void)loadDataMore
@@ -95,10 +98,40 @@
         if ([view isMemberOfClass:[UIButton class]]) {
             if (view != sender) {
                 ((UIButton *)view).selected = NO;
+                ((UIButton *)view).titleLabel.font = [UIFont systemFontOfSize:13];
             }
         }
     }
     sender.selected = YES;
+    sender.titleLabel.font = [UIFont systemFontOfSize:13];
+    [self performSegueWithIdentifier:@"ReportViewController" sender:nil];
 }
 
+- (void)addCategory:(NSString *)name CategoryID:(NSInteger)categoryID
+{
+    UIButton *categoryBtn = [[UIButton alloc] init];
+    [categoryBtn setTitle:name forState:UIControlStateNormal];
+    [categoryBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [categoryBtn setTitleColor:[UIColor colorWithRed:13.0/255.0 green:0 blue:99/255.0 alpha:1] forState:UIControlStateSelected];
+    categoryBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    categoryBtn.tag =categoryID;
+    CGRect rect = categoryBtn.frame;
+    rect.origin.x = self.mCategorysViewWidth.constant;
+    rect.size = [name sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]}];
+    rect.size.height = self.mCategorysView.frame.size.height;
+    categoryBtn.frame = rect;
+    [categoryBtn addTarget:self action:@selector(selectedButton:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.mCategorysViewWidth.constant += categoryBtn.frame.size.width + 8;
+    [self.mCategorysView addSubview:categoryBtn];
+}
+
+#pragma UIScrollView Delegate
+- (void) scrollViewDidScroll:(UIScrollView *)sender
+{
+    CGFloat scrollviewW =  sender.frame.size.width;
+    CGFloat x = sender.contentOffset.x;
+    int page = (x + scrollviewW / 2) /  scrollviewW;
+    self.mPageControl.currentPage = page;
+}
 @end

@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ItemsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface ItemsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 {
     NSInteger numberOfItems;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
+@property (weak, nonatomic) IBOutlet UIView *mCategorysView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mCategorysViewWidth;
+@property (weak, nonatomic) IBOutlet UIPageControl *mPageControl;
 @end
