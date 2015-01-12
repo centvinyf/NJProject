@@ -104,6 +104,7 @@
     }
     sender.selected = YES;
     sender.titleLabel.font = [UIFont systemFontOfSize:13];
+    [self performSegueWithIdentifier:@"ReportViewController" sender:nil];
 }
 
 - (void)addCategory:(NSString *)name CategoryID:(NSInteger)categoryID
