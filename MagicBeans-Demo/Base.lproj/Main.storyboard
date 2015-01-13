@@ -307,9 +307,11 @@
                             <outlet property="delegate" destination="tb8-o2-JGJ" id="MYe-n1-v4G"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="内江预防职务犯罪手机报" id="30d-3g-33R"/>
+                    <navigationItem key="navigationItem" title="内江预防职务犯罪手机报" id="30d-3g-33R">
+                        <barButtonItem key="backBarButtonItem" title=" " id="ukU-Nd-s8Q"/>
+                    </navigationItem>
                     <connections>
-                        <segue destination="VRp-GH-btS" kind="push" identifier="ItemsViewController" id="nf4-Rw-JuS"/>
+                        <segue destination="VRp-GH-btS" kind="show" identifier="ItemsViewController" id="nf4-Rw-JuS"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7J9-9p-Fys" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1146,6 +1148,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="53" y="39" width="252" height="21"/>
+                                                    </variation>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YG9-iO-wtC">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -1158,7 +1163,8 @@
                                                             <exclude reference="Rgl-gx-UDZ"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="10" y="69" width="300" height="1"/>
                                                         <mask key="constraints">
                                                             <include reference="Rgl-gx-UDZ"/>
                                                         </mask>
@@ -1169,6 +1175,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="255" y="16" width="50" height="15"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
