@@ -100,7 +100,5 @@
 //    return [self viewControllerAtIndex:index];
 //}
 
-- (IBAction)shiftToolBar:(id)sender {
-    [toolBar setHidden:!toolBar.isHidden];
-}
+
 @end
