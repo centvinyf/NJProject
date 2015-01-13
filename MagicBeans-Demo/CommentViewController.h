@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class CommentViewControllerCellTableViewCell;
 
-@interface CommentViewController : UIViewController
+@interface CommentViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
     NSInteger numberOfItems;
+    CommentViewControllerCellTableViewCell *mPrototypeCell;
+    NSArray *mDataSouceArray;
 }
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
-
 @end
