@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController<UIGestureRecognizerDelegate,UITextViewDelegate>
 {
     UIImageView *imageView;
+    NSString * mComment;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *FontSetButton;
@@ -22,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *SmallButton;
 @property (weak, nonatomic) IBOutlet UIButton *MidButton;
 @property (weak, nonatomic) IBOutlet UIButton *BigButton;
-@property (weak, nonatomic) IBOutlet UIToolbar *mToolBar;
+@property (weak, nonatomic) IBOutlet UIView *mToolBarView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mYLocationConstraint;
+@property (weak, nonatomic) IBOutlet UITextView *mTextField;
 
 @end

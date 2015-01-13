@@ -62,9 +62,26 @@
     self.currenFont = @"Small";
 }
 
-#pragma mark-
+- (IBAction)CommentButtonPressed:(id)sender {
+    self.mTextField.hidden = NO;
+    CGFloat keyboardHeight = 216.0f;
+    self.mYLocationConstraint.constant =44.0+keyboardHeight;
+    self.mTextField.text = @"";//每次点击评论时不保留上一次的评论
+    [self.mTextField becomeFirstResponder];
+  
+}
+#pragma mark- textfield
 
-
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        textView.hidden = YES;
+        mComment = textView.text;
+        return NO;
+    }
+    return YES;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -72,11 +89,36 @@
     self.SmallButton.hidden = YES;
     self.MidButton.hidden = YES;
     self.BigButton.hidden = YES;
- 
+    self.mToolBarView.hidden = YES;
+    self.mTextField.hidden =YES ;
+    UITapGestureRecognizer* singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    [self.view addGestureRecognizer:singleTap];
+    singleTap.delegate = self;
+    singleTap.cancelsTouchesInView = YES;
+    
+    
+}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+
+{
+    
+    return YES;
     
 }
 
 
+-(void)handleSingleTap:(UITapGestureRecognizer *)sender
+
+{
+    CGPoint point = [sender locationInView:self.view];
+    if (point.y<= self.mToolBarView.frame.origin.y
+        ) {
+        [self.mToolBarView setHidden:!self.mToolBarView.isHidden];
+    }
+    else self.mToolBarView.hidden= NO;
+
+    
+}
 
 - (void) viewWillAppear:(BOOL)paramAnimated{
     [super viewWillAppear:paramAnimated];
