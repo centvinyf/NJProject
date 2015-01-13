@@ -20,7 +20,7 @@
     return self;
 }
 
-#pragma FontSet
+#pragma mark- setFonts
 -(void)RefreshStatus
 {
     [self.BigButton setImage:[UIImage imageNamed:@"大未选中.png"] forState:UIControlStateNormal];
@@ -62,7 +62,7 @@
     self.currenFont = @"Small";
 }
 
-#pragma
+#pragma mark-
 
 
 - (void)viewDidLoad
@@ -72,6 +72,7 @@
     self.SmallButton.hidden = YES;
     self.MidButton.hidden = YES;
     self.BigButton.hidden = YES;
+ 
     
 }
 
@@ -79,6 +80,7 @@
 
 - (void) viewWillAppear:(BOOL)paramAnimated{
     [super viewWillAppear:paramAnimated];
+    
 
 }
 

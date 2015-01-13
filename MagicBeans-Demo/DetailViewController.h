@@ -22,5 +22,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *SmallButton;
 @property (weak, nonatomic) IBOutlet UIButton *MidButton;
 @property (weak, nonatomic) IBOutlet UIButton *BigButton;
+@property (weak, nonatomic) IBOutlet UIToolbar *mToolBar;
 
 @end
