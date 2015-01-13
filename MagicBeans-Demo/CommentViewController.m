@@ -18,8 +18,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     numberOfItems = 5;
-    
+    mPrototypeCell = [self.mTableView dequeueReusableCellWithIdentifier:@"CommentViewControllerCell"];
+    [self loadData];
     // Do any additional setup after loading the view.
+}
+
+- (void)loadData
+{
+    mDataSouceArray = @[@"你要钱不要命吗？",@"我要命也要钱啊啊啊！哈哈！我要命也要钱啊啊啊！哈哈！"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,7 +36,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return numberOfItems;
+    return mDataSouceArray.count;
 }
 
 
@@ -38,11 +44,33 @@
 {
     static NSString *identifiller = @"CommentViewControllerCell";
     CommentViewControllerCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifiller];
-    
-    
+    cell.mCommentLabel.text = mDataSouceArray[indexPath.row];
     return cell;
 }
 
+#pragma mark - UITableView Delegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CGRect rect = [mDataSouceArray[indexPath.row] boundingRectWithSize:CGSizeMake(320 - 58, 0)
+                                                               options:NSStringDrawingTruncatesLastVisibleLine |  NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                   
+                                                            attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]}
+                                                               context:NULL];
+    
+    return 49 + rect.size.height;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    CGRect rect = [mDataSouceArray[indexPath.row] boundingRectWithSize:CGSizeMake(self.view.bounds.size.width - 58, 0)
+                                                               options:NSStringDrawingTruncatesLastVisibleLine |  NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+
+                                  attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]}
+                                   context:NULL];
+
+    return 49 + rect.size.height;
+}
 /*
 #pragma mark - Navigation
 
