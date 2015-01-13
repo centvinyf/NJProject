@@ -1146,9 +1146,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="53" y="39" width="252" height="21"/>
-                                                    </variation>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YG9-iO-wtC">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -1161,8 +1158,7 @@
                                                             <exclude reference="Rgl-gx-UDZ"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="10" y="71" width="300" height="1"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="Rgl-gx-UDZ"/>
                                                         </mask>
@@ -1173,9 +1169,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="255" y="16" width="50" height="15"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -1208,13 +1201,13 @@
                                                     <exclude reference="L7m-mm-wK9"/>
                                                     <exclude reference="jdk-ea-Df3"/>
                                                     <exclude reference="sJj-1K-uiS"/>
+                                                    <exclude reference="wmd-DI-0Yf"/>
                                                     <exclude reference="4y0-Ib-tfj"/>
                                                     <exclude reference="Ni5-eC-RlD"/>
                                                     <exclude reference="j2n-Jz-URP"/>
                                                     <exclude reference="3Mw-n8-l7y"/>
                                                     <exclude reference="EDf-df-DBz"/>
                                                     <exclude reference="NLb-oa-Bfx"/>
-                                                    <exclude reference="wmd-DI-0Yf"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -1229,13 +1222,13 @@
                                                     <include reference="L7m-mm-wK9"/>
                                                     <include reference="jdk-ea-Df3"/>
                                                     <include reference="sJj-1K-uiS"/>
+                                                    <include reference="wmd-DI-0Yf"/>
                                                     <include reference="4y0-Ib-tfj"/>
                                                     <include reference="Ni5-eC-RlD"/>
                                                     <include reference="j2n-Jz-URP"/>
                                                     <include reference="3Mw-n8-l7y"/>
                                                     <include reference="EDf-df-DBz"/>
                                                     <include reference="NLb-oa-Bfx"/>
-                                                    <include reference="wmd-DI-0Yf"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
