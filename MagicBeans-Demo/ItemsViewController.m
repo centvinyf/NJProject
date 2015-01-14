@@ -123,7 +123,36 @@
 
 - (void)loadDataMore
 {
+    currentPageIndex++;
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"magazineId":self.mPeriodicalID,
+                                 @"columnId":mCurrentCategoryID,
+                                 @"page":[NSNumber numberWithInteger:currentPageIndex]};
+    [mgr GET:@"http://192.168.1.113:8081/nj_app/app/getColumnContent.do" parameters:parameters
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if([responseObject[@"data"] count]>0)
+        {
+            [mArticles addObjectsFromArray:responseObject[@"data"]];
+            
+        }
+        else{
+            currentPageIndex--;
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"没有更多的数据了" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            [alertView show];
+        }
+         dispatch_async(dispatch_get_main_queue(), ^{
+             [self.mTableView bottomRefreshControlStopRefreshing];
+         });
+     }
+     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         dispatch_async(dispatch_get_main_queue(), ^{
+             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"数据获取失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+             [alertView show];
+         });
+     }];
     
+
+
 }
 
 - (void)loadBannersDataWithID:(NSString *)categoryID

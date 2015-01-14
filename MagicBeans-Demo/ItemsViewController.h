@@ -14,7 +14,7 @@
     NSString *mCurrentCategoryID;
     NSArray *mCategories;
     NSArray *mBanners;
-    NSArray *mArticles;
+    NSMutableArray *mArticles;
     NSInteger currentPageIndex;
 }
 @property (retain, nonatomic) NSString *mPeriodicalID;
