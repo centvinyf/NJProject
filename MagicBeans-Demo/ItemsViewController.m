@@ -50,9 +50,6 @@
         });
     } refreshControlPullType:RefreshControlPullTypeInsensitive refreshControlStatusType:RefreshControlStatusTypeArrow];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.mTableView topRefreshControlStartInitializeRefreshing];
-    });
 }
 
 - (void)initCategorysWithArray:(NSArray *)categoryArray
@@ -63,7 +60,32 @@
     }
 
 }
+#pragma mark- Load Data
 
+-(void)loadArticleDataWithID:(NSString *)categoryID
+{
+    currentPageIndex = 1;
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"magazineId":self.mPeriodicalID,
+                                 @"columnId":categoryID,
+                                 @"page":[NSNumber numberWithInteger:currentPageIndex]};
+    [mgr GET:@"http://192.168.1.113:8081/nj_app/app/getColumnContent.do" parameters:parameters
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         mArticles = responseObject[@"data"];
+         dispatch_async(dispatch_get_main_queue(), ^{
+             [self.mTableView reloadData];
+             [self.mTableView topRefreshControlStopRefreshing];
+         });
+     }
+     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         dispatch_async(dispatch_get_main_queue(), ^{
+             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"数据获取失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+             [alertView show];
+         });
+     }];
+
+
+}
 - (void)loadData
 {
     
@@ -88,7 +110,7 @@
 
 - (void)loadDataMore
 {
-    numberOfItems += 5;
+    
 }
 
 - (void)loadBannersDataWithID:(NSString *)categoryID
@@ -148,14 +170,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return numberOfItems;
+    return mArticles.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identifiller = @"ItemsViewControllerCell";
     ItemsViewControllerCell *cell = [tableView dequeueReusableCellWithIdentifier:identifiller];
-    
+    [cell initWitDic:mArticles[indexPath.row]];
     return cell;
 }
 /*
@@ -180,6 +202,7 @@
     sender.titleLabel.font = [UIFont systemFontOfSize:13];
     mCurrentCategoryID = mCategories[sender.tag][@"id"];
     [self loadBannersDataWithID:mCategories[sender.tag][@"id"]];
+    [self loadArticleDataWithID:mCategories[sender.tag][@"id"]];
 //    [self performSegueWithIdentifier:@"ReportViewController" sender:nil];
 }
 

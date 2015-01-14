@@ -14,6 +14,8 @@
     NSString *mCurrentCategoryID;
     NSArray *mCategories;
     NSArray *mBanners;
+    NSArray *mArticles;
+    NSInteger currentPageIndex;
 }
 @property (retain, nonatomic) NSString *mPeriodicalID;
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
