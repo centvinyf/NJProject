@@ -20,4 +20,10 @@
     // Configure the view for the selected state
 }
 
+- (void)initWithDic:(NSDictionary *)dic
+{
+    self.mLocationLabel.text = dic[@"address"];
+    self.mCommentLabel.text = dic[@"content"];
+    self.mTimeLabel.text = dic[@"date"];
+}
 @end
