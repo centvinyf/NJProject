@@ -8,6 +8,7 @@
 
 #import "DetailViewController.h"
 #import "AFNetworking.h"
+#import "CommentViewController.h"
 
 @implementation DetailViewController
 
@@ -32,7 +33,6 @@
     [self.view addGestureRecognizer:singleTap];
     singleTap.delegate = self;
     singleTap.cancelsTouchesInView = YES;
-    self.mArticleID = @"sdfasd123";
     [self initNotifications];
 }
 
@@ -99,6 +99,16 @@
 
 - (IBAction)CommentButtonPressed:(id)sender {
     [self.mTextField becomeFirstResponder];
+}
+
+- (IBAction)showCommentsList:(id)sender {
+    [self performSegueWithIdentifier:@"CommentViewController" sender:self.mArticleID];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    CommentViewController *commentViewController = [segue destinationViewController];
+    commentViewController.mArticleID = sender;
 }
 
 - (IBAction)praiseArticle:(id)sender {

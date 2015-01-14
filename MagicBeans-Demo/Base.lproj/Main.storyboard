@@ -1224,7 +1224,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="DZR-Fu-daY"/>
                         <barButtonItem key="rightBarButtonItem" title="看评论" id="Ajz-T6-EyO">
                             <connections>
-                                <segue destination="5hH-ML-olz" kind="show" id="dOB-8k-5tu"/>
+                                <action selector="showCommentsList:" destination="o4V-Og-Fwg" id="RG9-bM-xqP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1241,6 +1241,7 @@
                         <outlet property="mToolBarView" destination="LTu-E9-ca3" id="c5E-d4-zJc"/>
                         <outlet property="mWebView" destination="ygc-lp-exa" id="5Me-lb-sP1"/>
                         <outlet property="mYLocationConstraint" destination="yav-qh-Dww" id="CEE-R8-NQE"/>
+                        <segue destination="5hH-ML-olz" kind="show" identifier="CommentViewController" id="hqx-S2-mzN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hRX-Eq-R90" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -21,7 +21,6 @@
     [super viewDidLoad];
     numberOfItems = 5;
     mPrototypeCell = [self.mTableView dequeueReusableCellWithIdentifier:@"CommentViewControllerCell"];
-    self.mArticleID = @"sdfasd123";
     [self initViews];
     // Do any additional setup after loading the view.
 }
