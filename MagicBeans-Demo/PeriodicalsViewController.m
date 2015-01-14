@@ -10,6 +10,8 @@
 #import "PeriodicalsViewControllerCell.h"
 #import "UIScrollView+RefreshControl.h"
 #import "AFNetworking.h"
+#import "ItemsViewController.h"
+
 @interface PeriodicalsViewController ()
 
 @end
@@ -34,10 +36,6 @@
             // request for datas
             [weakSelf loadData];
         });
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [weakSelf.tableView reloadData];
-            [weakSelf.tableView topRefreshControlStopRefreshing];
-        });
     } refreshControlPullType:RefreshControlPullTypeInsensitive refreshControlStatusType:RefreshControlStatusTypeArrow];
     
     [self.tableView addBottomRefreshControlUsingBlock:^{
@@ -60,22 +58,67 @@
 
 - (void)loadData
 {
-//    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-//    mgr GET:<#(NSString *)#> parameters:<#(id)#> success:<#^(AFHTTPRequestOperation *operation, id responseObject)success#> failure:<#^(AFHTTPRequestOperation *operation, NSError *error)failure#>
-    
-    numberOfItems = 5;
+    currentPageIndex = 1;
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"page":[NSNumber numberWithInteger:currentPageIndex]};
+    [mgr GET:@"http://192.168.1.113:8081/nj_app/app/getMagazineList.do" parameters:parameters
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        mPeriodicalsArray = [NSMutableArray arrayWithArray:responseObject[@"data"]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+            [self.tableView topRefreshControlStopRefreshing];
+        });
+    }
+     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"数据获取失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            [alertView show];
+            [self.tableView topRefreshControlStopRefreshing];
+        });
+    }];
 }
 
 - (void)loadDataMore
 {
-    numberOfItems += 5;
+    currentPageIndex++;
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"page":[NSNumber numberWithInteger:currentPageIndex]};
+    [mgr GET:@"http://192.168.1.113:8081/nj_app/app/getMagazineList.do" parameters:parameters
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         if ([responseObject[@"data"] count] > 0)
+         {
+             [mPeriodicalsArray addObjectsFromArray:responseObject[@"data"]];
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [self.tableView reloadData];
+             });
+         }
+         else
+         {
+             //恢复到之前的页码
+             currentPageIndex--;
+             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"没有更多的数据了" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+             [alertView show];
+
+         }
+         dispatch_async(dispatch_get_main_queue(), ^{
+             [self.tableView bottomRefreshControlStopRefreshing];
+         });
+
+     }
+     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         dispatch_async(dispatch_get_main_queue(), ^{
+             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"没有更多的数据了" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+             [alertView show];
+             [self.tableView bottomRefreshControlStopRefreshing];
+         });
+     }];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return numberOfItems;
+    return ceilf(mPeriodicalsArray.count/3.0);
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -87,55 +130,34 @@
 {
     static NSString *identifiller = @"PeriodicalsViewControllerCell";
     PeriodicalsViewControllerCell *cell = [tableView dequeueReusableCellWithIdentifier:identifiller];
+    NSMutableArray *items = [NSMutableArray arrayWithCapacity:3];
+    if (mPeriodicalsArray.count >indexPath.row) {
+        [items addObject:mPeriodicalsArray[indexPath.row]];
+    }
+    
+    if (mPeriodicalsArray.count >indexPath.row +1) {
+        [items addObject:mPeriodicalsArray[indexPath.row + 1]];
+    }
+    
+    if (mPeriodicalsArray.count >indexPath.row +2) {
+        [items addObject:mPeriodicalsArray[indexPath.row + 1]];
+    }
+    [cell initWithArray:items withIndex:indexPath.row];
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    ItemsViewController *itemsViewController = [segue destinationViewController];
+    itemsViewController.mPeriodicalID = sender;
 }
-*/
 
 - (IBAction)showItemsViewController:(UIButton *)sender {
-    [self performSegueWithIdentifier:@"ItemsViewController" sender:nil];
+    NSDictionary *dic = mPeriodicalsArray[sender.tag];
+    NSString *PeriodicalID = dic[@"id"];
+    [self performSegueWithIdentifier:@"ItemsViewController" sender:PeriodicalID];
 }
 @end

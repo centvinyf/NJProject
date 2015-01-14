@@ -11,5 +11,7 @@
 @interface PeriodicalsViewController : UITableViewController
 {
     NSInteger numberOfItems;
+    NSMutableArray *mPeriodicalsArray;
+    NSInteger currentPageIndex;
 }
 @end

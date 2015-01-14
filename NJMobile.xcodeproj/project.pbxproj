@@ -36,7 +36,6 @@
 		7C1AB9D41A5E676E00907B2E /* PeriodicalsViewControllerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeriodicalsViewControllerCell.m; sourceTree = "<group>"; };
 		7C1AB9D61A5E6F8400907B2E /* PeriodicalsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeriodicalsViewController.h; sourceTree = "<group>"; };
 		7C1AB9D71A5E6F8400907B2E /* PeriodicalsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeriodicalsViewController.m; sourceTree = "<group>"; };
-		7C3E56FD1A65FC7000A56CF6 /* Headers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Headers.h; sourceTree = "<group>"; };
 		7C53D1E11A384D170084EBA1 /* ItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsViewController.h; sourceTree = "<group>"; };
 		7C53D1E21A384D170084EBA1 /* ItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsViewController.m; sourceTree = "<group>"; };
 		7C53D1E41A391C910084EBA1 /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
@@ -95,7 +94,6 @@
 			children = (
 				7C64981B1A382D0200B296B4 /* AppDelegate.h */,
 				7C64981C1A382D0200B296B4 /* AppDelegate.m */,
-				7C3E56FD1A65FC7000A56CF6 /* Headers.h */,
 				7CF05A6C1A5FC50800864744 /* LoadingViewController.h */,
 				7CF05A6D1A5FC50800864744 /* LoadingViewController.m */,
 				7C1AB9D61A5E6F8400907B2E /* PeriodicalsViewController.h */,
@@ -379,6 +377,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "MagicBeans-Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -394,6 +394,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "MagicBeans-Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

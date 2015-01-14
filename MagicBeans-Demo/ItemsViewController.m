@@ -9,6 +9,8 @@
 #import "ItemsViewController.h"
 #import "ItemsViewControllerCell.h"
 #import "UIScrollView+RefreshControl.h"
+#import "AFNetworking.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface ItemsViewController ()
 
@@ -19,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initViews];
+    [self loadCategoriesData];
 }
 
 - (void)initViews
@@ -52,17 +55,88 @@
     });
 }
 
+- (void)initCategorysWithArray:(NSArray *)categoryArray
+{
+    for (NSInteger index = 0; index < categoryArray.count; index++) {
+        NSDictionary *categoryItem = categoryArray[index];
+        [self addCategory:categoryItem[@"column_name"] CategoryID:index];
+    }
+
+}
+
 - (void)loadData
 {
-    numberOfItems = 5;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self addCategory:@"我是测试按钮" CategoryID:1];
-    });
+    
+}
+
+- (void)loadCategoriesData
+{
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"magazineId":self.mPeriodicalID};
+    [mgr GET:@"http://192.168.1.113:8081/nj_app/app/getColumnList.do" parameters:parameters
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         mCategories = responseObject[@"data"];
+         [self initCategorysWithArray:mCategories];
+     }
+     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         dispatch_async(dispatch_get_main_queue(), ^{
+             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"数据获取失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+             [alertView show];
+         });
+     }];
 }
 
 - (void)loadDataMore
 {
     numberOfItems += 5;
+}
+
+- (void)loadBannersDataWithID:(NSString *)categoryID
+{
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"magazineId":self.mPeriodicalID,
+                                 @"columnId":categoryID};
+    [mgr GET:@"http://192.168.1.113:8081/nj_app/app/getColumnBanner.do" parameters:parameters
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         mBanners = responseObject[@"data"];
+         self.mPageControl.numberOfPages = mBanners.count;
+         
+         if (mBanners.count > 0) {
+             [self.bannerImage1 setImageWithURL:[NSURL URLWithString:mBanners[0][@"path"] ] placeholderImage:[UIImage imageNamed:@"banner1"]];
+             self.bannerTitleLabel.text = mBanners[0][@"title"];
+             [self.bannerImage1 setHidden:NO];
+
+         }
+         else
+         {
+             [self.bannerImage1 setHidden:YES];
+         }
+         
+         if (mBanners.count > 1) {
+             [self.bannerImage2 setImageWithURL:[NSURL URLWithString:mBanners[1][@"path"] ] placeholderImage:[UIImage imageNamed:@"banner1"]];
+             [self.bannerImage2 setHidden:NO];
+         }
+         else
+         {
+             [self.bannerImage2 setHidden:YES];
+         }
+         
+         if (mBanners.count > 2) {
+             [self.bannerImage3 setImageWithURL:[NSURL URLWithString:mBanners[2][@"path"] ] placeholderImage:[UIImage imageNamed:@"banner1"]];
+             [self.bannerImage3 setHidden:NO];
+         }
+         else
+         {
+             [self.bannerImage3 setHidden:YES];
+         }
+     }
+     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         dispatch_async(dispatch_get_main_queue(), ^{
+             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"数据获取失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+             [alertView show];
+         });
+     }];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -104,10 +178,12 @@
     }
     sender.selected = YES;
     sender.titleLabel.font = [UIFont systemFontOfSize:13];
-    [self performSegueWithIdentifier:@"ReportViewController" sender:nil];
+    mCurrentCategoryID = mCategories[sender.tag][@"id"];
+    [self loadBannersDataWithID:mCategories[sender.tag][@"id"]];
+//    [self performSegueWithIdentifier:@"ReportViewController" sender:nil];
 }
 
-- (void)addCategory:(NSString *)name CategoryID:(NSInteger)categoryID
+- (UIButton *)addCategory:(NSString *)name CategoryID:(NSInteger)categoryID
 {
     UIButton *categoryBtn = [[UIButton alloc] init];
     [categoryBtn setTitle:name forState:UIControlStateNormal];
@@ -124,14 +200,23 @@
     
     self.mCategorysViewWidth.constant += categoryBtn.frame.size.width + 8;
     [self.mCategorysView addSubview:categoryBtn];
+    
+    return categoryBtn;
 }
 
 #pragma UIScrollView Delegate
 - (void) scrollViewDidScroll:(UIScrollView *)sender
 {
-    CGFloat scrollviewW =  sender.frame.size.width;
-    CGFloat x = sender.contentOffset.x;
-    int page = (x + scrollviewW / 2) /  scrollviewW;
-    self.mPageControl.currentPage = page;
+    if(sender != self.mTableView)
+    {
+        CGFloat scrollviewW =  sender.frame.size.width;
+        CGFloat x = sender.contentOffset.x;
+        int page = (x + scrollviewW / 2) /  scrollviewW;
+        if (self.mPageControl.numberOfPages > page)
+        {
+            self.mPageControl.currentPage = page;
+            self.bannerTitleLabel.text = mBanners[page][@"title"];
+        }
+    }
 }
 @end

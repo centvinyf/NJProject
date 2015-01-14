@@ -7,6 +7,7 @@
 //
 
 #import "PeriodicalsViewControllerCell.h"
+#import "UIButton+AFNetworking.h"
 
 @implementation PeriodicalsViewControllerCell
 
@@ -20,16 +21,43 @@
     // Configure the view for the selected state
 }
 
-- (void)initWithArray:(NSArray *)itemsArray
+- (void)initWithArray:(NSArray *)itemsArray withIndex:(NSInteger)itemIndex
 {
-    NSDictionary *leftDic = itemsArray[0];
-    [self.leftItemBtn setTitle:leftDic[@"title"] forState:UIControlStateNormal];
+    if (itemsArray.count > 0) {
+        NSDictionary *leftDic = itemsArray[0];
+        [self.leftItemView setHidden:NO];
+        [self.leftItemBtn setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:leftDic[@"path"]] placeholderImage:nil];
+        self.leftItemBtn.tag = itemIndex;
+        self.leftDateLabel.text = leftDic[@"date"];
+    }
+    else
+    {
+        [self.leftItemView setHidden:YES];
+    }
     
-    NSDictionary *centerDic = itemsArray[1];
-    [self.leftItemBtn setTitle:centerDic[@"title"] forState:UIControlStateNormal];
+    if (itemsArray.count > 1) {
+        NSDictionary *centerDic = itemsArray[1];
+        [self.centerItemView setHidden:NO];
+        [self.centerItemBtn setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:centerDic[@"path"]] placeholderImage:nil];
+        self.centerItemBtn.tag = itemIndex + 1;
+        self.centerDateLabel.text = centerDic[@"date"];
+    }
+    else
+    {
+        [self.centerItemView setHidden:YES];
+    }
     
-    NSDictionary *rightDic = itemsArray[2];
-    [self.leftItemBtn setTitle:rightDic[@"title"] forState:UIControlStateNormal];
+    if (itemsArray.count > 2) {
+        NSDictionary *rightDic = itemsArray[2];
+        [self.rightItemView setHidden:NO];
+        [self.rightItemBtn setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:rightDic[@"path"]] placeholderImage:nil];
+        self.rightItemBtn.tag = itemIndex + 2;
+        self.rightDateLabel.text = rightDic[@"date"];
+    }
+    else
+    {
+        [self.rightItemView setHidden:YES];
+    }
 }
 
 @end
