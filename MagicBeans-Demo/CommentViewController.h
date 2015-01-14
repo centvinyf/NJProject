@@ -13,7 +13,11 @@
 {
     NSInteger numberOfItems;
     CommentViewControllerCellTableViewCell *mPrototypeCell;
-    NSArray *mDataSouceArray;
+    NSMutableArray *mCommentsArray;
+    NSInteger currentPageIndex;
+
 }
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
+@property (retain, nonatomic) NSString *mArticleID;
+
 @end

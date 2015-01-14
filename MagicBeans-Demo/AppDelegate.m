@@ -16,9 +16,17 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[UINavigationBar appearance] setBackIndicatorImage:[UIImage imageNamed:@"back_indicator"]];
-    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:[UIImage imageNamed:@"back_indicator"]];
-    // Override point for customization after application launch.
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    if (![def stringForKey:@"UUID"]) {
+        CFUUIDRef uuid_ref = CFUUIDCreate(NULL);
+        CFStringRef uuid_string_ref= CFUUIDCreateString(NULL, uuid_ref);
+        
+        CFRelease(uuid_ref);
+        NSString *uuid = [NSString stringWithString:(__bridge NSString*)uuid_string_ref];
+        
+        CFRelease(uuid_string_ref);
+        [def setObject:uuid forKey:@"UUID"];
+    }
     return YES;
 }
 

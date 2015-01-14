@@ -15,4 +15,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *mTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mCommentLabel;
 
+- (void)initWithDic:(NSDictionary *)dic;
 @end

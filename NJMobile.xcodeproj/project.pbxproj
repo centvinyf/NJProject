@@ -13,7 +13,6 @@
 		7C1AB9D51A5E676E00907B2E /* PeriodicalsViewControllerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1AB9D41A5E676E00907B2E /* PeriodicalsViewControllerCell.m */; };
 		7C1AB9D81A5E6F8400907B2E /* PeriodicalsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1AB9D71A5E6F8400907B2E /* PeriodicalsViewController.m */; };
 		7C53D1E31A384D170084EBA1 /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C53D1E21A384D170084EBA1 /* ItemsViewController.m */; };
-		7C53D1E61A391C910084EBA1 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C53D1E51A391C910084EBA1 /* PageViewController.m */; };
 		7C53D1E91A3920A00084EBA1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C53D1E81A3920A00084EBA1 /* DetailViewController.m */; };
 		7C64981A1A382D0200B296B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C6498191A382D0200B296B4 /* main.m */; };
 		7C64981D1A382D0200B296B4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C64981C1A382D0200B296B4 /* AppDelegate.m */; };
@@ -38,8 +37,6 @@
 		7C1AB9D71A5E6F8400907B2E /* PeriodicalsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeriodicalsViewController.m; sourceTree = "<group>"; };
 		7C53D1E11A384D170084EBA1 /* ItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsViewController.h; sourceTree = "<group>"; };
 		7C53D1E21A384D170084EBA1 /* ItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsViewController.m; sourceTree = "<group>"; };
-		7C53D1E41A391C910084EBA1 /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
-		7C53D1E51A391C910084EBA1 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 		7C53D1E71A3920A00084EBA1 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		7C53D1E81A3920A00084EBA1 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		7C6498141A382D0200B296B4 /* NJMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NJMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,15 +103,13 @@
 				7CF05A6A1A5F9CA900864744 /* ItemsViewControllerCell.m */,
 				7C9C3EB31A6352390089B6FE /* ReportViewController.h */,
 				7C9C3EB41A6352390089B6FE /* ReportViewController.m */,
-				7C53D1E41A391C910084EBA1 /* PageViewController.h */,
-				7C53D1E51A391C910084EBA1 /* PageViewController.m */,
 				7C53D1E71A3920A00084EBA1 /* DetailViewController.h */,
 				7C53D1E81A3920A00084EBA1 /* DetailViewController.m */,
 				7C6498211A382D0200B296B4 /* Main.storyboard */,
-				2C2CB35E1A636E4200A01662 /* CommentViewControllerCellTableViewCell.h */,
-				2C2CB35F1A636E4200A01662 /* CommentViewControllerCellTableViewCell.m */,
 				2C2CB35B1A636AC300A01662 /* CommentViewController.h */,
 				2C2CB35C1A636AC300A01662 /* CommentViewController.m */,
+				2C2CB35E1A636E4200A01662 /* CommentViewControllerCellTableViewCell.h */,
+				2C2CB35F1A636E4200A01662 /* CommentViewControllerCellTableViewCell.m */,
 				7C6498261A382D0200B296B4 /* LaunchScreen.xib */,
 				7C6498241A382D0200B296B4 /* Images.xcassets */,
 				7C6498171A382D0200B296B4 /* Supporting Files */,
@@ -265,7 +260,6 @@
 				7C1AB9D81A5E6F8400907B2E /* PeriodicalsViewController.m in Sources */,
 				7C64981D1A382D0200B296B4 /* AppDelegate.m in Sources */,
 				7CF05A6E1A5FC50800864744 /* LoadingViewController.m in Sources */,
-				7C53D1E61A391C910084EBA1 /* PageViewController.m in Sources */,
 				7C64981A1A382D0200B296B4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

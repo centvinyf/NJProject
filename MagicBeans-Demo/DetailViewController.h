@@ -11,7 +11,6 @@
 @interface DetailViewController : UIViewController<UIGestureRecognizerDelegate,UITextViewDelegate>
 {
     UIImageView *imageView;
-    NSString * mComment;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *FontSetButton;
@@ -28,5 +27,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mYLocationConstraint;
 @property (weak, nonatomic) IBOutlet UITextView *mTextField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mTextFieldHeightConstraint;
-
+@property (retain, nonatomic) NSString *mArticleID;
+@property (weak, nonatomic) IBOutlet UIButton *mPraiseBtn;
 @end

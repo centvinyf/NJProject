@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "AFNetworking.h"
 
 @implementation DetailViewController
 
@@ -31,7 +32,7 @@
     [self.view addGestureRecognizer:singleTap];
     singleTap.delegate = self;
     singleTap.cancelsTouchesInView = YES;
-
+    self.mArticleID = @"sdfasd123";
     [self initNotifications];
 }
 
@@ -100,13 +101,40 @@
     [self.mTextField becomeFirstResponder];
 }
 
+- (IBAction)praiseArticle:(id)sender {
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"articleId":self.mArticleID,
+                                 @"sn":[def stringForKey:@"UUID"],
+                                 @"status":self.mPraiseBtn.selected ? @"0":@"1"};
+    [mgr GET:@"http://192.168.1.113:8081/nj_app/app/setArticlePraiseState.do" parameters:parameters
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         BOOL succeed = [responseObject[@"state"] boolValue];
+         if (succeed) {
+             ((UIButton *)sender).selected = !((UIButton *)sender).selected;
+             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"操作成功，谢谢！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+             [alertView show];
+         }
+         else
+         {
+             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"操作失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+             [alertView show];
+         }
+     }
+     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         dispatch_async(dispatch_get_main_queue(), ^{
+             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"数据获取失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+             [alertView show];
+         });
+     }];
+}
 #pragma mark- textfield
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     if ([text isEqualToString:@"\n"]) {
         [textView resignFirstResponder];
-        mComment = textView.text;
+        [self postComment:textView.text];
         return NO;
     }
     
@@ -121,8 +149,32 @@
     return YES;
 }
 
-- (void)textViewDidChange:(UITextView *)textView
+- (void)postComment:(NSString *)comment
 {
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"articleId":self.mArticleID,
+                                 @"content":comment,
+                                 @"ip":@"101.204.29.120"};
+    [mgr GET:@"http://192.168.1.113:8081/nj_app/app/setArticleCommont.do" parameters:parameters
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         BOOL succeed = [responseObject[@"state"] boolValue];
+         if (succeed) {
+             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"评论成功，谢谢！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+             [alertView show];
+         }
+         else
+         {
+             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"评论失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+             [alertView show];
+         }
+     }
+     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         dispatch_async(dispatch_get_main_queue(), ^{
+             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"数据获取失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+             [alertView show];
+         });
+     }];
+
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
@@ -133,7 +185,6 @@
 
 
 -(void)handleSingleTap:(UITapGestureRecognizer *)sender
-
 {
     CGPoint point = [sender locationInView:self.view];
     if (point.y<= self.mToolBarView.frame.origin.y
