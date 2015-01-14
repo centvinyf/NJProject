@@ -7,6 +7,7 @@
 //
 
 #import "ItemsViewControllerCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation ItemsViewControllerCell
 
@@ -22,7 +23,12 @@
 
 - (void)initWitDic:(NSDictionary *)dic
 {
-    
+    [self.mIconImageView setImageWithURL:[NSURL URLWithString:dic[@"path"]] placeholderImage:nil];
+    [self.mTitleLabel setText:dic[@"title"]];
+    [self.mDetailLabel setText:dic[@"summary"]];
+    NSString *numStr = [NSString stringWithFormat:@"%@条评论",dic[@"num"]];
+    [self.mCommentsLabel setText:numStr];
+
 }
 
 @end
