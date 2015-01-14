@@ -155,6 +155,7 @@
     itemsViewController.mPeriodicalID = sender;
 }
 
+
 - (IBAction)showItemsViewController:(UIButton *)sender {
     NSDictionary *dic = mPeriodicalsArray[sender.tag];
     NSString *PeriodicalID = dic[@"id"];

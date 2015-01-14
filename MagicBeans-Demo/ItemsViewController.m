@@ -8,6 +8,7 @@
 
 #import "ItemsViewController.h"
 #import "ItemsViewControllerCell.h"
+#import "DetailViewController.h"
 #import "UIScrollView+RefreshControl.h"
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
@@ -59,6 +60,17 @@
         [self addCategory:categoryItem[@"column_name"] CategoryID:index];
     }
 
+}
+
+#pragma mark- navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    DetailViewController * DetailViewController = [segue destinationViewController];
+    DetailViewController.mArticleID = sender;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  [self performSegueWithIdentifier:@"DetailViewController" sender:mArticles[indexPath.row][@"id"]];
 }
 #pragma mark- Load Data
 

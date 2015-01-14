@@ -23,7 +23,7 @@
 
 - (void)initWitDic:(NSDictionary *)dic
 {
-    [self.mIconImageView setImageWithURL:[NSURL URLWithString:dic[@"path"]] placeholderImage:nil];
+    [self.mIconImageView setImageWithURL:[NSURL URLWithString:dic[@"path"]] placeholderImage:[UIImage imageNamed:@"目录栏图片加载"]];
     [self.mTitleLabel setText:dic[@"title"]];
     [self.mDetailLabel setText:dic[@"summary"]];
     NSString *numStr = [NSString stringWithFormat:@"%@条评论",dic[@"num"]];

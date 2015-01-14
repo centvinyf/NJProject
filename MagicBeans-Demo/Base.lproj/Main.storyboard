@@ -599,7 +599,6 @@
                                             <outlet property="mDetailLabel" destination="rtg-iK-FTd" id="XOP-a5-0Pr"/>
                                             <outlet property="mIconImageView" destination="3kx-Lg-3GD" id="Cfh-mo-Zx4"/>
                                             <outlet property="mTitleLabel" destination="hqk-5m-mtF" id="WoO-cq-oD2"/>
-                                            <segue destination="o4V-Og-Fwg" kind="show" identifier="DetailViewController" id="uUC-a5-LkN"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -719,11 +718,12 @@
                         <outlet property="mPageControl" destination="0OR-rJ-smK" id="sEg-9X-qLE"/>
                         <outlet property="mTableView" destination="aF6-ia-r6K" id="yLW-AJ-28h"/>
                         <segue destination="CxV-09-KIh" kind="show" identifier="ReportViewController" id="Wfi-6N-kdZ"/>
+                        <segue destination="o4V-Og-Fwg" kind="show" identifier="DetailViewController" id="0YQ-np-pJ4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1kH-yU-yTc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1951.5" y="366"/>
+            <point key="canvasLocation" x="1927.5" y="366"/>
         </scene>
         <!--举报-->
         <scene sceneID="K2R-1Z-ZbO">
