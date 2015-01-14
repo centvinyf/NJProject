@@ -644,7 +644,7 @@
                                             <outlet property="mDetailLabel" destination="rtg-iK-FTd" id="XOP-a5-0Pr"/>
                                             <outlet property="mIconImageView" destination="3kx-Lg-3GD" id="Cfh-mo-Zx4"/>
                                             <outlet property="mTitleLabel" destination="hqk-5m-mtF" id="WoO-cq-oD2"/>
-                                            <segue destination="o4V-Og-Fwg" kind="show" id="uUC-a5-LkN"/>
+                                            <segue destination="o4V-Og-Fwg" kind="show" identifier="DetailViewController" id="uUC-a5-LkN"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
