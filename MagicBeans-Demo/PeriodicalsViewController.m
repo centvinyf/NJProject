@@ -9,7 +9,7 @@
 #import "PeriodicalsViewController.h"
 #import "PeriodicalsViewControllerCell.h"
 #import "UIScrollView+RefreshControl.h"
-
+#import "AFNetworking.h"
 @interface PeriodicalsViewController ()
 
 @end
@@ -60,6 +60,9 @@
 
 - (void)loadData
 {
+//    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+//    mgr GET:<#(NSString *)#> parameters:<#(id)#> success:<#^(AFHTTPRequestOperation *operation, id responseObject)success#> failure:<#^(AFHTTPRequestOperation *operation, NSError *error)failure#>
+    
     numberOfItems = 5;
 }
 
