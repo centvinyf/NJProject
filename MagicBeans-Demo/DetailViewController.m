@@ -60,10 +60,10 @@
 }
 
 - (IBAction)FontSetButtonPressed:(id)sender {
-    self.FengeView.hidden = NO;
-    self.SmallButton.hidden = NO;
-    self.MidButton.hidden = NO;
-    self.BigButton.hidden = NO;
+    self.FengeView.hidden = !self.FengeView.isHidden;
+    self.SmallButton.hidden = !self.SmallButton.isHidden;
+    self.MidButton.hidden = !self.MidButton.isHidden;
+    self.BigButton.hidden = !self.BigButton.isHidden;
 }
 
 - (IBAction)BigFontButtonPressed:(id)sender {
