@@ -121,9 +121,17 @@
     return ceilf(mPeriodicalsArray.count/3.0);
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    return @"刊号10086";
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 22)];
+    headerView.backgroundColor = [UIColor clearColor];
+    UILabel *titileLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, headerView.frame.size.width, headerView.frame.size.height - 5)];
+    titileLabel.text = @"刊号10086";
+    titileLabel.font = [UIFont systemFontOfSize:12];
+    titileLabel.textColor = self.navigationController.navigationBar.backgroundColor;
+    [headerView addSubview:titileLabel];
+    return headerView;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
