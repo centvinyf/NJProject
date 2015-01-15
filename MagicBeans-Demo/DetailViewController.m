@@ -142,9 +142,18 @@
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     if ([text isEqualToString:@"\n"]) {
-        [textView resignFirstResponder];
-        [self postComment:textView.text];
+        if([self.mTextField.text isEqualToString:@""]){
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"评论不能为空！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            [alertView show];
+            return NO;
+
+        }else{
+            [textView resignFirstResponder];
+            [self postComment:textView.text];
         return NO;
+        }
+        
+        
     }
     
     CGRect rect = [textView.text boundingRectWithSize:CGSizeMake(textView.contentSize.width - 8, 0)
