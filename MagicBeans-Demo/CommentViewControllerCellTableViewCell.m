@@ -23,7 +23,7 @@
 - (void)initWithDic:(NSDictionary *)dic
 {
     self.mLocationLabel.text = dic[@"address"];
-    self.mCommentLabel.text = dic[@"content"];
+    self.mCommentLabel.text = @"要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！";//dic[@"content"];
     self.mTimeLabel.text = dic[@"date"];
 }
 @end

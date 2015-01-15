@@ -135,26 +135,26 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *comment = mCommentsArray[indexPath.row][@"content"];
-    CGRect rect = [comment boundingRectWithSize:CGSizeMake(320 - 58, 0)
+    NSString *comment = @"要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！";//mCommentsArray[indexPath.row][@"content"];
+    CGRect rect = [comment boundingRectWithSize:CGSizeMake(320 - 61, 0)
                                                                options:NSStringDrawingTruncatesLastVisibleLine |  NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
                    
-                                                            attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]}
+                                                            attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}
                                                                context:NULL];
     
-    return 49 + rect.size.height;
+    return 52 + rect.size.height;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *comment = mCommentsArray[indexPath.row][@"content"];
-    CGRect rect = [comment boundingRectWithSize:CGSizeMake(self.view.bounds.size.width - 58, 0)
+    NSString *comment = @"要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！";//mCommentsArray[indexPath.row][@"content"];
+    CGRect rect = [comment boundingRectWithSize:CGSizeMake(self.view.bounds.size.width - 61, 0)
                                                                options:NSStringDrawingTruncatesLastVisibleLine |  NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
 
-                                  attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17]}
+                                  attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}
                                    context:NULL];
 
-    return 49 + rect.size.height;
+    return 52 + rect.size.height;
 }
 /*
 #pragma mark - Navigation
