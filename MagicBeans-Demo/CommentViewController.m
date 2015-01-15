@@ -135,7 +135,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *comment = @"要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！";//mCommentsArray[indexPath.row][@"content"];
+    NSString *comment = mCommentsArray[indexPath.row][@"content"];
     CGRect rect = [comment boundingRectWithSize:CGSizeMake(320 - 61, 0)
                                                                options:NSStringDrawingTruncatesLastVisibleLine |  NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
                    
@@ -147,7 +147,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *comment = @"要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！要钱不要命啊！";//mCommentsArray[indexPath.row][@"content"];
+    NSString *comment = mCommentsArray[indexPath.row][@"content"];
     CGRect rect = [comment boundingRectWithSize:CGSizeMake(self.view.bounds.size.width - 61, 0)
                                                                options:NSStringDrawingTruncatesLastVisibleLine |  NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
 
