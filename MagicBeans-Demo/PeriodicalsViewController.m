@@ -29,7 +29,7 @@
 }
 
 - (void)initViews
-{    
+{
     __weak typeof(self) weakSelf = self;
     [self.tableView addTopRefreshControlUsingBlock:^{
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -129,7 +129,7 @@
     UILabel *titileLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, headerView.frame.size.width, headerView.frame.size.height - 5)];
     titileLabel.text = @"刊号10086";
     titileLabel.font = [UIFont systemFontOfSize:12];
-    titileLabel.textColor = self.navigationController.navigationBar.backgroundColor;
+    titileLabel.textColor = [UIColor colorWithRed:7.0/255.0 green:63.0/255.0 blue:137.0/255.0 alpha:1];
     [headerView addSubview:titileLabel];
     return headerView;
 }

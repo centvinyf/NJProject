@@ -247,12 +247,14 @@
             {
                 if (view != sender) {
                     ((UIButton *)view).selected = NO;
-                    ((UIButton *)view).titleLabel.font = [UIFont systemFontOfSize:13];
+                    ((UIButton *)view).titleLabel.font = [UIFont systemFontOfSize:14];
+                    view.frame = CGRectMake(view.frame.origin.x, 0, view.frame.size.width, view.frame.size.height);
                 }
             }
         }
         sender.selected = YES;
-        sender.titleLabel.font = [UIFont systemFontOfSize:14];
+        sender.titleLabel.font = [UIFont systemFontOfSize:16];
+        sender.frame = CGRectMake(sender.frame.origin.x, 2, sender.frame.size.width, sender.frame.size.height);
         mCurrentCategoryID = mCategories[sender.tag][@"id"];
         [self loadBannersDataWithID:mCategories[sender.tag][@"id"]];
         [self loadArticleDataWithID:mCategories[sender.tag][@"id"]];
@@ -265,11 +267,11 @@
     [categoryBtn setTitle:name forState:UIControlStateNormal];
     [categoryBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [categoryBtn setTitleColor:[UIColor colorWithRed:7.0/255.0 green:63.0/255.0 blue:137.0/255.0 alpha:1] forState:UIControlStateSelected];
-    categoryBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    categoryBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     categoryBtn.tag =categoryID;
     CGRect rect = categoryBtn.frame;
     rect.origin.x = self.mCategorysViewWidth.constant;
-    rect.size = [name sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]}];
+    rect.size = [name sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]}];
     rect.size.height = self.mCategorysView.frame.size.height;
     categoryBtn.frame = rect;
     [categoryBtn addTarget:self action:@selector(selectedButton:) forControlEvents:UIControlEventTouchUpInside];

@@ -27,7 +27,13 @@
         CFRelease(uuid_string_ref);
         [def setObject:uuid forKey:@"UUID"];
     }
+    [self initViews];
     return YES;
+}
+
+- (void)initViews
+{
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

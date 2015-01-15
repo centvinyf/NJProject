@@ -24,16 +24,12 @@
 
 - (void) viewDidLoad
 {
-    self.FengeView.hidden = YES;
-    self.SmallButton.hidden = YES;
-    self.MidButton.hidden = YES;
-    self.BigButton.hidden = YES;
-    self.mToolBarView.hidden = YES;
     UITapGestureRecognizer* singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     [self.view addGestureRecognizer:singleTap];
     singleTap.delegate = self;
     singleTap.cancelsTouchesInView = YES;
     [self initNotifications];
+    [self initViews];
 }
 
 - (void)initNotifications
@@ -52,48 +48,51 @@
     }];
 }
 
+- (void)initViews
+{
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 55, 20)];
+    [button setBackgroundImage:[UIImage imageNamed:@"看评论BG"] forState:UIControlStateNormal];
+    [button setTitle:@"312条评论" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(showCommentsList:) forControlEvents:UIControlEventTouchUpInside];
+    button.titleLabel.font = [UIFont systemFontOfSize:10];
+    UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.rightBarButtonItem = buttonItem;
+}
+
 #pragma mark- setFonts
 -(void)RefreshStatus
 {
-    [self.BigButton setImage:[UIImage imageNamed:@"大未选中.png"] forState:UIControlStateNormal];
-    [self.MidButton setImage:[UIImage imageNamed:@"中未选中.png"] forState:UIControlStateNormal];
-    [self.SmallButton setImage:[UIImage imageNamed:@"小未选中.png"] forState:UIControlStateNormal];
+    self.BigButton.selected = NO;
+    self.MidButton.selected = NO;
+    self.SmallButton.selected = NO;
 }
 
 - (IBAction)FontSetButtonPressed:(id)sender {
+    ((UIButton *)sender).selected = !((UIButton *)sender).selected;
     self.FengeView.hidden = !self.FengeView.isHidden;
-    self.SmallButton.hidden = !self.SmallButton.isHidden;
-    self.MidButton.hidden = !self.MidButton.isHidden;
-    self.BigButton.hidden = !self.BigButton.isHidden;
 }
 
 - (IBAction)BigFontButtonPressed:(id)sender {
     [self RefreshStatus];
-    [self.BigButton setImage:[UIImage imageNamed:@"大选中.png"] forState:UIControlStateNormal];
+    self.BigButton.selected = !self.BigButton.selected;
+    self.FontSetButton.selected = NO;
     self.FengeView.hidden = YES;
-    self.SmallButton.hidden = YES;
-    self.MidButton.hidden = YES;
-    self.BigButton.hidden = YES;
     self.currenFont = @"Big";
 }
 
 - (IBAction)MidFontButtonPressed:(id)sender {
     [self RefreshStatus];
-    [self.MidButton setImage:[UIImage imageNamed:@"中选中.png"] forState:UIControlStateNormal];
+    self.MidButton.selected = !self.MidButton.selected;
+    self.FontSetButton.selected = NO;
     self.FengeView.hidden = YES;
-    self.SmallButton.hidden = YES;
-    self.MidButton.hidden = YES;
-    self.BigButton.hidden = YES;
     self.currenFont = @"Mid";
 }
 
 - (IBAction)SmallFontButtonPressed:(id)sender {
     [self RefreshStatus];
-    [self.SmallButton setImage:[UIImage imageNamed:@"小选中.png"] forState:UIControlStateNormal];
+    self.SmallButton.selected = !self.SmallButton.selected;
+    self.FontSetButton.selected = NO;
     self.FengeView.hidden = YES;
-    self.SmallButton.hidden = YES;
-    self.MidButton.hidden = YES;
-    self.BigButton.hidden = YES;
     self.currenFont = @"Small";
 }
 
