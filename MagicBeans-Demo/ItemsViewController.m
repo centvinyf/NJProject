@@ -32,7 +32,7 @@
     [self.mTableView addTopRefreshControlUsingBlock:^{
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             // request for datas
-            [weakSelf loadData];
+            [weakSelf loadArticleDataWithID:mCurrentCategoryID];
         });
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [weakSelf.mTableView reloadData];
@@ -43,7 +43,7 @@
     [self.mTableView addBottomRefreshControlUsingBlock:^{
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             // request for datas
-            [weakSelf loadDataMore];
+            [weakSelf loadArticleDataMoreWithID:mCurrentCategoryID];
         });
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [weakSelf.mTableView reloadData];
@@ -55,24 +55,49 @@
 
 - (void)initCategorysWithArray:(NSArray *)categoryArray
 {
+    UIButton *defaultBtn;
     for (NSInteger index = 0; index < categoryArray.count; index++) {
         NSDictionary *categoryItem = categoryArray[index];
-        [self addCategory:categoryItem[@"column_name"] CategoryID:index];
+        if (index == 0)
+            defaultBtn = [self addCategory:categoryItem[@"column_name"] CategoryID:index];
+        else if (index == 1)
+            [self addCategory:categoryItem[@"column_name"] CategoryID:1];
+        else
+            [self addCategory:categoryItem[@"column_name"] CategoryID:index];
     }
-
+    [self selectedButton:defaultBtn];
 }
 
 #pragma mark- navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    DetailViewController * DetailViewController = [segue destinationViewController];
-    DetailViewController.mArticleID = sender;
+    if ([segue.identifier isEqualToString:@"DetailViewController"]) {
+        DetailViewController * DetailViewController = [segue destinationViewController];
+        DetailViewController.mArticleID = sender;
+    }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
   [self performSegueWithIdentifier:@"DetailViewController" sender:mArticles[indexPath.row][@"id"]];
 }
+
 #pragma mark- Load Data
+- (void)loadCategoriesData
+{
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"magazineId":self.mPeriodicalID};
+    [mgr GET:@"http://192.168.1.113:8081/nj_app/app/getColumnList.do" parameters:parameters
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         mCategories = responseObject[@"data"];
+         [self initCategorysWithArray:mCategories];
+     }
+     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         dispatch_async(dispatch_get_main_queue(), ^{
+             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"数据获取失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+             [alertView show];
+         });
+     }];
+}
 
 -(void)loadArticleDataWithID:(NSString *)categoryID
 {
@@ -99,34 +124,12 @@
 
 }
 
-- (void)loadData
-{
-    
-}
-
-- (void)loadCategoriesData
-{
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{@"magazineId":self.mPeriodicalID};
-    [mgr GET:@"http://192.168.1.113:8081/nj_app/app/getColumnList.do" parameters:parameters
-     success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         mCategories = responseObject[@"data"];
-         [self initCategorysWithArray:mCategories];
-     }
-     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         dispatch_async(dispatch_get_main_queue(), ^{
-             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"数据获取失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-             [alertView show];
-         });
-     }];
-}
-
-- (void)loadDataMore
+- (void)loadArticleDataMoreWithID:(NSString *)categoryID
 {
     currentPageIndex++;
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"magazineId":self.mPeriodicalID,
-                                 @"columnId":mCurrentCategoryID,
+                                 @"columnId":categoryID,
                                  @"page":[NSNumber numberWithInteger:currentPageIndex]};
     [mgr GET:@"http://192.168.1.113:8081/nj_app/app/getColumnContent.do" parameters:parameters
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -157,6 +160,7 @@
 
 - (void)loadBannersDataWithID:(NSString *)categoryID
 {
+    self.bannerTitleLabel.text = @"";
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"magazineId":self.mPeriodicalID,
                                  @"columnId":categoryID};
@@ -232,20 +236,29 @@
 }
 */
 - (IBAction)selectedButton:(UIButton *)sender {
-    for (UIView *view in sender.superview.subviews) {
-        if ([view isMemberOfClass:[UIButton class]]) {
-            if (view != sender) {
-                ((UIButton *)view).selected = NO;
-                ((UIButton *)view).titleLabel.font = [UIFont systemFontOfSize:13];
+    if (sender.tag == 1) {
+        [self performSegueWithIdentifier:@"ReportViewController" sender:nil];
+    }
+    else
+    {
+        for (UIView *view in sender.superview.subviews)
+        {
+            if ([view isMemberOfClass:[UIButton class]])
+            {
+                if (view != sender) {
+                    ((UIButton *)view).selected = NO;
+                    ((UIButton *)view).titleLabel.font = [UIFont systemFontOfSize:14];
+                    view.frame = CGRectMake(view.frame.origin.x, 0, view.frame.size.width, view.frame.size.height);
+                }
             }
         }
+        sender.selected = YES;
+        sender.titleLabel.font = [UIFont systemFontOfSize:16];
+        sender.frame = CGRectMake(sender.frame.origin.x, 2, sender.frame.size.width, sender.frame.size.height);
+        mCurrentCategoryID = mCategories[sender.tag][@"id"];
+        [self loadBannersDataWithID:mCategories[sender.tag][@"id"]];
+        [self loadArticleDataWithID:mCategories[sender.tag][@"id"]];
     }
-    sender.selected = YES;
-    sender.titleLabel.font = [UIFont systemFontOfSize:13];
-    mCurrentCategoryID = mCategories[sender.tag][@"id"];
-    [self loadBannersDataWithID:mCategories[sender.tag][@"id"]];
-    [self loadArticleDataWithID:mCategories[sender.tag][@"id"]];
-//    [self performSegueWithIdentifier:@"ReportViewController" sender:nil];
 }
 
 - (UIButton *)addCategory:(NSString *)name CategoryID:(NSInteger)categoryID
@@ -253,12 +266,12 @@
     UIButton *categoryBtn = [[UIButton alloc] init];
     [categoryBtn setTitle:name forState:UIControlStateNormal];
     [categoryBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [categoryBtn setTitleColor:[UIColor colorWithRed:13.0/255.0 green:0 blue:99/255.0 alpha:1] forState:UIControlStateSelected];
-    categoryBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    [categoryBtn setTitleColor:[UIColor colorWithRed:7.0/255.0 green:63.0/255.0 blue:137.0/255.0 alpha:1] forState:UIControlStateSelected];
+    categoryBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     categoryBtn.tag =categoryID;
     CGRect rect = categoryBtn.frame;
     rect.origin.x = self.mCategorysViewWidth.constant;
-    rect.size = [name sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]}];
+    rect.size = [name sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]}];
     rect.size.height = self.mCategorysView.frame.size.height;
     categoryBtn.frame = rect;
     [categoryBtn addTarget:self action:@selector(selectedButton:) forControlEvents:UIControlEventTouchUpInside];
