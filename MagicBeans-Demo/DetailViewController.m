@@ -28,8 +28,10 @@
     [self.view addGestureRecognizer:singleTap];
     singleTap.delegate = self;
     singleTap.cancelsTouchesInView = YES;
+    [self geturl];
     [self initNotifications];
     [self initViews];
+    
 }
 
 - (void)initNotifications
@@ -46,6 +48,7 @@
         self.mTextFieldHeightConstraint.constant = 30;
         self.mTextViewContainer.hidden = YES;
     }];
+    
 }
 
 - (void)initViews
@@ -94,6 +97,8 @@
     self.FontSetButton.selected = NO;
     self.FengeView.hidden = YES;
     self.currenFont = @"Small";
+    
+//    self.mWebView h
 }
 
 - (IBAction)CommentButtonPressed:(id)sender {
@@ -179,7 +184,7 @@
          BOOL succeed = [responseObject[@"state"] boolValue];
          if (succeed) {
              UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"评论成功，谢谢！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-             NSLog(comment);
+            
              [alertView show];
          }
          else
@@ -214,5 +219,25 @@
     else self.mToolBarView.hidden= NO;
     [self.mTextField resignFirstResponder];
 }
+#pragma mark- getrurl
+-(void)geturl{
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"articleId":self.mArticleID,
+                                 @"sn":[def stringForKey:@"UUID"],
+                                 };
+    [mgr GET:@"http://192.168.1.113:8080/nj_app/app/showArticle.do" parameters:parameters
+     success:^(AFHTTPRequestOperation *operation, id responseObject) {
+         [self.mWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:responseObject[@"path"]]]];
+         self.mPraiseBtn.selected = [responseObject[@"isPraised"] boolValue];
+              }
+     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         dispatch_async(dispatch_get_main_queue(), ^{
+             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"数据获取失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+             [alertView show];
+         });
+     }];
 
+
+}
 @end

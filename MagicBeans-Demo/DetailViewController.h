@@ -17,8 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *FontSetButton;
 
 @property (weak, nonatomic) IBOutlet UIWebView *mWebView;
-
 @property (retain, nonatomic) NSString * currenFont;
+@property (weak,nonatomic) NSString * ArticleURL;
 @property (weak, nonatomic) IBOutlet UIView *FengeView;
 @property (weak, nonatomic) IBOutlet UIButton *SmallButton;
 @property (weak, nonatomic) IBOutlet UIButton *MidButton;

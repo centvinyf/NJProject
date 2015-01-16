@@ -17,16 +17,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initViews];
+    [self getLoadingPicture];
 }
 -(void)getLoadingPicture{
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
         [mgr GET:@"http://192.168.1.113:8081/nj_app/app/getLoadingImg.do" parameters:nil
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         self.LoadingPicture = responseObject[@"data"];
-        
-         
-         
+         self.LoadingPicture = responseObject[@"data"][@"path"];
+         NSRange range = [self.LoadingPicture rangeOfString:@"/" options:NSBackwardsSearch];
+         if (range.length > 0)
+         {
+             range.location += 1;//remove @"/"
+             range.length = self.LoadingPicture.length - range.location;
+             NSString *fileName = [self.LoadingPicture substringWithRange:range];
+             [self initViewWithImageFile:fileName URL:self.LoadingPicture];
+         }
      }
      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          dispatch_async(dispatch_get_main_queue(), ^{
@@ -36,13 +41,25 @@
          });
      }];
 }
-- (void)initViews
+- (void)initViewWithImageFile:(NSString *)fileName URL:(NSString *)urlStr
 {
-    
- [self.LoadingImage setImageWithURL:[NSURL URLWithString:self.LoadingPicture] placeholderImage:[UIImage imageNamed:@"默认loading图"]];
+    NSString *filePath = [NSHomeDirectory() stringByAppendingString:[NSString stringWithFormat:@"/Documents/%@",fileName]];
+    UIImage *image = [UIImage imageWithContentsOfFile:filePath];
+    if (image == nil)
+    {
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlStr]];
+            [imageData writeToFile:[NSHomeDirectory() stringByAppendingPathComponent:fileName] atomically:YES];
+        });
+    }
+    else
+    {
+        [self.LoadingImage setImage:image];
+    }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self performSegueWithIdentifier:@"UINavigationController" sender:nil];
     });
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
