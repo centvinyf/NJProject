@@ -121,7 +121,7 @@
     NSDictionary *parameters = @{@"articleId":self.mArticleID,
                                  @"sn":[def stringForKey:@"UUID"],
                                  @"status":self.mPraiseBtn.selected ? @"0":@"1"};
-    [mgr GET:@"http://192.168.1.113:8081/nj_app/app/setArticlePraiseState.do" parameters:parameters
+    [mgr GET:@"http://182.92.183.22:8080/nj_app/app/setArticlePraiseState.do" parameters:parameters
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
          BOOL succeed = [responseObject[@"state"] boolValue];
          if (succeed) {
@@ -179,7 +179,7 @@
     NSDictionary *parameters = @{@"articleId":self.mArticleID,
                                  @"content":comment,
                                  @"ip":@"101.204.29.120"};
-    [mgr GET:@"http://192.168.1.113:8081/nj_app/app/setArticleCommont.do" parameters:parameters
+    [mgr GET:@"http://182.92.183.22:8080/nj_app/app/setArticleCommont.do" parameters:parameters
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
          BOOL succeed = [responseObject[@"state"] boolValue];
          if (succeed) {
@@ -226,7 +226,7 @@
     NSDictionary *parameters = @{@"articleId":self.mArticleID,
                                  @"sn":[def stringForKey:@"UUID"],
                                  };
-    [mgr GET:@"http://192.168.1.113:8080/nj_app/app/showArticle.do" parameters:parameters
+    [mgr GET:@"http://182.92.183.22:8080/nj_app/app/showArticle.do" parameters:parameters
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
          [self.mWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:responseObject[@"path"]]]];
          self.mPraiseBtn.selected = [responseObject[@"isPraised"] boolValue];

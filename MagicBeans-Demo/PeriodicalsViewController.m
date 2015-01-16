@@ -61,7 +61,7 @@
     currentPageIndex = 1;
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"page":[NSNumber numberWithInteger:currentPageIndex]};
-    [mgr GET:@"http://192.168.1.113:8081/nj_app/app/getMagazineList.do" parameters:parameters
+    [mgr GET:@"http://182.92.183.22:8080/nj_app/app/getMagazineList.do" parameters:parameters
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
         mPeriodicalsArray = [NSMutableArray arrayWithArray:responseObject[@"data"]];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -83,7 +83,7 @@
     currentPageIndex++;
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"page":[NSNumber numberWithInteger:currentPageIndex]};
-    [mgr GET:@"http://192.168.1.113:8081/nj_app/app/getMagazineList.do" parameters:parameters
+    [mgr GET:@"http://182.92.183.22:8080/nj_app/app/getMagazineList.do" parameters:parameters
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
          if ([responseObject[@"data"] count] > 0)
          {

@@ -21,7 +21,7 @@
 }
 -(void)getLoadingPicture{
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-        [mgr GET:@"http://192.168.1.113:8081/nj_app/app/getLoadingImg.do" parameters:nil
+        [mgr GET:@"http://182.92.183.22:8080/nj_app/app/getLoadingImg.do" parameters:nil
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
          self.LoadingPicture = responseObject[@"data"][@"path"];
          NSRange range = [self.LoadingPicture rangeOfString:@"/" options:NSBackwardsSearch];

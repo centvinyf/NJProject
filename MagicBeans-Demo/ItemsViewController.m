@@ -98,7 +98,7 @@
 {
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"magazineId":self.mPeriodicalID};
-    [mgr GET:@"http://192.168.1.113:8081/nj_app/app/getColumnList.do" parameters:parameters
+    [mgr GET:@"http://182.92.183.22:8080/nj_app/app/getColumnList.do" parameters:parameters
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
          mCategories = responseObject[@"data"];
          if (mCategories.count > 0)
@@ -119,7 +119,7 @@
     NSDictionary *parameters = @{@"magazineId":self.mPeriodicalID,
                                  @"columnId":categoryID,
                                  @"page":[NSNumber numberWithInteger:currentPageIndex]};
-    [mgr GET:@"http://192.168.1.113:8081/nj_app/app/getColumnContent.do" parameters:parameters
+    [mgr GET:@"http://182.92.183.22:8080/nj_app/app/getColumnContent.do" parameters:parameters
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
          
          //banner
@@ -178,7 +178,7 @@
     NSDictionary *parameters = @{@"magazineId":self.mPeriodicalID,
                                  @"columnId":categoryID,
                                  @"page":[NSNumber numberWithInteger:currentPageIndex]};
-    [mgr GET:@"http://192.168.1.113:8081/nj_app/app/getColumnContent.do" parameters:parameters
+    [mgr GET:@"http://182.92.183.22:8080/nj_app/app/getColumnContent.do" parameters:parameters
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if([responseObject[@"data"] count]>0)
         {
@@ -211,7 +211,7 @@
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"magazineId":self.mPeriodicalID,
                                  @"columnId":categoryID};
-    [mgr GET:@"http://192.168.1.113:8081/nj_app/app/getColumnBanner.do" parameters:parameters
+    [mgr GET:@"http://182.92.183.22:8080/nj_app/app/getColumnBanner.do" parameters:parameters
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
      }
      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
