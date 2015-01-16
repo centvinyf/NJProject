@@ -60,10 +60,17 @@
         NSDictionary *categoryItem = categoryArray[index];
         if (index == 0)
             defaultBtn = [self addCategory:categoryItem[@"column_name"] CategoryID:index];
-        else if (index == 1)
-            [self addCategory:categoryItem[@"column_name"] CategoryID:1];
         else
-            [self addCategory:categoryItem[@"column_name"] CategoryID:index];
+        {
+            if([categoryItem[@"key"] isEqualToString:@"report"])
+            {
+                [self addCategory:categoryItem[@"column_name"] CategoryID:888];
+            }
+            else
+            {
+                [self addCategory:categoryItem[@"column_name"] CategoryID:index];
+            }
+        }
     }
     [self selectedButton:defaultBtn];
 }
@@ -72,13 +79,18 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"DetailViewController"]) {
         DetailViewController * DetailViewController = [segue destinationViewController];
-        DetailViewController.mArticleID = sender;
+       
+        
+        DetailViewController.mArticleID = sender[@"articleid"];
+        DetailViewController.CommentNum = sender[@"commentnum"];
     }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  [self performSegueWithIdentifier:@"DetailViewController" sender:mArticles[indexPath.row][@"id"]];
+    NSDictionary *infomation = @{@"articleid":mArticles[indexPath.row][@"id"],
+                                 @"commentnum":mArticles[indexPath.row][@"num"]};
+  [self performSegueWithIdentifier:@"DetailViewController" sender:infomation];
 }
 
 #pragma mark- Load Data
@@ -89,7 +101,8 @@
     [mgr GET:@"http://192.168.1.113:8081/nj_app/app/getColumnList.do" parameters:parameters
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
          mCategories = responseObject[@"data"];
-         [self initCategorysWithArray:mCategories];
+         if (mCategories.count > 0)
+             [self initCategorysWithArray:mCategories];
      }
      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          dispatch_async(dispatch_get_main_queue(), ^{
@@ -108,7 +121,41 @@
                                  @"page":[NSNumber numberWithInteger:currentPageIndex]};
     [mgr GET:@"http://192.168.1.113:8081/nj_app/app/getColumnContent.do" parameters:parameters
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         mArticles = responseObject[@"data"];
+         
+         //banner
+         mBanners = responseObject[@"lstBanner"];
+         self.mPageControl.numberOfPages = mBanners.count;
+         
+         if (mBanners.count > 0) {
+             [self.bannerImage1 setImageWithURL:[NSURL URLWithString:mBanners[0][@"path"] ] placeholderImage:[UIImage imageNamed:@"banner1"]];
+             self.bannerTitleLabel.text = mBanners[0][@"title"];
+             [self.bannerImage1 setHidden:NO];
+             
+         }
+         else
+         {
+             [self.bannerImage1 setHidden:YES];
+         }
+         
+         if (mBanners.count > 1) {
+             [self.bannerImage2 setImageWithURL:[NSURL URLWithString:mBanners[1][@"path"] ] placeholderImage:[UIImage imageNamed:@"banner1"]];
+             [self.bannerImage2 setHidden:NO];
+         }
+         else
+         {
+             [self.bannerImage2 setHidden:YES];
+         }
+         
+         if (mBanners.count > 2) {
+             [self.bannerImage3 setImageWithURL:[NSURL URLWithString:mBanners[2][@"path"] ] placeholderImage:[UIImage imageNamed:@"banner1"]];
+             [self.bannerImage3 setHidden:NO];
+         }
+         else
+         {
+             [self.bannerImage3 setHidden:YES];
+         }
+        //articles
+         mArticles = [NSMutableArray arrayWithArray:responseObject[@"data"]];
          dispatch_async(dispatch_get_main_queue(), ^{
              [self.mTableView reloadData];
              [self.mTableView topRefreshControlStopRefreshing];
@@ -166,37 +213,6 @@
                                  @"columnId":categoryID};
     [mgr GET:@"http://192.168.1.113:8081/nj_app/app/getColumnBanner.do" parameters:parameters
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         mBanners = responseObject[@"data"];
-         self.mPageControl.numberOfPages = mBanners.count;
-         
-         if (mBanners.count > 0) {
-             [self.bannerImage1 setImageWithURL:[NSURL URLWithString:mBanners[0][@"path"] ] placeholderImage:[UIImage imageNamed:@"banner1"]];
-             self.bannerTitleLabel.text = mBanners[0][@"title"];
-             [self.bannerImage1 setHidden:NO];
-
-         }
-         else
-         {
-             [self.bannerImage1 setHidden:YES];
-         }
-         
-         if (mBanners.count > 1) {
-             [self.bannerImage2 setImageWithURL:[NSURL URLWithString:mBanners[1][@"path"] ] placeholderImage:[UIImage imageNamed:@"banner1"]];
-             [self.bannerImage2 setHidden:NO];
-         }
-         else
-         {
-             [self.bannerImage2 setHidden:YES];
-         }
-         
-         if (mBanners.count > 2) {
-             [self.bannerImage3 setImageWithURL:[NSURL URLWithString:mBanners[2][@"path"] ] placeholderImage:[UIImage imageNamed:@"banner1"]];
-             [self.bannerImage3 setHidden:NO];
-         }
-         else
-         {
-             [self.bannerImage3 setHidden:YES];
-         }
      }
      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          dispatch_async(dispatch_get_main_queue(), ^{
@@ -236,7 +252,7 @@
 }
 */
 - (IBAction)selectedButton:(UIButton *)sender {
-    if (sender.tag == 1) {
+    if (sender.tag == 888) {
         [self performSegueWithIdentifier:@"ReportViewController" sender:nil];
     }
     else
@@ -256,7 +272,6 @@
         sender.titleLabel.font = [UIFont systemFontOfSize:16];
         sender.frame = CGRectMake(sender.frame.origin.x, 2, sender.frame.size.width, sender.frame.size.height);
         mCurrentCategoryID = mCategories[sender.tag][@"id"];
-        [self loadBannersDataWithID:mCategories[sender.tag][@"id"]];
         [self loadArticleDataWithID:mCategories[sender.tag][@"id"]];
     }
 }
@@ -297,4 +312,5 @@
         }
     }
 }
+
 @end

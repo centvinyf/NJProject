@@ -11,8 +11,9 @@
 @interface DetailViewController : UIViewController<UIGestureRecognizerDelegate,UITextViewDelegate>
 {
     UIImageView *imageView;
+    
 }
-
+@property(weak,nonatomic) NSString *CommentNum;
 @property (weak, nonatomic) IBOutlet UIButton *FontSetButton;
 
 @property (weak, nonatomic) IBOutlet UIWebView *mWebView;

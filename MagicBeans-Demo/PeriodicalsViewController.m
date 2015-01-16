@@ -139,18 +139,18 @@
     static NSString *identifiller = @"PeriodicalsViewControllerCell";
     PeriodicalsViewControllerCell *cell = [tableView dequeueReusableCellWithIdentifier:identifiller];
     NSMutableArray *items = [NSMutableArray arrayWithCapacity:3];
-    if (mPeriodicalsArray.count >indexPath.row) {
-        [items addObject:mPeriodicalsArray[indexPath.row]];
+    if (mPeriodicalsArray.count >indexPath.row*3) {
+        [items addObject:mPeriodicalsArray[indexPath.row*3]];
     }
     
-    if (mPeriodicalsArray.count >indexPath.row +1) {
-        [items addObject:mPeriodicalsArray[indexPath.row + 1]];
+    if (mPeriodicalsArray.count >indexPath.row*3 +1) {
+        [items addObject:mPeriodicalsArray[indexPath.row*3 + 1]];
     }
     
-    if (mPeriodicalsArray.count >indexPath.row +2) {
-        [items addObject:mPeriodicalsArray[indexPath.row + 1]];
+    if (mPeriodicalsArray.count >indexPath.row*3 +2) {
+        [items addObject:mPeriodicalsArray[indexPath.row*3 + 2]];
     }
-    [cell initWithArray:items withIndex:indexPath.row];
+    [cell initWithArray:items withIndex:indexPath.row*3];
     
     return cell;
 }

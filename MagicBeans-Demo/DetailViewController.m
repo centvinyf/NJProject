@@ -52,7 +52,7 @@
 {
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 55, 20)];
     [button setBackgroundImage:[UIImage imageNamed:@"看评论BG"] forState:UIControlStateNormal];
-    [button setTitle:@"312条评论" forState:UIControlStateNormal];
+    [button setTitle:[NSString stringWithFormat:@"%@条评论",self.CommentNum] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(showCommentsList:) forControlEvents:UIControlEventTouchUpInside];
     button.titleLabel.font = [UIFont systemFontOfSize:10];
     UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
@@ -148,8 +148,9 @@
             return NO;
 
         }else{
-            [textView resignFirstResponder];
+            
             [self postComment:textView.text];
+            [textView resignFirstResponder];
         return NO;
         }
         
@@ -178,6 +179,7 @@
          BOOL succeed = [responseObject[@"state"] boolValue];
          if (succeed) {
              UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"评论成功，谢谢！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+             NSLog(comment);
              [alertView show];
          }
          else

@@ -66,11 +66,11 @@
         [self.rightItemView setHidden:NO];
         [self.rightItemBtn setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:rightDic[@"path"]] placeholderImage:nil];
         self.rightItemBtn.tag = itemIndex + 2;
-        [formater setDateFormat:@"yyyy-mm-dd"];
+        [formater setDateFormat:@"yyyy-M-dd"];
         NSDate *date = [formater dateFromString:rightDic[@"date"]];
         [formater setDateFormat:@"yyyy"];
         NSString *year = [formater stringFromDate:date];
-        [formater setDateFormat:@"mm"];
+        [formater setDateFormat:@"M"];
         NSString *month = [formater stringFromDate:date];
         self.rightDateLabel.text = [NSString stringWithFormat:@"%@年第%@期",year,month];
     }
