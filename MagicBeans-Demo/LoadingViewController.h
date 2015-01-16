@@ -10,4 +10,7 @@
 
 @interface LoadingViewController : UIViewController
 
+@property (weak,nonatomic) NSString * LoadingPicture;
+@property (weak, nonatomic) IBOutlet UIImageView *LoadingImage;
+
 @end
