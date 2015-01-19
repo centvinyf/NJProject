@@ -12,6 +12,7 @@
 @interface DetailViewController : UIViewController<UIGestureRecognizerDelegate,UITextViewDelegate>
 {
     UIImageView *imageView;
+    float currentFontSize;
 }
 @property(weak,nonatomic) NSString *CommentNum;
 @property (weak, nonatomic) IBOutlet UIButton *FontSetButton;

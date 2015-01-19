@@ -28,6 +28,7 @@
     [self.view addGestureRecognizer:singleTap];
     singleTap.delegate = self;
     singleTap.cancelsTouchesInView = YES;
+    currentFontSize = 15;
     [self geturl];
     [self initNotifications];
     [self initViews];
@@ -82,6 +83,7 @@
     self.FengeView.hidden = YES;
     self.currenFont = @"Big";
     [self.mWebView stringByEvaluatingJavaScriptFromString:@"document.body.style.fontSize='30px';"];
+    currentFontSize = 30;
 }
 
 - (IBAction)MidFontButtonPressed:(id)sender {
@@ -91,7 +93,7 @@
     self.FengeView.hidden = YES;
     self.currenFont = @"Mid";
     [self.mWebView stringByEvaluatingJavaScriptFromString:@"document.body.style.fontSize='20px';"];
-
+    currentFontSize = 20;
 }
 
 - (IBAction)SmallFontButtonPressed:(id)sender {
@@ -101,7 +103,7 @@
     self.FengeView.hidden = YES;
     self.currenFont = @"Small";
     [self.mWebView stringByEvaluatingJavaScriptFromString:@"document.body.style.fontSize='15px';"];
-
+    currentFontSize = 15;
 }
 
 - (IBAction)CommentButtonPressed:(id)sender {
@@ -251,6 +253,21 @@
     }
     else self.mToolBarView.hidden= NO;
     [self.mTextField resignFirstResponder];
+}
+
+- (IBAction)handPinch:(UIPinchGestureRecognizer *)sender
+{
+    if (sender.scale > 1) {
+        currentFontSize +=1;
+    }
+    else
+    {
+        currentFontSize -=1;
+    }
+    [self.mWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.body.style.fontSize='%fpx';",currentFontSize]];
+
+    sender.scale = 1;
+    
 }
 #pragma mark- getrurl
 -(void)geturl{
