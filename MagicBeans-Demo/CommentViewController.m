@@ -8,7 +8,7 @@
 
 #import "CommentViewController.h"
 #import "CommentViewControllerCellTableViewCell.h"
-#import "AFNetworking.h"
+#import "HttpJsonManager.h"
 #import "UIScrollView+RefreshControl.h"
 
 @interface CommentViewController ()
@@ -35,17 +35,6 @@
         });
     } refreshControlPullType:RefreshControlPullTypeInsensitive refreshControlStatusType:RefreshControlStatusTypeArrow];
     
-//    [self.mTableView addBottomRefreshControlUsingBlock:^{
-//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//            // request for datas
-//            [weakSelf loadDataMore];
-//        });
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            [weakSelf.mTableView reloadData];
-//            [weakSelf.mTableView bottomRefreshControlStopRefreshing];
-//        });
-//    } refreshControlPullType:RefreshControlPullTypeInsensitive refreshControlStatusType:RefreshControlStatusTypeArrow];
-    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.mTableView topRefreshControlStartInitializeRefreshing];
     });
@@ -54,62 +43,25 @@
 
 - (void)loadData
 {
-//    currentPageIndex = 1;
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"articleId":self.mArticleID};
-    [mgr GET:@"http://182.92.183.22:8080/nj_app/app/getArticleCommont.do" parameters:parameters
-     success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         mCommentsArray = [NSMutableArray arrayWithArray:responseObject[@"data"]];
-         dispatch_async(dispatch_get_main_queue(), ^{
-             [self.mTableView reloadData];
-             [self.mTableView topRefreshControlStopRefreshing];
-         });
-     }
-     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         dispatch_async(dispatch_get_main_queue(), ^{
-             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"数据获取失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-             [alertView show];
-             [self.mTableView topRefreshControlStopRefreshing];
-         });
-     }];
+    [HttpJsonManager getWithParameters:parameters sender:self url:@"http://182.92.183.22:8080/nj_app/app/getArticleCommont.do" completionHandler:^(BOOL sucess, id content) {
+        if (sucess) {
+            mCommentsArray = [NSMutableArray arrayWithArray:content[@"data"]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.mTableView reloadData];
+                [self.mTableView topRefreshControlStopRefreshing];
+            });
+        }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"数据获取失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alertView show];
+                [self.mTableView topRefreshControlStopRefreshing];
+            });
+        }
+    }];
 }
-
-- (void)loadDataMore
-{
-    currentPageIndex++;
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = @{@"articleId":[NSNumber numberWithInteger:currentPageIndex]};
-    [mgr GET:@"http://182.92.183.22:8080/nj_app/app/getArticleCommont.do" parameters:parameters
-     success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         if ([responseObject[@"data"] count] > 0)
-         {
-             [mCommentsArray addObjectsFromArray:responseObject[@"data"]];
-             dispatch_async(dispatch_get_main_queue(), ^{
-                 [self.mTableView reloadData];
-             });
-         }
-         else
-         {
-             //恢复到之前的页码
-             currentPageIndex--;
-             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"没有更多的数据了" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-             [alertView show];
-             
-         }
-         dispatch_async(dispatch_get_main_queue(), ^{
-             [self.mTableView bottomRefreshControlStopRefreshing];
-         });
-         
-     }
-     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         dispatch_async(dispatch_get_main_queue(), ^{
-             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"没有更多的数据了" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-             [alertView show];
-             [self.mTableView bottomRefreshControlStopRefreshing];
-         });
-     }];
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

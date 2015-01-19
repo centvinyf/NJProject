@@ -7,7 +7,7 @@
 //
 
 #import "DetailViewController.h"
-#import "AFNetworking.h"
+#import "HttpJsonManager.h"
 #import "CommentViewController.h"
 
 @implementation DetailViewController
@@ -81,6 +81,7 @@
     self.FontSetButton.selected = NO;
     self.FengeView.hidden = YES;
     self.currenFont = @"Big";
+    [self.mWebView stringByEvaluatingJavaScriptFromString:@"document.body.style.fontSize='30px';"];
 }
 
 - (IBAction)MidFontButtonPressed:(id)sender {
@@ -89,6 +90,8 @@
     self.FontSetButton.selected = NO;
     self.FengeView.hidden = YES;
     self.currenFont = @"Mid";
+    [self.mWebView stringByEvaluatingJavaScriptFromString:@"document.body.style.fontSize='20px';"];
+
 }
 
 - (IBAction)SmallFontButtonPressed:(id)sender {
@@ -97,8 +100,8 @@
     self.FontSetButton.selected = NO;
     self.FengeView.hidden = YES;
     self.currenFont = @"Small";
-    
-//    self.mWebView h
+    [self.mWebView stringByEvaluatingJavaScriptFromString:@"document.body.style.fontSize='15px';"];
+
 }
 
 - (IBAction)CommentButtonPressed:(id)sender {
@@ -117,30 +120,60 @@
 
 - (IBAction)praiseArticle:(id)sender {
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"articleId":self.mArticleID,
                                  @"sn":[def stringForKey:@"UUID"],
                                  @"status":self.mPraiseBtn.selected ? @"0":@"1"};
-    [mgr GET:@"http://182.92.183.22:8080/nj_app/app/setArticlePraiseState.do" parameters:parameters
-     success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         BOOL succeed = [responseObject[@"state"] boolValue];
-         if (succeed) {
-             ((UIButton *)sender).selected = !((UIButton *)sender).selected;
-             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"操作成功，谢谢！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-             [alertView show];
-         }
-         else
-         {
-             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"操作失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-             [alertView show];
-         }
-     }
-     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         dispatch_async(dispatch_get_main_queue(), ^{
-             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"数据获取失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-             [alertView show];
-         });
-     }];
+    [HttpJsonManager getWithParameters:parameters sender:self url:@"http://182.92.183.22:8080/nj_app/app/setArticlePraiseState.do" completionHandler:^(BOOL sucess, id content) {
+        if (sucess) {
+            BOOL succeed = [content[@"state"] boolValue];
+            if (succeed) {
+                ((UIButton *)sender).selected = !((UIButton *)sender).selected;
+                if(((UIButton *)sender).selected)
+                {
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"点赞成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                    [alertView show];
+                }
+                else
+                {
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"已取消点赞" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                    [alertView show];
+                }
+            }
+            else
+            {
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"操作失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alertView show];
+            }
+        }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"数据获取失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alertView show];
+            });
+
+        }
+    }];
+}
+
+- (IBAction)shareContent:(id)sender {
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[@"我是分享内容！"] applicationActivities:nil];
+    __weak UIActivityViewController *weakActivityViewController = activityViewController;
+    [activityViewController setCompletionHandler:^(NSString *activityType,BOOL completed)
+    {
+        if (completed)
+        {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"分享成功！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+            [alertView show];
+        }
+        else
+        {
+            NSLog(@"cancel");
+        }
+        
+        [weakActivityViewController dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [self presentViewController:activityViewController animated:YES completion:nil];
 }
 #pragma mark- textfield
 
@@ -175,31 +208,31 @@
 
 - (void)postComment:(NSString *)comment
 {
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"articleId":self.mArticleID,
                                  @"content":comment,
                                  @"ip":@"101.204.29.120"};
-    [mgr GET:@"http://182.92.183.22:8080/nj_app/app/setArticleCommont.do" parameters:parameters
-     success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         BOOL succeed = [responseObject[@"state"] boolValue];
-         if (succeed) {
-             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"评论成功，谢谢！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-            
-             [alertView show];
-         }
-         else
-         {
-             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"评论失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-             [alertView show];
-         }
-     }
-     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         dispatch_async(dispatch_get_main_queue(), ^{
-             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"数据获取失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-             [alertView show];
-         });
-     }];
-
+    [HttpJsonManager getWithParameters:parameters sender:self url:@"http://182.92.183.22:8080/nj_app/app/setArticleCommont.do" completionHandler:^(BOOL sucess, id content) {
+        if (sucess) {
+            BOOL succeed = [content[@"state"] boolValue];
+            if (succeed) {
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"评论成功，谢谢！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                
+                [alertView show];
+            }
+            else
+            {
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"评论失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alertView show];
+            }
+        }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"数据获取失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alertView show];
+            });
+        }
+    }];
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
@@ -212,8 +245,8 @@
 -(void)handleSingleTap:(UITapGestureRecognizer *)sender
 {
     CGPoint point = [sender locationInView:self.view];
-    if (point.y<= self.mToolBarView.frame.origin.y
-        ) {
+    if (point.y<= self.mToolBarView.frame.origin.y)
+    {
         [self.mToolBarView setHidden:!self.mToolBarView.isHidden];
     }
     else self.mToolBarView.hidden= NO;
@@ -222,22 +255,21 @@
 #pragma mark- getrurl
 -(void)geturl{
     NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"articleId":self.mArticleID,
                                  @"sn":[def stringForKey:@"UUID"],
                                  };
-    [mgr GET:@"http://182.92.183.22:8080/nj_app/app/showArticle.do" parameters:parameters
-     success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         [self.mWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:responseObject[@"path"]]]];
-         self.mPraiseBtn.selected = [responseObject[@"isPraised"] boolValue];
-              }
-     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         dispatch_async(dispatch_get_main_queue(), ^{
-             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"数据获取失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-             [alertView show];
-         });
-     }];
-
-
+    [HttpJsonManager getWithParameters:parameters sender:self url:@"http://182.92.183.22:8080/nj_app/app/showArticle.do" completionHandler:^(BOOL sucess, id content) {
+        if (sucess) {
+            [self.mWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:content[@"path"]]]];
+            self.mPraiseBtn.selected = [content[@"isPraised"] boolValue];
+        }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"数据获取失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alertView show];
+            });
+        }
+    }];
 }
 @end

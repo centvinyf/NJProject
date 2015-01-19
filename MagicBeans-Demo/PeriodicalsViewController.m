@@ -9,7 +9,7 @@
 #import "PeriodicalsViewController.h"
 #import "PeriodicalsViewControllerCell.h"
 #import "UIScrollView+RefreshControl.h"
-#import "AFNetworking.h"
+#import "HttpJsonManager.h"
 #import "ItemsViewController.h"
 
 @interface PeriodicalsViewController ()
@@ -59,59 +59,60 @@
 - (void)loadData
 {
     currentPageIndex = 1;
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"page":[NSNumber numberWithInteger:currentPageIndex]};
-    [mgr GET:@"http://182.92.183.22:8080/nj_app/app/getMagazineList.do" parameters:parameters
-     success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        mPeriodicalsArray = [NSMutableArray arrayWithArray:responseObject[@"data"]];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
-            [self.tableView topRefreshControlStopRefreshing];
-        });
-    }
-     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"数据获取失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-            [alertView show];
-            [self.tableView topRefreshControlStopRefreshing];
-        });
+    [HttpJsonManager getWithParameters:parameters sender:self url:@"http://182.92.183.22:8080/nj_app/app/getMagazineList.do" completionHandler:^(BOOL sucess, id content) {
+        if (sucess) {
+            mPeriodicalsArray = [NSMutableArray arrayWithArray:content[@"data"]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+                [self.tableView topRefreshControlStopRefreshing];
+            });
+        }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"数据获取失败，请重试" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alertView show];
+                [self.tableView topRefreshControlStopRefreshing];
+            });
+        }
     }];
 }
 
 - (void)loadDataMore
 {
     currentPageIndex++;
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"page":[NSNumber numberWithInteger:currentPageIndex]};
-    [mgr GET:@"http://182.92.183.22:8080/nj_app/app/getMagazineList.do" parameters:parameters
-     success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         if ([responseObject[@"data"] count] > 0)
-         {
-             [mPeriodicalsArray addObjectsFromArray:responseObject[@"data"]];
-             dispatch_async(dispatch_get_main_queue(), ^{
-                 [self.tableView reloadData];
-             });
-         }
-         else
-         {
-             //恢复到之前的页码
-             currentPageIndex--;
-             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"没有更多的数据了" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-             [alertView show];
+    [HttpJsonManager getWithParameters:parameters sender:self url:@"http://182.92.183.22:8080/nj_app/app/getMagazineList.do" completionHandler:^(BOOL sucess, id content) {
+        if (sucess) {
+            if ([content[@"data"] count] > 0)
+            {
+                [mPeriodicalsArray addObjectsFromArray:content[@"data"]];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.tableView reloadData];
+                    [self.tableView bottomRefreshControlStopRefreshing];
 
-         }
-         dispatch_async(dispatch_get_main_queue(), ^{
-             [self.tableView bottomRefreshControlStopRefreshing];
-         });
+                });
+            }
+            else
+            {
+                //恢复到之前的页码
+                currentPageIndex--;
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"没有更多的数据了" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alertView show];
+                
+            }
+        }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"没有更多的数据了" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alertView show];
+                [self.tableView bottomRefreshControlStopRefreshing];
+            });
 
-     }
-     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         dispatch_async(dispatch_get_main_queue(), ^{
-             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"没有更多的数据了" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-             [alertView show];
-             [self.tableView bottomRefreshControlStopRefreshing];
-         });
-     }];
+        }
+    }];
 }
 
 #pragma mark - Table view data source

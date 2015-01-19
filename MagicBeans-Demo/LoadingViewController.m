@@ -7,7 +7,7 @@
 //
 
 #import "LoadingViewController.h"
-#import "AFNetworking.h"
+#import "HttpJsonManager.h"
 #import "UIImageView+AFNetworking.h"
 @interface LoadingViewController ()
 
@@ -20,26 +20,29 @@
     [self getLoadingPicture];
 }
 -(void)getLoadingPicture{
-    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
-        [mgr GET:@"http://182.92.183.22:8080/nj_app/app/getLoadingImg.do" parameters:nil
-     success:^(AFHTTPRequestOperation *operation, id responseObject) {
-         self.LoadingPicture = responseObject[@"data"][@"path"];
-         NSRange range = [self.LoadingPicture rangeOfString:@"/" options:NSBackwardsSearch];
-         if (range.length > 0)
-         {
-             range.location += 1;//remove @"/"
-             range.length = self.LoadingPicture.length - range.location;
-             NSString *fileName = [self.LoadingPicture substringWithRange:range];
-             [self initViewWithImageFile:fileName URL:self.LoadingPicture];
-         }
-     }
-     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         dispatch_async(dispatch_get_main_queue(), ^{
-             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"获取loading图片失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-             [alertView show];
-             
-         });
-     }];
+    [HttpJsonManager getWithParameters:nil sender:self url:@"http://182.92.183.22:8080/nj_app/app/getLoadingImg.do" completionHandler:^(BOOL sucess, id content) {
+        if (sucess)
+        {
+            self.LoadingPicture = content[@"data"][@"path"];
+            NSRange range = [self.LoadingPicture rangeOfString:@"/" options:NSBackwardsSearch];
+            if (range.length > 0)
+            {
+                range.location += 1;//remove @"/"
+                range.length = self.LoadingPicture.length - range.location;
+                NSString *fileName = [self.LoadingPicture substringWithRange:range];
+                [self initViewWithImageFile:fileName URL:self.LoadingPicture];
+            }
+
+        }
+        else
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"获取loading图片失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alertView show];
+                
+            });
+        }
+    }];
 }
 - (void)initViewWithImageFile:(NSString *)fileName URL:(NSString *)urlStr
 {

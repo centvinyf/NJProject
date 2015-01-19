@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "04340B39F04F11FBEE4C1CAE"
-               BuildableName = "libPods-NJMobile.a"
-               BlueprintName = "Pods-NJMobile"
+               BlueprintIdentifier = "07B5EFA61A211F0AA25DDBFD"
+               BuildableName = "libPods-NJMobile-MBProgressHUD.a"
+               BlueprintName = "Pods-NJMobile-MBProgressHUD"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

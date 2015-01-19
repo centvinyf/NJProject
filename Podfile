@@ -4,5 +4,6 @@
 target 'NJMobile' do
 pod 'AFNetworking'
 pod 'RefreshControl'
+pod 'MBProgressHUD'
 end
 

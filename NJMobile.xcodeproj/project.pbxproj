@@ -19,6 +19,9 @@
 		7C6498231A382D0200B296B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C6498211A382D0200B296B4 /* Main.storyboard */; };
 		7C6498251A382D0200B296B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6498241A382D0200B296B4 /* Images.xcassets */; };
 		7C6498281A382D0200B296B4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C6498261A382D0200B296B4 /* LaunchScreen.xib */; };
+		7C972B861A6C9E6A0074E005 /* HttpJsonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C972B821A6C9E6A0074E005 /* HttpJsonManager.m */; };
+		7C972B871A6C9E6A0074E005 /* XMProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C972B851A6C9E6A0074E005 /* XMProgressHUD.m */; };
+		7C972B891A6CA32D0074E005 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C972B881A6CA32D0074E005 /* Social.framework */; };
 		7C9C3EB51A6352390089B6FE /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9C3EB41A6352390089B6FE /* ReportViewController.m */; };
 		7CF05A6B1A5F9CA900864744 /* ItemsViewControllerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF05A6A1A5F9CA900864744 /* ItemsViewControllerCell.m */; };
 		7CF05A6E1A5FC50800864744 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF05A6D1A5FC50800864744 /* LoadingViewController.m */; };
@@ -47,6 +50,11 @@
 		7C6498221A382D0200B296B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7C6498241A382D0200B296B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7C6498271A382D0200B296B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		7C972B811A6C9E6A0074E005 /* HttpJsonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpJsonManager.h; sourceTree = "<group>"; };
+		7C972B821A6C9E6A0074E005 /* HttpJsonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpJsonManager.m; sourceTree = "<group>"; };
+		7C972B841A6C9E6A0074E005 /* XMProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMProgressHUD.h; sourceTree = "<group>"; };
+		7C972B851A6C9E6A0074E005 /* XMProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMProgressHUD.m; sourceTree = "<group>"; };
+		7C972B881A6CA32D0074E005 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		7C9C3EB31A6352390089B6FE /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
 		7C9C3EB41A6352390089B6FE /* ReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
 		7CF05A691A5F9CA900864744 /* ItemsViewControllerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsViewControllerCell.h; sourceTree = "<group>"; };
@@ -61,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C972B891A6CA32D0074E005 /* Social.framework in Frameworks */,
 				7AF2FB92DE90F1AE6768F2E6 /* libPods-NJMobile.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,6 +98,7 @@
 		7C6498161A382D0200B296B4 /* NJMobile */ = {
 			isa = PBXGroup;
 			children = (
+				7C972B7F1A6C9E6A0074E005 /* Tools */,
 				7C64981B1A382D0200B296B4 /* AppDelegate.h */,
 				7C64981C1A382D0200B296B4 /* AppDelegate.m */,
 				7CF05A6C1A5FC50800864744 /* LoadingViewController.h */,
@@ -127,6 +137,33 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7C972B7F1A6C9E6A0074E005 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				7C972B801A6C9E6A0074E005 /* HTTP */,
+				7C972B831A6C9E6A0074E005 /* MBProgressHUD+Extension */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		7C972B801A6C9E6A0074E005 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				7C972B811A6C9E6A0074E005 /* HttpJsonManager.h */,
+				7C972B821A6C9E6A0074E005 /* HttpJsonManager.m */,
+			);
+			path = HTTP;
+			sourceTree = "<group>";
+		};
+		7C972B831A6C9E6A0074E005 /* MBProgressHUD+Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7C972B841A6C9E6A0074E005 /* XMProgressHUD.h */,
+				7C972B851A6C9E6A0074E005 /* XMProgressHUD.m */,
+			);
+			path = "MBProgressHUD+Extension";
+			sourceTree = "<group>";
+		};
 		800477091A30C060D934A261 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +176,7 @@
 		A3CACDFB5ED861F214D6C414 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7C972B881A6CA32D0074E005 /* Social.framework */,
 				54A994FF2B71A7545D8A666F /* libPods-NJMobile.a */,
 			);
 			name = Frameworks;
@@ -251,6 +289,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C2CB3601A636E4200A01662 /* CommentViewControllerCellTableViewCell.m in Sources */,
+				7C972B861A6C9E6A0074E005 /* HttpJsonManager.m in Sources */,
+				7C972B871A6C9E6A0074E005 /* XMProgressHUD.m in Sources */,
 				2C2CB35D1A636AC300A01662 /* CommentViewController.m in Sources */,
 				7C9C3EB51A6352390089B6FE /* ReportViewController.m in Sources */,
 				7CF05A6B1A5F9CA900864744 /* ItemsViewControllerCell.m in Sources */,
