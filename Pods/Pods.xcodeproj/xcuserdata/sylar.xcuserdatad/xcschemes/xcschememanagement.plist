@@ -8,52 +8,41 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
+		</dict>
+		<key>Pods-NJMobile-MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-NJMobile-RefreshControl.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>Pods-NJMobile.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>061D61167813929A2208EBCD</key>
+		<key>23A1ED28028648F730A89E73</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1458346E01FEF067375432CD</key>
+		<key>68FFC4F40FF5E62E25327415</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>160E82B81A85FE09792352C0</key>
+		<key>C53C6F4A1449F9AE07A39ABE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5375BDA5D8A99341FC4224E6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7DB03AD77255041007DE5153</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F8EAE05B20DB59E6DD807308</key>
+		<key>E061EC30A71A6C9B181CF096</key>
 		<dict>
 			<key>primary</key>
 			<true/>
