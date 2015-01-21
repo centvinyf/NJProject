@@ -63,7 +63,7 @@
             defaultBtn = [self addCategory:categoryItem[@"column_name"] CategoryID:index];
         else
         {
-            if([categoryItem[@"key"] isEqualToString:@"report"])
+            if([categoryItem[@"key_mark"] isEqualToString:@"report"])
             {
                 [self addCategory:categoryItem[@"column_name"] CategoryID:888];
             }
