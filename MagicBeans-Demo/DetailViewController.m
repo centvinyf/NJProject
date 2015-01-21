@@ -82,7 +82,7 @@
     self.FontSetButton.selected = NO;
     self.FengeView.hidden = YES;
     self.currenFont = @"Big";
-    [self.mWebView stringByEvaluatingJavaScriptFromString:@"document.body.style.fontSize='30px';"];
+    [self.mWebView stringByEvaluatingJavaScriptFromString:@"var str =  document.getElementById(\"ueditor_0\").contentDocument.getElementsByTagName(\"p\"),strLength =str.length;for (var i=0;i<strLength;i++){str[i].style.fontSize = \"30px\";}"];
     currentFontSize = 30;
 }
 
@@ -92,7 +92,7 @@
     self.FontSetButton.selected = NO;
     self.FengeView.hidden = YES;
     self.currenFont = @"Mid";
-    [self.mWebView stringByEvaluatingJavaScriptFromString:@"document.body.style.fontSize='20px';"];
+    [self.mWebView stringByEvaluatingJavaScriptFromString:@"var str =  document.getElementById(\"ueditor_0\").contentDocument.getElementsByTagName(\"p\"),strLength =str.length;for (var i=0;i<strLength;i++){str[i].style.fontSize = \"20px\";}"];
     currentFontSize = 20;
 }
 
@@ -102,7 +102,7 @@
     self.FontSetButton.selected = NO;
     self.FengeView.hidden = YES;
     self.currenFont = @"Small";
-    [self.mWebView stringByEvaluatingJavaScriptFromString:@"document.body.style.fontSize='15px';"];
+    [self.mWebView stringByEvaluatingJavaScriptFromString:@"var str =  document.getElementById(\"ueditor_0\").contentDocument.getElementsByTagName(\"p\"),strLength =str.length;for (var i=0;i<strLength;i++){str[i].style.fontSize = \"15px\";}"];
     currentFontSize = 15;
 }
 
@@ -264,7 +264,7 @@
     {
         currentFontSize -=1;
     }
-    [self.mWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"document.body.style.fontSize='%fpx';",currentFontSize]];
+    [self.mWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"var str =  document.getElementById(\"ueditor_0\").contentDocument.getElementsByTagName(\"p\"),strLength =str.length;for (var i=0;i<strLength;i++){str[i].style.fontSize = \"%fpx\";}",currentFontSize]];
 
     sender.scale = 1;
     
