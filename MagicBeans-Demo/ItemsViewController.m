@@ -297,13 +297,11 @@
             self.mPageControl.currentPage = page;
             self.bannerTitleLabel.text = mBanners[page][@"title"];
         }
+        if ([mScrollTimer isValid]) {
+            [mScrollTimer invalidate];
+        }
+        mScrollTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(autoScrollBanner) userInfo:nil repeats:YES];
     }
-    
-    if ([mScrollTimer isValid]) {
-        [mScrollTimer invalidate];
-    }
-    mScrollTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(autoScrollBanner) userInfo:nil repeats:YES];
-
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
