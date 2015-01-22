@@ -51,7 +51,7 @@
         });
     } refreshControlPullType:RefreshControlPullTypeInsensitive refreshControlStatusType:RefreshControlStatusTypeArrow];
     
-    mScrollTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(autoScrollBanner) userInfo:nil repeats:YES];
+//    mScrollTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(autoScrollBanner) userInfo:nil repeats:YES];
 }
 
 - (void)initCategorysWithArray:(NSArray *)categoryArray
@@ -124,41 +124,41 @@
     [HttpJsonManager getWithParameters:parameters sender:self url:@"http://182.92.183.22:8080/nj_app/app/getColumnContent.do" completionHandler:^(BOOL sucess, id content) {
         if (sucess) {
             //banner
-            mBanners = content[@"lstBanner"];
-            self.mPageControl.numberOfPages = mBanners.count;
-            
-            if (mBanners.count > 0) {
-                [self.bannerImage1 setImageWithURL:[NSURL URLWithString:mBanners[0][@"path"] ] placeholderImage:[UIImage imageNamed:@"banner1"]];
-                self.bannerTitleLabel.text = mBanners[0][@"title"];
-                [self.bannerImage1 setHidden:NO];
-                
-                [self.bannerImage_1 setImageWithURL:[NSURL URLWithString:mBanners[0][@"path"] ] placeholderImage:[UIImage imageNamed:@"banner1"]];
-                [self.bannerImage_1 setHidden:NO];
-
-            }
-            else
-            {
-                [self.bannerImage1 setHidden:YES];
-                [self.bannerImage_1 setHidden:YES];
-            }
-            
-            if (mBanners.count > 1) {
-                [self.bannerImage2 setImageWithURL:[NSURL URLWithString:mBanners[1][@"path"] ] placeholderImage:[UIImage imageNamed:@"banner1"]];
-                [self.bannerImage2 setHidden:NO];
-            }
-            else
-            {
-                [self.bannerImage2 setHidden:YES];
-            }
-            
-            if (mBanners.count > 2) {
-                [self.bannerImage3 setImageWithURL:[NSURL URLWithString:mBanners[2][@"path"] ] placeholderImage:[UIImage imageNamed:@"banner1"]];
-                [self.bannerImage3 setHidden:NO];
-            }
-            else
-            {
-                [self.bannerImage3 setHidden:YES];
-            }
+//            mBanners = content[@"lstBanner"];
+//            self.mPageControl.numberOfPages = mBanners.count;
+//            
+//            if (mBanners.count > 0) {
+//                [self.bannerImage1 setImageWithURL:[NSURL URLWithString:mBanners[0][@"path"] ] placeholderImage:[UIImage imageNamed:@"banner1"]];
+//                self.bannerTitleLabel.text = mBanners[0][@"title"];
+//                [self.bannerImage1 setHidden:NO];
+//                
+//                [self.bannerImage_1 setImageWithURL:[NSURL URLWithString:mBanners[0][@"path"] ] placeholderImage:[UIImage imageNamed:@"banner1"]];
+//                [self.bannerImage_1 setHidden:NO];
+//
+//            }
+//            else
+//            {
+//                [self.bannerImage1 setHidden:YES];
+//                [self.bannerImage_1 setHidden:YES];
+//            }
+//            
+//            if (mBanners.count > 1) {
+//                [self.bannerImage2 setImageWithURL:[NSURL URLWithString:mBanners[1][@"path"] ] placeholderImage:[UIImage imageNamed:@"banner1"]];
+//                [self.bannerImage2 setHidden:NO];
+//            }
+//            else
+//            {
+//                [self.bannerImage2 setHidden:YES];
+//            }
+//            
+//            if (mBanners.count > 2) {
+//                [self.bannerImage3 setImageWithURL:[NSURL URLWithString:mBanners[2][@"path"] ] placeholderImage:[UIImage imageNamed:@"banner1"]];
+//                [self.bannerImage3 setHidden:NO];
+//            }
+//            else
+//            {
+//                [self.bannerImage3 setHidden:YES];
+//            }
             //articles
             mArticles = [NSMutableArray arrayWithArray:content[@"data"]];
             dispatch_async(dispatch_get_main_queue(), ^{

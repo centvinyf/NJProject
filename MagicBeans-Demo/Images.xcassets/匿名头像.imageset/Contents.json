@@ -2,16 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "匿名头像@1x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "匿名头像.png"
+      "filename" : "匿名头像@2x.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "匿名头像@3x.png"
     }
   ],
   "info" : {

@@ -2,16 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "徽章@1x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "徽章.png"
+      "filename" : "徽章@2x.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "徽章@3x.png"
     }
   ],
   "info" : {

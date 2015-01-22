@@ -557,10 +557,10 @@
                                     </mask>
                                 </variation>
                             </scrollView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRU-d5-FTx">
+                            <scrollView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MRU-d5-FTx">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="127" translatesAutoresizingMaskIntoConstraints="NO" id="vW6-T0-OLI">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="400" placeholderIntrinsicHeight="127" image="banner1" translatesAutoresizingMaskIntoConstraints="NO" id="vW6-T0-OLI">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -669,13 +669,13 @@
                                     <outlet property="delegate" destination="VRp-GH-btS" id="KLS-28-mIG"/>
                                 </connections>
                             </scrollView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Items_bannerMask" translatesAutoresizingMaskIntoConstraints="NO" id="VLC-QB-cb3">
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Items_bannerMask" translatesAutoresizingMaskIntoConstraints="NO" id="VLC-QB-cb3">
                                 <rect key="frame" x="0.0" y="-25" width="320" height="25"/>
                             </imageView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="0OR-rJ-smK">
+                            <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="0OR-rJ-smK">
                                 <rect key="frame" x="-19" y="-18" width="39" height="37"/>
                             </pageControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIo-Yo-jGV">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIo-Yo-jGV">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -715,27 +715,18 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="86" y="10" width="226" height="17"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是新闻内容，由于我的内容太多一次性显示不完。所以我打算将未显示的部分以点点点的形式代替！！我是占位符！我是占位符！我是占位符！我是占位符！" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtg-iK-FTd">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="86" y="31" width="226" height="29"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是评论数" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyt-9U-noV">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="250" y="60" width="50" height="12"/>
-                                                    </variation>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1CX-kv-WM2">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -748,8 +739,7 @@
                                                             <exclude reference="6r6-kJ-NbB"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="10" y="80" width="300" height="0.0"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="6r6-kJ-NbB"/>
                                                         </mask>
@@ -1396,8 +1386,7 @@
                                         <exclude reference="ugA-eI-7UT"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="690" width="400" height="46"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="CDw-O9-Jlm"/>
                                         <include reference="FVg-Bv-Fvc"/>
@@ -1555,18 +1544,12 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.19607843137254902" green="0.19607843137254902" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="46" y="42" width="259" height="36"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="51分钟前" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9L-6u-zVj">
                                                     <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="259" y="16" width="46" height="14"/>
-                                                    </variation>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SND-Xm-tmP">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -1579,8 +1562,7 @@
                                                             <exclude reference="Z4g-b0-rBt"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="10" y="70" width="300" height="0.0"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="Z4g-b0-rBt"/>
                                                         </mask>
@@ -1707,11 +1689,12 @@
     </scenes>
     <resources>
         <image name="Items_bannerMask" width="320" height="25"/>
-        <image name="back_indicator" width="17" height="30"/>
+        <image name="back_indicator" width="9" height="18"/>
+        <image name="banner1" width="320" height="126"/>
         <image name="中未选中" width="50" height="35"/>
         <image name="中选中" width="50" height="35"/>
         <image name="举报按钮" width="120" height="35"/>
-        <image name="书架" width="320" height="15"/>
+        <image name="书架" width="960" height="45"/>
         <image name="分享(1)" width="23" height="44"/>
         <image name="加载书刊" width="90" height="100"/>
         <image name="匿名头像" width="20" height="20"/>
@@ -1721,7 +1704,7 @@
         <image name="字号选择按钮按后" width="35" height="35"/>
         <image name="小未选中" width="50" height="35"/>
         <image name="小选中" width="50" height="35"/>
-        <image name="徽章" width="115" height="118"/>
+        <image name="徽章" width="115" height="119"/>
         <image name="点赞后" width="23" height="44"/>
         <image name="目录栏图片加载" width="70" height="60"/>
         <image name="评论(1)" width="23" height="44"/>
