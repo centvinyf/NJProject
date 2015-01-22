@@ -16,7 +16,6 @@
 }
 @property(weak,nonatomic) NSString *CommentNum;
 @property (weak, nonatomic) IBOutlet UIButton *FontSetButton;
-
 @property (weak, nonatomic) IBOutlet UIWebView *mWebView;
 @property (retain, nonatomic) NSString * currenFont;
 @property (weak,nonatomic) NSString * ArticleURL;
@@ -31,4 +30,5 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mTextFieldHeightConstraint;
 @property (retain, nonatomic) NSString *mArticleID;
 @property (weak, nonatomic) IBOutlet UIButton *mPraiseBtn;
+@property (retain, nonatomic) NSString *articleTitle;
 @end

@@ -79,18 +79,20 @@
 #pragma mark- navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"DetailViewController"]) {
-        DetailViewController * DetailViewController = [segue destinationViewController];
+        DetailViewController *detailViewController = [segue destinationViewController];
        
         
-        DetailViewController.mArticleID = sender[@"articleid"];
-        DetailViewController.CommentNum = sender[@"commentnum"];
+        detailViewController.mArticleID = sender[@"articleid"];
+        detailViewController.CommentNum = sender[@"commentnum"];
+        detailViewController.articleTitle = sender[@"title"];
     }
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *infomation = @{@"articleid":mArticles[indexPath.row][@"id"],
-                                 @"commentnum":mArticles[indexPath.row][@"num"]};
+                                 @"commentnum":mArticles[indexPath.row][@"num"],
+                                 @"title":mArticles[indexPath.row][@"title"]};
   [self performSegueWithIdentifier:@"DetailViewController" sender:infomation];
 }
 

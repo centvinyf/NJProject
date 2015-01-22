@@ -159,7 +159,7 @@
 }
 
 - (IBAction)shareContent:(id)sender {
-    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[@"我是分享内容！"] applicationActivities:nil];
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[_articleTitle,_mWebView.request.URL] applicationActivities:nil];
     __weak UIActivityViewController *weakActivityViewController = activityViewController;
     [activityViewController setCompletionHandler:^(NSString *activityType,BOOL completed)
     {
