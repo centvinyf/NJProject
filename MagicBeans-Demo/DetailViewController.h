@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Social/Social.h>
 
-@interface DetailViewController : UIViewController<UIGestureRecognizerDelegate,UITextViewDelegate>
+@interface DetailViewController : UIViewController<UIGestureRecognizerDelegate,UITextViewDelegate,UIWebViewDelegate>
 {
     UIImageView *imageView;
     float currentFontSize;
