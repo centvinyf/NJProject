@@ -23,16 +23,22 @@
     [HttpJsonManager getWithParameters:nil sender:self url:@"http://182.92.183.22:8080/nj_app/app/getLoadingImg.do" completionHandler:^(BOOL sucess, id content) {
         if (sucess)
         {
-            self.LoadingPicture = content[@"data"][@"path"];
-            NSRange range = [self.LoadingPicture rangeOfString:@"/" options:NSBackwardsSearch];
-            if (range.length > 0)
+            if ([content[@"status"] boolValue])
             {
-                range.location += 1;//remove @"/"
-                range.length = self.LoadingPicture.length - range.location;
-                NSString *fileName = [self.LoadingPicture substringWithRange:range];
-                [self initViewWithImageFile:fileName URL:self.LoadingPicture];
+                self.LoadingPicture = content[@"data"][@"path"];
+                NSRange range = [self.LoadingPicture rangeOfString:@"/" options:NSBackwardsSearch];
+                if (range.length > 0)
+                {
+                    range.location += 1;//remove @"/"
+                    range.length = self.LoadingPicture.length - range.location;
+                    NSString *fileName = [self.LoadingPicture substringWithRange:range];
+                    [self initViewWithImageFile:fileName URL:self.LoadingPicture];
+                }
             }
-
+            else
+            {
+                exit(0);
+            }
         }
         else
         {
