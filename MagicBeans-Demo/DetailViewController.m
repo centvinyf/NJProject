@@ -258,13 +258,14 @@
 - (IBAction)handPinch:(UIPinchGestureRecognizer *)sender
 {
     if (sender.scale > 1) {
-        if(currentFontSize<=28)
-        currentFontSize +=1;
-        else currentFontSize = 28;
+        if(currentFontSize < 28)
+            currentFontSize += 1;
+        else 
+            return;
     }
     else
     {
-        currentFontSize -=1;
+        currentFontSize -= 1;
     }
     [self.mWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"var str =  document.getElementById(\"ueditor_0\").contentDocument.getElementsByTagName(\"p\"),strLength =str.length;for (var i=0;i<strLength;i++){str[i].style.fontSize = \"%fpx\";}",currentFontSize]];
 
