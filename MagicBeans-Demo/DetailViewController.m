@@ -289,4 +289,10 @@
         }
     }];
 }
+
+#pragma UIWebView
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self.mWebView stringByEvaluatingJavaScriptFromString:@"$(\"#edui1_toolbarbox\").hide();$(\"#edui1\").css(\"border\",\"none\");"];
+}
 @end
