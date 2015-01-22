@@ -1484,6 +1484,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="详情" id="0fX-Zb-xGc">
+                        <barButtonItem key="backBarButtonItem" title=" " id="A4C-wg-2uh"/>
                         <barButtonItem key="rightBarButtonItem" title=" " id="OUC-6y-Aeu"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -1692,9 +1693,8 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="评论" id="uvV-cF-4Vc">
-                        <barButtonItem key="backBarButtonItem" title=" " id="OKx-EK-YkU"/>
-                    </navigationItem>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="评论" id="nVa-lZ-9RA"/>
                     <connections>
                         <outlet property="mTableView" destination="lO2-vE-5U3" id="6ae-Q7-Q6N"/>
                     </connections>

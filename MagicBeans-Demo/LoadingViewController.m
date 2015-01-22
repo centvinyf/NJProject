@@ -23,7 +23,7 @@
     [HttpJsonManager getWithParameters:nil sender:self url:@"http://182.92.183.22:8080/nj_app/app/getLoadingImg.do" completionHandler:^(BOOL sucess, id content) {
         if (sucess)
         {
-            if ([content[@"status"] boolValue])
+            if ([content[@"data"][@"status"] boolValue])
             {
                 self.LoadingPicture = content[@"data"][@"path"];
                 NSRange range = [self.LoadingPicture rangeOfString:@"/" options:NSBackwardsSearch];
@@ -45,7 +45,10 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"获取loading图片失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
                 [alertView show];
-                
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [self performSegueWithIdentifier:@"UINavigationController" sender:nil];
+                });
+
             });
         }
     }];
