@@ -265,6 +265,7 @@
     }
     else
     {
+        if(currentFontSize>15)
         currentFontSize -= 1;
     }
     [self.mWebView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"var str =  document.getElementById(\"ueditor_0\").contentDocument.getElementsByTagName(\"p\"),strLength =str.length;for (var i=0;i<strLength;i++){str[i].style.fontSize = \"%fpx\";}",currentFontSize]];
