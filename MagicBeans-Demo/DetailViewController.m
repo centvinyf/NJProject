@@ -258,7 +258,9 @@
 - (IBAction)handPinch:(UIPinchGestureRecognizer *)sender
 {
     if (sender.scale > 1) {
+        if(currentFontSize<=28)
         currentFontSize +=1;
+        else currentFontSize = 28;
     }
     else
     {
