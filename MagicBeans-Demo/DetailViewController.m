@@ -31,6 +31,7 @@
     [self.mWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.ArticleURL]]];
     currentFontSize = 15;
 //    [self geturl];
+    self.mPraiseBtn.selected = self.isPraised;
     [self initNotifications];
     [self initViews];
     

@@ -13,6 +13,7 @@
 {
     UIImageView *imageView;
     float currentFontSize;
+    
 }
 @property(weak,nonatomic) NSString *CommentNum;
 @property (weak, nonatomic) IBOutlet UIButton *FontSetButton;
@@ -29,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *mTextField;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mTextFieldHeightConstraint;
 @property (retain, nonatomic) NSString *mArticleID;
+@property(assign, nonatomic) BOOL isPraised;
 @property (weak, nonatomic) IBOutlet UIButton *mPraiseBtn;
 @property (retain, nonatomic) NSString *articleTitle;
 @end

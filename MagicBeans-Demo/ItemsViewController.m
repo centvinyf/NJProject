@@ -85,7 +85,7 @@
         detailViewController.mArticleID = sender[@"articleid"];
         detailViewController.CommentNum = sender[@"commentnum"];
         detailViewController.articleTitle = sender[@"title"];
-       detailViewController.mPraiseBtn.selected = [sender[@"isPraised"] boolValue];
+        detailViewController.isPraised = [sender[@"isPraise"] boolValue];
         detailViewController.ArticleURL=sender[@"article_path"];
     }
 }
