@@ -1711,7 +1711,7 @@
         <image name="中未选中" width="50" height="35"/>
         <image name="中选中" width="50" height="35"/>
         <image name="举报按钮" width="120" height="35"/>
-        <image name="书架" width="960" height="45"/>
+        <image name="书架" width="320" height="15"/>
         <image name="分享(1)" width="23" height="44"/>
         <image name="加载书刊" width="90" height="100"/>
         <image name="匿名头像" width="20" height="20"/>
