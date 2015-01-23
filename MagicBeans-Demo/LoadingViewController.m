@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadLastestPic];
     [self getLoadingPicture];
 }
 -(void)getLoadingPicture{
@@ -61,7 +62,11 @@
     {
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:urlStr]];
-            [imageData writeToFile:[NSHomeDirectory() stringByAppendingPathComponent:fileName] atomically:YES];
+            [imageData writeToFile:filePath atomically:YES];
+            ///record latest Picture Name
+            NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+            [def setValue:fileName forKey:@"LatestPic"];
+
         });
     }
     else
@@ -78,6 +83,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)loadLastestPic
+{
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    NSString *latestPicName = [def stringForKey:@"LatestPic"];
+    if (latestPicName != nil)
+    {
+        NSString *filePath = [NSHomeDirectory() stringByAppendingString:[NSString stringWithFormat:@"/Documents/%@",latestPicName]];
+        UIImage *image = [UIImage imageWithContentsOfFile:filePath];
+        [self.LoadingImage setImage:image];
+    }
+}
 /*
 #pragma mark - Navigation
 
