@@ -28,8 +28,9 @@
     [self.view addGestureRecognizer:singleTap];
     singleTap.delegate = self;
     singleTap.cancelsTouchesInView = YES;
+    [self.mWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.ArticleURL]]];
     currentFontSize = 15;
-    [self geturl];
+//    [self geturl];
     [self initNotifications];
     [self initViews];
     

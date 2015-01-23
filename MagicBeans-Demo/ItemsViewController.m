@@ -85,6 +85,8 @@
         detailViewController.mArticleID = sender[@"articleid"];
         detailViewController.CommentNum = sender[@"commentnum"];
         detailViewController.articleTitle = sender[@"title"];
+       detailViewController.mPraiseBtn.selected = [sender[@"isPraised"] boolValue];
+        detailViewController.ArticleURL=sender[@"article_path"];
     }
 }
 
@@ -92,7 +94,9 @@
 {
     NSDictionary *infomation = @{@"articleid":mArticles[indexPath.row][@"id"],
                                  @"commentnum":mArticles[indexPath.row][@"num"],
-                                 @"title":mArticles[indexPath.row][@"title"]};
+                                 @"title":mArticles[indexPath.row][@"title"],
+                                 @"isPraise":mArticles[indexPath.row][@"isPraise"],
+                                 @"article_path":mArticles[indexPath.row][@"article_path"]};
   [self performSegueWithIdentifier:@"DetailViewController" sender:infomation];
 }
 
@@ -120,9 +124,13 @@
 -(void)loadArticleDataWithID:(NSString *)categoryID
 {
     currentPageIndex = 1;
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
     NSDictionary *parameters = @{@"magazineId":self.mPeriodicalID,
                                  @"columnId":categoryID,
-                                 @"page":[NSNumber numberWithInteger:currentPageIndex]};
+                                 @"page":[NSNumber numberWithInteger:currentPageIndex],
+                                 @"sn":[def stringForKey:@"UUID"]
+                                 };
+
     [HttpJsonManager getWithParameters:parameters sender:self url:@"http://182.92.183.22:8080/nj_app/app/getColumnContent.do" completionHandler:^(BOOL sucess, id content) {
         if (sucess) {
             //banner
@@ -182,9 +190,12 @@
 - (void)loadArticleDataMoreWithID:(NSString *)categoryID
 {
     currentPageIndex++;
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
     NSDictionary *parameters = @{@"magazineId":self.mPeriodicalID,
                                  @"columnId":categoryID,
-                                 @"page":[NSNumber numberWithInteger:currentPageIndex]};
+                                 @"page":[NSNumber numberWithInteger:currentPageIndex],
+                                 @"sn":[def stringForKey:@"UUID"]
+        };
     [HttpJsonManager getWithParameters:parameters sender:self url:@"http://182.92.183.22:8080/nj_app/app/getColumnContent.do" completionHandler:^(BOOL sucess, id content) {
         if (sucess) {
             if([content[@"data"] count]>0)
