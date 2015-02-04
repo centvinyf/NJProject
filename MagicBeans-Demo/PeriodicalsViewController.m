@@ -122,19 +122,6 @@
     return ceilf(mPeriodicalsArray.count/3.0);
 }
 
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 22)];
-    headerView.backgroundColor = [UIColor clearColor];
-    UILabel *titileLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 5, headerView.frame.size.width, headerView.frame.size.height - 5)];
-    titileLabel.text = @"刊号10086";
-    titileLabel.font = [UIFont systemFontOfSize:12];
-    titileLabel.textColor = [UIColor colorWithRed:7.0/255.0 green:63.0/255.0 blue:137.0/255.0 alpha:1];
-    [headerView addSubview:titileLabel];
-    return headerView;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identifiller = @"PeriodicalsViewControllerCell";
