@@ -35,6 +35,11 @@
                     NSString *fileName = [self.LoadingPicture substringWithRange:range];
                     [self initViewWithImageFile:fileName URL:self.LoadingPicture];
                 }
+                else
+                {
+                    [self performSegueWithIdentifier:@"UINavigationController" sender:nil];
+                }
+
             }
             else
             {

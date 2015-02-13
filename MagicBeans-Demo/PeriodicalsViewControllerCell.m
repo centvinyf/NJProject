@@ -26,7 +26,7 @@
     if (itemsArray.count > 0) {
         NSDictionary *leftDic = itemsArray[0];
         [self.leftItemView setHidden:NO];
-        [self.leftItemBtn setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:leftDic[@"path"]] placeholderImage:[UIImage imageNamed:@"加载书刊"]];
+        [self.leftItemBtn setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:leftDic[@"path"]] placeholderImage:[UIImage imageNamed:@"加载书刊"]];
         self.leftItemBtn.tag = itemIndex;
         self.leftDateLabel.text = leftDic[@"title"];
     }
@@ -38,7 +38,7 @@
     if (itemsArray.count > 1) {
         NSDictionary *centerDic = itemsArray[1];
         [self.centerItemView setHidden:NO];
-        [self.centerItemBtn setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:centerDic[@"path"]] placeholderImage:[UIImage imageNamed:@"加载书刊"]];
+        [self.centerItemBtn setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:centerDic[@"path"]] placeholderImage:[UIImage imageNamed:@"加载书刊"]];
         self.centerItemBtn.tag = itemIndex + 1;
         self.centerDateLabel.text = centerDic[@"title"];
     }
@@ -50,7 +50,7 @@
     if (itemsArray.count > 2) {
         NSDictionary *rightDic = itemsArray[2];
         [self.rightItemView setHidden:NO];
-        [self.rightItemBtn setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:rightDic[@"path"]] placeholderImage:[UIImage imageNamed:@"加载书刊"]];
+        [self.rightItemBtn setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:rightDic[@"path"]] placeholderImage:[UIImage imageNamed:@"加载书刊"]];
         self.rightItemBtn.tag = itemIndex + 2;
         self.rightDateLabel.text = rightDic[@"title"];
     }
