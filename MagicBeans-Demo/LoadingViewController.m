@@ -51,14 +51,14 @@
         }
         else
         {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"获取loading图片失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-                [alertView show];
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [self performSegueWithIdentifier:@"UINavigationController" sender:nil];
-                });
-
-            });
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"" message:@"获取loading图片失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
+//                [alertView show];
+//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                    [self performSegueWithIdentifier:@"UINavigationController" sender:nil];
+//                });
+//
+//            });
         }
     }];
 }
