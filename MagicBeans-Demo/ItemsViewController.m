@@ -14,13 +14,14 @@
 #import "UIImageView+AFNetworking.h"
 
 @interface ItemsViewController ()
-
+@property (retain,nonatomic) NSArray * mImageNameArray;
 @end
 
 @implementation ItemsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.mImageNameArray = [NSArray arrayWithObjects:@"本周聚焦",@"警示教育",@"域外传真",@"政策法规",@"法制文化", nil] ;
     [self initViews];
     [self loadCategoriesData];
 }
@@ -87,6 +88,9 @@
         detailViewController.articleTitle = sender[@"title"];
         detailViewController.isPraised = [sender[@"isPraise"] boolValue];
         detailViewController.ArticleURL=sender[@"article_path"];
+        detailViewController.mArticleDate = sender[@"articleDate"];
+        detailViewController.mAuthor = sender[@"author"];
+        detailViewController.mSubTitle = sender[@"subTitle"];
     }
 }
 
@@ -96,7 +100,10 @@
                                  @"commentnum":mArticles[indexPath.row][@"num"],
                                  @"title":mArticles[indexPath.row][@"title"],
                                  @"isPraise":mArticles[indexPath.row][@"isPraise"],
-                                 @"article_path":mArticles[indexPath.row][@"article_path"]};
+                                 @"article_path":mArticles[indexPath.row][@"article_path"],
+                                 @"author" : mArticles[indexPath.row][@"author"],
+                                 @"articleDate": mArticles[indexPath.row][@"articleDate"],
+                                 @"subTitle":mArticles[indexPath.row][@"subTitle"]};
   [self performSegueWithIdentifier:@"DetailViewController" sender:infomation];
 }
 
@@ -273,6 +280,7 @@
         sender.frame = CGRectMake(sender.frame.origin.x, 2, sender.frame.size.width, sender.frame.size.height);
         mCurrentCategoryID = mCategories[sender.tag][@"id"];
         [self loadArticleDataWithID:mCategories[sender.tag][@"id"]];
+        [self.bannerImage1 setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@",self.mImageNameArray[sender.tag]]]];
     }
 }
 

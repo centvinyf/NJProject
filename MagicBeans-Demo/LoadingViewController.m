@@ -20,6 +20,9 @@
     [self loadLastestPic];
     [self getLoadingPicture];
 }
+- (IBAction)loadingButtonPressed:(id)sender {
+    [self performSegueWithIdentifier:@"UINavigationController" sender:nil];
+}
 -(void)getLoadingPicture{
     [HttpJsonManager getWithParameters:nil sender:self url:@"http://182.92.183.22:8080/nj_app/app/getLoadingImg.do" completionHandler:^(BOOL sucess, id content) {
         if (sucess)
@@ -37,7 +40,7 @@
                 }
                 else
                 {
-                    [self performSegueWithIdentifier:@"UINavigationController" sender:nil];
+                    
                 }
 
             }
@@ -78,9 +81,9 @@
     {
         [self.LoadingImage setImage:image];
     }
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self performSegueWithIdentifier:@"UINavigationController" sender:nil];
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//
+//    });
 
 }
 - (void)didReceiveMemoryWarning {

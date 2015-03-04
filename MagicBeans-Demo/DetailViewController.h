@@ -15,6 +15,9 @@
     float currentFontSize;
     
 }
+@property (weak, nonatomic) IBOutlet UILabel *mOtherLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mSubTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mMainTitleLabel;
 @property(weak,nonatomic) NSString *CommentNum;
 @property (weak, nonatomic) IBOutlet UIButton *FontSetButton;
 @property (weak, nonatomic) IBOutlet UIWebView *mWebView;
@@ -33,4 +36,7 @@
 @property(assign, nonatomic) BOOL isPraised;
 @property (weak, nonatomic) IBOutlet UIButton *mPraiseBtn;
 @property (retain, nonatomic) NSString *articleTitle;
+@property (retain,nonatomic) NSString *mAuthor;
+@property (retain,nonatomic) NSString *mArticleDate;
+@property(retain,nonatomic) NSString *mSubTitle;
 @end

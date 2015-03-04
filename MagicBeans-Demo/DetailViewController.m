@@ -63,6 +63,9 @@
     button.titleLabel.font = [UIFont systemFontOfSize:10];
     UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     self.navigationItem.rightBarButtonItem = buttonItem;
+    [self.mMainTitleLabel setText:self.articleTitle];
+    [self.mSubTitleLabel setText:self.mSubTitle];
+    [self.mOtherLabel setText:[NSString stringWithFormat:@"%@ @%@", self.mArticleDate,self.mAuthor]];
 }
 
 #pragma mark- setFonts
