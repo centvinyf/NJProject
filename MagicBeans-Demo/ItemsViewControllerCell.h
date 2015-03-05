@@ -13,6 +13,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *mTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mDetailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mCommentsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mPraiseNum;
 
+@property (weak, nonatomic) IBOutlet UILabel *mReadNum;
+@property (weak, nonatomic) IBOutlet UILabel *mCommentNum;
 - (void)initWitDic:(NSDictionary *)dic;
 @end

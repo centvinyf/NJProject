@@ -28,7 +28,9 @@
     [self.mDetailLabel setText:dic[@"summary"]];
     NSString *numStr = [NSString stringWithFormat:@"%@条评论",dic[@"num"]];
     [self.mCommentsLabel setText:numStr];
-
+    [self.mCommentNum setText:[NSString stringWithFormat:@"评论 %@",dic[@"num"]]];
+    [self.mReadNum setText:[NSString stringWithFormat:@"阅读 %@",dic[@"pv"]]];
+    [self.mPraiseNum setText:[NSString stringWithFormat:@"赞 %@",dic[@"praiseNum"]]];
 }
 
 @end
