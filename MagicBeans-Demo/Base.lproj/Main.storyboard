@@ -551,32 +551,71 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HI0-Yt-byw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    《内江预防职务犯罪手机报》是内江市预防职务犯罪领导小组和内江市人民检察院主办、经中共四川省委宣传部批准的专业电子报刊。本报宗旨是在我市实现国家公职人员预防职务犯罪宣传教育全覆盖，利用移动互联网技术，打造全数字化的预防职务犯罪新媒体。  " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HI0-Yt-byw">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <string key="text">《内江预防职务犯罪手机报》是内江市预防职务犯罪领导小组和内江市人民检察院主办、经中共四川省委宣传部批准的专业电子报刊。本报宗旨是在我市实现国家公职人员预防职务犯罪宣传教育全覆盖，利用移动互联网技术，打造全数字化的预防职务犯罪新媒体。
-《内江预防职务犯罪手机报》目前设有“本周聚焦”、“警示教育”、“域外传真”、“政策法规”、“法治文化”、“检察举报”6大板块，面向机关、企事业单位干部职工，以丰富多彩、新颖别致的新媒体形式，及时快捷、直观高效地传递预防职务犯罪信息，全方位、多形式开展预防职务犯罪宣传教育。
-《内江预防职务犯罪手机报》以网络版为主，有安卓版和苹果版，可从互联网下载使用；同时提供彩信版。
-科技改变生活，手机创新预防。《内江预防职务犯罪手机报》由中国移动内江公司提供网络支持，APP由成都魔豆互动科技有限公司研发。</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eq-c0-jvU">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <string key="text">    《内江预防职务犯罪手机报》目前设有“本周聚焦”、“警示教育”、“域外传真”、“政策法规”、“法治文化”、“检察举报”6大板块，面向机关、企事业单位干部职工，以丰富多彩、新颖别致的新媒体形式，及时快捷、直观高效地传递预防职务犯罪信息，全方位、多形式开展预防职务犯罪宣传教育。</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    《内江预防职务犯罪手机报》以网络版为主，有安卓版和苹果版，可从互联网下载使用；同时提供彩信版。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaM-px-OnW">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="      科技改变生活，手机创新预防。《内江预防职务犯罪手机报》由中国移动内江公司提供网络支持，APP由成都魔豆互动科技有限公司研发。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yzu-Xa-Q39">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="10" y="428" width="380" height="61"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wat-OU-4cr">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <string key="text">     《内江预防职务犯罪手机报》编辑委员会
+      主任
+      委员
+
+      总编辑
+      编辑</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="10" y="497" width="380" height="126"/>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="ooF-sk-wG3" secondAttribute="centerX" id="0sQ-Hr-KPL"/>
                             <constraint firstItem="ooF-sk-wG3" firstAttribute="top" secondItem="NCr-Qe-YIp" secondAttribute="bottom" constant="15" id="43W-H2-ken"/>
+                            <constraint firstItem="6eq-c0-jvU" firstAttribute="width" secondItem="HI0-Yt-byw" secondAttribute="width" id="7Hs-6w-pc8"/>
                             <constraint firstAttribute="centerX" secondItem="gnr-ua-LdZ" secondAttribute="centerX" id="8av-eC-czq"/>
+                            <constraint firstItem="HaM-px-OnW" firstAttribute="leading" secondItem="6eq-c0-jvU" secondAttribute="leading" id="Bfa-j1-GHj"/>
                             <constraint firstAttribute="trailing" secondItem="gnr-ua-LdZ" secondAttribute="trailing" id="Hh5-w7-E1H">
                                 <variation key="heightClass=regular-widthClass=compact" constant="70"/>
                             </constraint>
+                            <constraint firstItem="6eq-c0-jvU" firstAttribute="leading" secondItem="HI0-Yt-byw" secondAttribute="leading" id="MgK-eV-Ho8"/>
                             <constraint firstItem="gnr-ua-LdZ" firstAttribute="leading" secondItem="cgi-V2-AEi" secondAttribute="leading" id="RpW-aN-lhY">
                                 <variation key="heightClass=regular-widthClass=compact" constant="70"/>
                             </constraint>
+                            <constraint firstItem="6eq-c0-jvU" firstAttribute="top" secondItem="HI0-Yt-byw" secondAttribute="bottom" constant="10" id="SsB-Uv-uqo"/>
                             <constraint firstAttribute="centerX" secondItem="HI0-Yt-byw" secondAttribute="centerX" id="WkP-PS-07b"/>
                             <constraint firstItem="gnr-ua-LdZ" firstAttribute="top" secondItem="ooF-sk-wG3" secondAttribute="bottom" constant="25" id="bM9-tm-L7p"/>
                             <constraint firstItem="gnr-ua-LdZ" firstAttribute="top" secondItem="ooF-sk-wG3" secondAttribute="bottom" constant="25" id="dMA-iB-LGA"/>
                             <constraint firstItem="HI0-Yt-byw" firstAttribute="leading" secondItem="cgi-V2-AEi" secondAttribute="leading" constant="10" id="gjh-9t-bIx"/>
+                            <constraint firstItem="HaM-px-OnW" firstAttribute="top" secondItem="6eq-c0-jvU" secondAttribute="bottom" constant="10" id="lRW-Dz-Ujf"/>
+                            <constraint firstItem="HaM-px-OnW" firstAttribute="trailing" secondItem="6eq-c0-jvU" secondAttribute="trailing" id="mDz-3D-ieJ"/>
                             <constraint firstAttribute="trailing" secondItem="HI0-Yt-byw" secondAttribute="trailing" constant="10" id="xNI-op-vzO"/>
                             <constraint firstItem="HI0-Yt-byw" firstAttribute="top" secondItem="gnr-ua-LdZ" secondAttribute="bottom" constant="25" id="z1u-U6-Oh8"/>
                         </constraints>
@@ -585,19 +624,29 @@
                                 <exclude reference="ooF-sk-wG3"/>
                                 <exclude reference="gnr-ua-LdZ"/>
                                 <exclude reference="HI0-Yt-byw"/>
+                                <exclude reference="6eq-c0-jvU"/>
+                                <exclude reference="HaM-px-OnW"/>
+                                <exclude reference="Yzu-Xa-Q39"/>
+                                <exclude reference="wat-OU-4cr"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="WkP-PS-07b"/>
-                                <exclude reference="gjh-9t-bIx"/>
-                                <exclude reference="xNI-op-vzO"/>
-                                <exclude reference="z1u-U6-Oh8"/>
                                 <exclude reference="8av-eC-czq"/>
                                 <exclude reference="Hh5-w7-E1H"/>
                                 <exclude reference="RpW-aN-lhY"/>
                                 <exclude reference="bM9-tm-L7p"/>
                                 <exclude reference="dMA-iB-LGA"/>
+                                <exclude reference="WkP-PS-07b"/>
+                                <exclude reference="gjh-9t-bIx"/>
+                                <exclude reference="xNI-op-vzO"/>
+                                <exclude reference="z1u-U6-Oh8"/>
                                 <exclude reference="0sQ-Hr-KPL"/>
                                 <exclude reference="43W-H2-ken"/>
+                                <exclude reference="7Hs-6w-pc8"/>
+                                <exclude reference="MgK-eV-Ho8"/>
+                                <exclude reference="SsB-Uv-uqo"/>
+                                <exclude reference="Bfa-j1-GHj"/>
+                                <exclude reference="lRW-Dz-Ujf"/>
+                                <exclude reference="mDz-3D-ieJ"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -605,19 +654,29 @@
                                 <include reference="ooF-sk-wG3"/>
                                 <include reference="gnr-ua-LdZ"/>
                                 <include reference="HI0-Yt-byw"/>
+                                <include reference="6eq-c0-jvU"/>
+                                <include reference="HaM-px-OnW"/>
+                                <include reference="Yzu-Xa-Q39"/>
+                                <include reference="wat-OU-4cr"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="WkP-PS-07b"/>
-                                <include reference="gjh-9t-bIx"/>
-                                <include reference="xNI-op-vzO"/>
-                                <include reference="z1u-U6-Oh8"/>
                                 <include reference="8av-eC-czq"/>
                                 <exclude reference="Hh5-w7-E1H"/>
                                 <exclude reference="RpW-aN-lhY"/>
                                 <include reference="bM9-tm-L7p"/>
                                 <include reference="dMA-iB-LGA"/>
+                                <include reference="WkP-PS-07b"/>
+                                <include reference="gjh-9t-bIx"/>
+                                <include reference="xNI-op-vzO"/>
+                                <include reference="z1u-U6-Oh8"/>
                                 <include reference="0sQ-Hr-KPL"/>
                                 <include reference="43W-H2-ken"/>
+                                <include reference="7Hs-6w-pc8"/>
+                                <include reference="MgK-eV-Ho8"/>
+                                <include reference="SsB-Uv-uqo"/>
+                                <include reference="Bfa-j1-GHj"/>
+                                <include reference="lRW-Dz-Ujf"/>
+                                <include reference="mDz-3D-ieJ"/>
                             </mask>
                         </variation>
                     </view>
@@ -1431,20 +1490,20 @@
                                 <exclude reference="QTn-eL-1pu"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="1k9-H3-lw6"/>
-                                <exclude reference="aX8-sg-Q1Z"/>
-                                <exclude reference="0Sr-Mo-sMo"/>
-                                <exclude reference="Uy1-GM-xE8"/>
-                                <exclude reference="f7x-3H-EdU"/>
-                                <exclude reference="n62-f4-g4R"/>
+                                <exclude reference="ENj-Ta-Wyf"/>
+                                <exclude reference="L8U-Aa-x9W"/>
+                                <exclude reference="Tjg-iP-REt"/>
                                 <exclude reference="Rsc-gt-6K9"/>
                                 <exclude reference="eiY-9p-ayT"/>
                                 <exclude reference="gUb-0d-UiF"/>
                                 <exclude reference="hyS-9q-OqI"/>
                                 <exclude reference="iK0-Nu-Ino"/>
-                                <exclude reference="ENj-Ta-Wyf"/>
-                                <exclude reference="L8U-Aa-x9W"/>
-                                <exclude reference="Tjg-iP-REt"/>
+                                <exclude reference="n62-f4-g4R"/>
+                                <exclude reference="1k9-H3-lw6"/>
+                                <exclude reference="aX8-sg-Q1Z"/>
+                                <exclude reference="0Sr-Mo-sMo"/>
+                                <exclude reference="Uy1-GM-xE8"/>
+                                <exclude reference="f7x-3H-EdU"/>
                                 <exclude reference="AI3-8d-PJt"/>
                                 <exclude reference="w7w-ID-uT0"/>
                             </mask>
@@ -1457,20 +1516,20 @@
                                 <include reference="QTn-eL-1pu"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="1k9-H3-lw6"/>
-                                <include reference="aX8-sg-Q1Z"/>
-                                <include reference="0Sr-Mo-sMo"/>
-                                <include reference="Uy1-GM-xE8"/>
-                                <include reference="f7x-3H-EdU"/>
-                                <include reference="n62-f4-g4R"/>
+                                <exclude reference="ENj-Ta-Wyf"/>
+                                <include reference="L8U-Aa-x9W"/>
+                                <include reference="Tjg-iP-REt"/>
                                 <exclude reference="Rsc-gt-6K9"/>
                                 <include reference="eiY-9p-ayT"/>
                                 <include reference="gUb-0d-UiF"/>
                                 <include reference="hyS-9q-OqI"/>
                                 <exclude reference="iK0-Nu-Ino"/>
-                                <exclude reference="ENj-Ta-Wyf"/>
-                                <include reference="L8U-Aa-x9W"/>
-                                <include reference="Tjg-iP-REt"/>
+                                <include reference="n62-f4-g4R"/>
+                                <include reference="1k9-H3-lw6"/>
+                                <include reference="aX8-sg-Q1Z"/>
+                                <include reference="0Sr-Mo-sMo"/>
+                                <include reference="Uy1-GM-xE8"/>
+                                <include reference="f7x-3H-EdU"/>
                                 <include reference="AI3-8d-PJt"/>
                                 <exclude reference="w7w-ID-uT0"/>
                             </mask>
