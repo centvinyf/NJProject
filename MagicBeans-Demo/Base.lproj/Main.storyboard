@@ -10,7 +10,7 @@
             <objects>
                 <navigationController id="F4X-MJ-04c" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorImage="back_indicator" backIndicatorTransitionMaskImage="back_indicator" id="8cL-ix-dRQ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorImage="返回按钮" backIndicatorTransitionMaskImage="返回按钮" id="8cL-ix-dRQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -520,163 +520,616 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="简介" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooF-sk-wG3">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="“关心您，保护您，帮助您。”传播正能量，享受新生活。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnr-ua-LdZ">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4iJ-3V-W3t">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内江预防职务犯罪手机报" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooF-sk-wG3">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="简介" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnr-ua-LdZ">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="425" id="wyy-Kr-1WN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="wyy-Kr-1WN"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <exclude reference="wyy-Kr-1WN"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="“关心您，保护您，帮助您。”" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zJS-xI-H0N">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="传播正能量，享受新生活。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Dz-fg-L8K">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0s-DR-xdl">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="      ">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="《内江预防职务犯罪手机报》">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="18" name="STHeitiSC-Medium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="是内江市预防职务犯罪领导小组和内江市人民检察院主办、经中共四川省委宣传部批准的专业电子报刊。本报宗旨是在我市实现国家公职人员预防职务犯罪宣传教育全覆盖，利用移动互联网技术，打造全数字化的预防职务犯罪新媒体。">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzG-84-afu">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="      ">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="《内江预防职务犯罪手机报》">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="18" name="STHeitiSC-Medium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="目前设有">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="“">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="本周聚焦">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="”">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="、">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="“">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="警示教育">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="”">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="、">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="“">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="域外传真">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="”">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="、">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="“">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="政策法规">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="”">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="、">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="“">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="法治文化">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="”">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="、">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="“">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="检察举报">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="”6">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="大板块，面向机关、企事业单位干部职工，以丰富多彩、新颖别致的新媒体形式，及时快捷、直观高效地传递预防职务犯罪信息，全方位、多形式开展预防职务犯罪宣传教育。">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CrT-A2-xWr">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="       ">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="18" name="STHeitiSC-Medium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="《内江预防职务犯罪手机报》">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="18" name="STHeitiSC-Medium"/>
+                                                    <font key="NSOriginalFont" size="18" name="STHeitiSC-Medium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="以网络版为主，有安卓版和苹果版，可从互联网下载使用；同时提供彩信版。">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gn-2p-riW">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="       ">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="《内江预防职务犯罪手机报》">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="18" name="STHeitiSC-Medium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="由中国移动内江公司提供网络支持，">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="APP">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="由成都魔豆互动科技有限公司研发。">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuS-S4-t8u">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="       ">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="《内江预防职务犯罪手机报》">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="18" name="STHeitiSC-Medium"/>
+                                                    <font key="NSOriginalFont" size="18" name="STHeitiSC-Medium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="编辑委员会">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content" base64-UTF8="YES">
+CiAgICAgICAgA
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="主任">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content" base64-UTF8="YES">
+CiAgICAgICAgA
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="委员">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content" base64-UTF8="YES">
+CgogICAgICAgIA
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="总编辑">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment>
+                                                <string key="content" base64-UTF8="YES">
+CiAgICAgICAgA
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="编辑">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="STHeitiSC-Light"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="        科技改变生活，手机创新预防。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hL5-2x-cog">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="260" id="ArY-Bc-p3p"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="260" id="t2E-c9-5d9"/>
-                                    <constraint firstAttribute="width" constant="425" id="wyy-Kr-1WN"/>
+                                    <constraint firstItem="2gn-2p-riW" firstAttribute="leading" secondItem="4iJ-3V-W3t" secondAttribute="leading" constant="10" id="2EG-rV-Afh"/>
+                                    <constraint firstItem="CrT-A2-xWr" firstAttribute="leading" secondItem="4iJ-3V-W3t" secondAttribute="leading" constant="10" id="3Y2-7a-6hg"/>
+                                    <constraint firstAttribute="trailing" secondItem="CrT-A2-xWr" secondAttribute="trailing" constant="10" id="3jr-2o-BsB"/>
+                                    <constraint firstAttribute="trailing" secondItem="h0s-DR-xdl" secondAttribute="trailing" constant="10" id="4x9-gt-6Db"/>
+                                    <constraint firstAttribute="centerX" secondItem="8Dz-fg-L8K" secondAttribute="centerX" id="68y-4V-Ibk"/>
+                                    <constraint firstItem="kzG-84-afu" firstAttribute="leading" secondItem="4iJ-3V-W3t" secondAttribute="leading" constant="10" id="7QS-Rr-Ysa"/>
+                                    <constraint firstItem="zJS-xI-H0N" firstAttribute="top" secondItem="ooF-sk-wG3" secondAttribute="bottom" constant="10" id="878-zX-GTI"/>
+                                    <constraint firstItem="h0s-DR-xdl" firstAttribute="leading" secondItem="4iJ-3V-W3t" secondAttribute="leading" constant="10" id="CfJ-Ch-M94"/>
+                                    <constraint firstAttribute="bottom" secondItem="MuS-S4-t8u" secondAttribute="bottom" constant="10" id="DYa-km-TAL"/>
+                                    <constraint firstItem="8Dz-fg-L8K" firstAttribute="top" secondItem="zJS-xI-H0N" secondAttribute="bottom" constant="10" id="De6-VF-PLK"/>
+                                    <constraint firstItem="MuS-S4-t8u" firstAttribute="top" secondItem="2gn-2p-riW" secondAttribute="bottom" constant="10" id="E05-LY-OhD"/>
+                                    <constraint firstAttribute="trailing" secondItem="kzG-84-afu" secondAttribute="trailing" constant="10" id="EZv-Bv-43L"/>
+                                    <constraint firstItem="2gn-2p-riW" firstAttribute="top" secondItem="hL5-2x-cog" secondAttribute="bottom" constant="10" id="Gcs-aj-rch"/>
+                                    <constraint firstItem="2gn-2p-riW" firstAttribute="top" secondItem="CrT-A2-xWr" secondAttribute="bottom" constant="10" id="LhZ-l9-F3q"/>
+                                    <constraint firstItem="CrT-A2-xWr" firstAttribute="top" secondItem="kzG-84-afu" secondAttribute="bottom" constant="10" id="MNW-1l-wcX"/>
+                                    <constraint firstAttribute="centerX" secondItem="ooF-sk-wG3" secondAttribute="centerX" id="N3S-rV-MWN"/>
+                                    <constraint firstItem="ooF-sk-wG3" firstAttribute="leading" secondItem="4iJ-3V-W3t" secondAttribute="leading" constant="10" id="NUi-EZ-Dq2"/>
+                                    <constraint firstItem="kzG-84-afu" firstAttribute="top" secondItem="h0s-DR-xdl" secondAttribute="bottom" constant="10" id="TFs-Bc-IJu"/>
+                                    <constraint firstAttribute="trailing" secondItem="zJS-xI-H0N" secondAttribute="trailing" constant="10" id="U6E-v5-uKX"/>
+                                    <constraint firstItem="h0s-DR-xdl" firstAttribute="top" secondItem="8Dz-fg-L8K" secondAttribute="bottom" constant="10" id="acf-wU-uAU"/>
+                                    <constraint firstItem="gnr-ua-LdZ" firstAttribute="top" secondItem="4iJ-3V-W3t" secondAttribute="top" constant="100" id="atV-QJ-kXh"/>
+                                    <constraint firstItem="zJS-xI-H0N" firstAttribute="top" secondItem="gnr-ua-LdZ" secondAttribute="bottom" constant="8" id="ctN-Uz-rcO"/>
+                                    <constraint firstItem="gnr-ua-LdZ" firstAttribute="leading" secondItem="4iJ-3V-W3t" secondAttribute="leading" constant="10" id="dWz-PW-BVX"/>
+                                    <constraint firstItem="hL5-2x-cog" firstAttribute="top" secondItem="CrT-A2-xWr" secondAttribute="bottom" constant="10" id="eH3-Xo-Wbc"/>
+                                    <constraint firstAttribute="centerX" secondItem="MuS-S4-t8u" secondAttribute="centerX" id="edy-Sv-RCA"/>
+                                    <constraint firstItem="MuS-S4-t8u" firstAttribute="leading" secondItem="4iJ-3V-W3t" secondAttribute="leading" constant="10" id="f83-oX-hG9"/>
+                                    <constraint firstAttribute="trailing" secondItem="gnr-ua-LdZ" secondAttribute="trailing" constant="10" id="fUe-FY-hCP"/>
+                                    <constraint firstItem="zJS-xI-H0N" firstAttribute="leading" secondItem="4iJ-3V-W3t" secondAttribute="leading" constant="10" id="fkU-jd-sdI"/>
+                                    <constraint firstAttribute="trailing" secondItem="hL5-2x-cog" secondAttribute="trailing" constant="10" id="h99-Da-Ivp"/>
+                                    <constraint firstAttribute="centerX" secondItem="hL5-2x-cog" secondAttribute="centerX" id="lc4-s4-Vjx"/>
+                                    <constraint firstAttribute="trailing" secondItem="ooF-sk-wG3" secondAttribute="trailing" constant="10" id="nd3-SL-ga5"/>
+                                    <constraint firstAttribute="trailing" secondItem="MuS-S4-t8u" secondAttribute="trailing" constant="10" id="qfZ-cp-Xl0"/>
+                                    <constraint firstItem="hL5-2x-cog" firstAttribute="leading" secondItem="4iJ-3V-W3t" secondAttribute="leading" constant="10" id="rtz-EV-KJU"/>
+                                    <constraint firstAttribute="centerX" secondItem="zJS-xI-H0N" secondAttribute="centerX" id="ufW-tG-9XO"/>
+                                    <constraint firstItem="ooF-sk-wG3" firstAttribute="top" secondItem="4iJ-3V-W3t" secondAttribute="top" constant="10" id="wIo-la-7K4"/>
+                                    <constraint firstAttribute="trailing" secondItem="2gn-2p-riW" secondAttribute="trailing" constant="10" id="x9F-bW-FLf"/>
+                                    <constraint firstItem="gnr-ua-LdZ" firstAttribute="top" secondItem="ooF-sk-wG3" secondAttribute="bottom" constant="10" id="zOb-mR-hH5">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                    </constraint>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
                                 <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="ooF-sk-wG3"/>
+                                        <exclude reference="gnr-ua-LdZ"/>
+                                        <exclude reference="zJS-xI-H0N"/>
+                                        <exclude reference="8Dz-fg-L8K"/>
+                                        <exclude reference="h0s-DR-xdl"/>
+                                        <exclude reference="kzG-84-afu"/>
+                                        <exclude reference="CrT-A2-xWr"/>
+                                        <exclude reference="2gn-2p-riW"/>
+                                        <exclude reference="MuS-S4-t8u"/>
+                                        <exclude reference="hL5-2x-cog"/>
+                                    </mask>
                                     <mask key="constraints">
-                                        <exclude reference="ArY-Bc-p3p"/>
-                                        <exclude reference="t2E-c9-5d9"/>
-                                        <exclude reference="wyy-Kr-1WN"/>
+                                        <exclude reference="N3S-rV-MWN"/>
+                                        <exclude reference="NUi-EZ-Dq2"/>
+                                        <exclude reference="nd3-SL-ga5"/>
+                                        <exclude reference="wIo-la-7K4"/>
+                                        <exclude reference="atV-QJ-kXh"/>
+                                        <exclude reference="dWz-PW-BVX"/>
+                                        <exclude reference="fUe-FY-hCP"/>
+                                        <exclude reference="zOb-mR-hH5"/>
+                                        <exclude reference="878-zX-GTI"/>
+                                        <exclude reference="U6E-v5-uKX"/>
+                                        <exclude reference="ctN-Uz-rcO"/>
+                                        <exclude reference="fkU-jd-sdI"/>
+                                        <exclude reference="ufW-tG-9XO"/>
+                                        <exclude reference="4x9-gt-6Db"/>
+                                        <exclude reference="CfJ-Ch-M94"/>
+                                        <exclude reference="acf-wU-uAU"/>
+                                        <exclude reference="68y-4V-Ibk"/>
+                                        <exclude reference="De6-VF-PLK"/>
+                                        <exclude reference="7QS-Rr-Ysa"/>
+                                        <exclude reference="EZv-Bv-43L"/>
+                                        <exclude reference="TFs-Bc-IJu"/>
+                                        <exclude reference="3Y2-7a-6hg"/>
+                                        <exclude reference="3jr-2o-BsB"/>
+                                        <exclude reference="MNW-1l-wcX"/>
+                                        <exclude reference="eH3-Xo-Wbc"/>
+                                        <exclude reference="h99-Da-Ivp"/>
+                                        <exclude reference="lc4-s4-Vjx"/>
+                                        <exclude reference="rtz-EV-KJU"/>
+                                        <exclude reference="2EG-rV-Afh"/>
+                                        <exclude reference="Gcs-aj-rch"/>
+                                        <exclude reference="LhZ-l9-F3q"/>
+                                        <exclude reference="x9F-bW-FLf"/>
+                                        <exclude reference="DYa-km-TAL"/>
+                                        <exclude reference="E05-LY-OhD"/>
+                                        <exclude reference="edy-Sv-RCA"/>
+                                        <exclude reference="f83-oX-hG9"/>
+                                        <exclude reference="qfZ-cp-Xl0"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="ooF-sk-wG3"/>
+                                        <include reference="gnr-ua-LdZ"/>
+                                        <include reference="zJS-xI-H0N"/>
+                                        <include reference="8Dz-fg-L8K"/>
+                                        <include reference="h0s-DR-xdl"/>
+                                        <include reference="kzG-84-afu"/>
+                                        <include reference="CrT-A2-xWr"/>
+                                        <include reference="2gn-2p-riW"/>
+                                        <include reference="MuS-S4-t8u"/>
+                                        <include reference="hL5-2x-cog"/>
+                                    </mask>
                                     <mask key="constraints">
-                                        <include reference="ArY-Bc-p3p"/>
-                                        <include reference="t2E-c9-5d9"/>
-                                        <exclude reference="wyy-Kr-1WN"/>
+                                        <include reference="N3S-rV-MWN"/>
+                                        <include reference="NUi-EZ-Dq2"/>
+                                        <include reference="nd3-SL-ga5"/>
+                                        <include reference="wIo-la-7K4"/>
+                                        <exclude reference="atV-QJ-kXh"/>
+                                        <include reference="dWz-PW-BVX"/>
+                                        <include reference="fUe-FY-hCP"/>
+                                        <include reference="zOb-mR-hH5"/>
+                                        <exclude reference="878-zX-GTI"/>
+                                        <include reference="U6E-v5-uKX"/>
+                                        <include reference="ctN-Uz-rcO"/>
+                                        <include reference="fkU-jd-sdI"/>
+                                        <include reference="ufW-tG-9XO"/>
+                                        <include reference="4x9-gt-6Db"/>
+                                        <include reference="CfJ-Ch-M94"/>
+                                        <include reference="acf-wU-uAU"/>
+                                        <include reference="68y-4V-Ibk"/>
+                                        <include reference="De6-VF-PLK"/>
+                                        <include reference="7QS-Rr-Ysa"/>
+                                        <include reference="EZv-Bv-43L"/>
+                                        <include reference="TFs-Bc-IJu"/>
+                                        <include reference="3Y2-7a-6hg"/>
+                                        <include reference="3jr-2o-BsB"/>
+                                        <include reference="MNW-1l-wcX"/>
+                                        <include reference="eH3-Xo-Wbc"/>
+                                        <include reference="h99-Da-Ivp"/>
+                                        <include reference="lc4-s4-Vjx"/>
+                                        <include reference="rtz-EV-KJU"/>
+                                        <include reference="2EG-rV-Afh"/>
+                                        <include reference="Gcs-aj-rch"/>
+                                        <exclude reference="LhZ-l9-F3q"/>
+                                        <include reference="x9F-bW-FLf"/>
+                                        <include reference="DYa-km-TAL"/>
+                                        <include reference="E05-LY-OhD"/>
+                                        <include reference="edy-Sv-RCA"/>
+                                        <include reference="f83-oX-hG9"/>
+                                        <include reference="qfZ-cp-Xl0"/>
                                     </mask>
                                 </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    《内江预防职务犯罪手机报》是内江市预防职务犯罪领导小组和内江市人民检察院主办、经中共四川省委宣传部批准的专业电子报刊。本报宗旨是在我市实现国家公职人员预防职务犯罪宣传教育全覆盖，利用移动互联网技术，打造全数字化的预防职务犯罪新媒体。  " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HI0-Yt-byw">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6eq-c0-jvU">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <string key="text">    《内江预防职务犯罪手机报》目前设有“本周聚焦”、“警示教育”、“域外传真”、“政策法规”、“法治文化”、“检察举报”6大板块，面向机关、企事业单位干部职工，以丰富多彩、新颖别致的新媒体形式，及时快捷、直观高效地传递预防职务犯罪信息，全方位、多形式开展预防职务犯罪宣传教育。</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    《内江预防职务犯罪手机报》以网络版为主，有安卓版和苹果版，可从互联网下载使用；同时提供彩信版。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaM-px-OnW">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="      科技改变生活，手机创新预防。《内江预防职务犯罪手机报》由中国移动内江公司提供网络支持，APP由成都魔豆互动科技有限公司研发。" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yzu-Xa-Q39">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="10" y="428" width="380" height="61"/>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wat-OU-4cr">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <string key="text">     《内江预防职务犯罪手机报》编辑委员会
-      主任
-      委员
-
-      总编辑
-      编辑</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="10" y="497" width="380" height="126"/>
-                                </variation>
-                            </label>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="ooF-sk-wG3" secondAttribute="centerX" id="0sQ-Hr-KPL"/>
-                            <constraint firstItem="ooF-sk-wG3" firstAttribute="top" secondItem="NCr-Qe-YIp" secondAttribute="bottom" constant="15" id="43W-H2-ken"/>
-                            <constraint firstItem="6eq-c0-jvU" firstAttribute="width" secondItem="HI0-Yt-byw" secondAttribute="width" id="7Hs-6w-pc8"/>
-                            <constraint firstAttribute="centerX" secondItem="gnr-ua-LdZ" secondAttribute="centerX" id="8av-eC-czq"/>
-                            <constraint firstItem="HaM-px-OnW" firstAttribute="leading" secondItem="6eq-c0-jvU" secondAttribute="leading" id="Bfa-j1-GHj"/>
-                            <constraint firstAttribute="trailing" secondItem="gnr-ua-LdZ" secondAttribute="trailing" id="Hh5-w7-E1H">
-                                <variation key="heightClass=regular-widthClass=compact" constant="70"/>
-                            </constraint>
-                            <constraint firstItem="6eq-c0-jvU" firstAttribute="leading" secondItem="HI0-Yt-byw" secondAttribute="leading" id="MgK-eV-Ho8"/>
-                            <constraint firstItem="gnr-ua-LdZ" firstAttribute="leading" secondItem="cgi-V2-AEi" secondAttribute="leading" id="RpW-aN-lhY">
-                                <variation key="heightClass=regular-widthClass=compact" constant="70"/>
-                            </constraint>
-                            <constraint firstItem="6eq-c0-jvU" firstAttribute="top" secondItem="HI0-Yt-byw" secondAttribute="bottom" constant="10" id="SsB-Uv-uqo"/>
-                            <constraint firstAttribute="centerX" secondItem="HI0-Yt-byw" secondAttribute="centerX" id="WkP-PS-07b"/>
-                            <constraint firstItem="gnr-ua-LdZ" firstAttribute="top" secondItem="ooF-sk-wG3" secondAttribute="bottom" constant="25" id="bM9-tm-L7p"/>
-                            <constraint firstItem="gnr-ua-LdZ" firstAttribute="top" secondItem="ooF-sk-wG3" secondAttribute="bottom" constant="25" id="dMA-iB-LGA"/>
-                            <constraint firstItem="HI0-Yt-byw" firstAttribute="leading" secondItem="cgi-V2-AEi" secondAttribute="leading" constant="10" id="gjh-9t-bIx"/>
-                            <constraint firstItem="HaM-px-OnW" firstAttribute="top" secondItem="6eq-c0-jvU" secondAttribute="bottom" constant="10" id="lRW-Dz-Ujf"/>
-                            <constraint firstItem="HaM-px-OnW" firstAttribute="trailing" secondItem="6eq-c0-jvU" secondAttribute="trailing" id="mDz-3D-ieJ"/>
-                            <constraint firstAttribute="trailing" secondItem="HI0-Yt-byw" secondAttribute="trailing" constant="10" id="xNI-op-vzO"/>
-                            <constraint firstItem="HI0-Yt-byw" firstAttribute="top" secondItem="gnr-ua-LdZ" secondAttribute="bottom" constant="25" id="z1u-U6-Oh8"/>
+                            <constraint firstItem="4iJ-3V-W3t" firstAttribute="top" secondItem="NCr-Qe-YIp" secondAttribute="bottom" id="1k9-cg-EAR"/>
+                            <constraint firstItem="s8R-k6-jNL" firstAttribute="top" secondItem="4iJ-3V-W3t" secondAttribute="bottom" id="BMo-R6-dRk"/>
+                            <constraint firstItem="4iJ-3V-W3t" firstAttribute="leading" secondItem="cgi-V2-AEi" secondAttribute="leading" id="F2K-cq-BTY"/>
+                            <constraint firstAttribute="trailing" secondItem="4iJ-3V-W3t" secondAttribute="trailing" id="Z0N-fk-Z7s"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="ooF-sk-wG3"/>
-                                <exclude reference="gnr-ua-LdZ"/>
-                                <exclude reference="HI0-Yt-byw"/>
-                                <exclude reference="6eq-c0-jvU"/>
-                                <exclude reference="HaM-px-OnW"/>
-                                <exclude reference="Yzu-Xa-Q39"/>
-                                <exclude reference="wat-OU-4cr"/>
+                                <exclude reference="4iJ-3V-W3t"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="8av-eC-czq"/>
-                                <exclude reference="Hh5-w7-E1H"/>
-                                <exclude reference="RpW-aN-lhY"/>
-                                <exclude reference="bM9-tm-L7p"/>
-                                <exclude reference="dMA-iB-LGA"/>
-                                <exclude reference="WkP-PS-07b"/>
-                                <exclude reference="gjh-9t-bIx"/>
-                                <exclude reference="xNI-op-vzO"/>
-                                <exclude reference="z1u-U6-Oh8"/>
-                                <exclude reference="0sQ-Hr-KPL"/>
-                                <exclude reference="43W-H2-ken"/>
-                                <exclude reference="7Hs-6w-pc8"/>
-                                <exclude reference="MgK-eV-Ho8"/>
-                                <exclude reference="SsB-Uv-uqo"/>
-                                <exclude reference="Bfa-j1-GHj"/>
-                                <exclude reference="lRW-Dz-Ujf"/>
-                                <exclude reference="mDz-3D-ieJ"/>
+                                <exclude reference="1k9-cg-EAR"/>
+                                <exclude reference="F2K-cq-BTY"/>
+                                <exclude reference="Z0N-fk-Z7s"/>
+                                <exclude reference="BMo-R6-dRk"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="ooF-sk-wG3"/>
-                                <include reference="gnr-ua-LdZ"/>
-                                <include reference="HI0-Yt-byw"/>
-                                <include reference="6eq-c0-jvU"/>
-                                <include reference="HaM-px-OnW"/>
-                                <include reference="Yzu-Xa-Q39"/>
-                                <include reference="wat-OU-4cr"/>
+                                <include reference="4iJ-3V-W3t"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="8av-eC-czq"/>
-                                <exclude reference="Hh5-w7-E1H"/>
-                                <exclude reference="RpW-aN-lhY"/>
-                                <include reference="bM9-tm-L7p"/>
-                                <include reference="dMA-iB-LGA"/>
-                                <include reference="WkP-PS-07b"/>
-                                <include reference="gjh-9t-bIx"/>
-                                <include reference="xNI-op-vzO"/>
-                                <include reference="z1u-U6-Oh8"/>
-                                <include reference="0sQ-Hr-KPL"/>
-                                <include reference="43W-H2-ken"/>
-                                <include reference="7Hs-6w-pc8"/>
-                                <include reference="MgK-eV-Ho8"/>
-                                <include reference="SsB-Uv-uqo"/>
-                                <include reference="Bfa-j1-GHj"/>
-                                <include reference="lRW-Dz-Ujf"/>
-                                <include reference="mDz-3D-ieJ"/>
+                                <include reference="1k9-cg-EAR"/>
+                                <include reference="F2K-cq-BTY"/>
+                                <include reference="Z0N-fk-Z7s"/>
+                                <include reference="BMo-R6-dRk"/>
                             </mask>
                         </variation>
                     </view>
@@ -2195,7 +2648,6 @@
     <resources>
         <image name="Items_bannerMask" width="320" height="25"/>
         <image name="about" width="10" height="19"/>
-        <image name="back_indicator" width="9" height="18"/>
         <image name="banner1" width="320" height="126"/>
         <image name="中未选中" width="50" height="35"/>
         <image name="中选中" width="50" height="35"/>
@@ -2216,5 +2668,6 @@
         <image name="组-5" width="320" height="568"/>
         <image name="评论(1)" width="23" height="44"/>
         <image name="赞(1)" width="23" height="44"/>
+        <image name="返回按钮" width="9" height="18"/>
     </resources>
 </document>
